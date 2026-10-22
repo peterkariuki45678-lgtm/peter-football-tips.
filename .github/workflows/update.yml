@@ -1,0 +1,33 @@
+name: Update Football Predictions Data
+
+on:
+  schedule:
+    - cron: '0 */12 * * *' # Runs automatically every 12 hours
+  workflow_dispatch: # Allows you to force run it manually via a button
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-node-version: 18
+
+      - name: Run Prediction & Settlement Script
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+        run: node update_predictions.js
+
+      - name: Commit and Push Updated Data
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "actions@github.com"
+          git add predictions.json
+          git diff-index --quiet HEAD || git commit -m "Automated update: calculated match analytics"
+          git push

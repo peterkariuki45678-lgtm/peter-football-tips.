@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>Peter Football Tips</title>
+<style>
+:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--red:#ff4a6b;--muted:#9aaac0;--white:#f5f8ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
+header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line)}
+.wrap{max-width:900px;margin:auto}
+.brand{font-weight:800;font-size:22px;letter-spacing:.4px}
+.brand span{color:var(--green)}
+header p{color:var(--muted);font-size:13px;margin-bottom:0}
+main{padding:18px 14px 45px}
+h2{font-size:19px;margin:24px 0 12px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+input,select{font:inherit;width:100%;min-width:0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:var(--white)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px}
+.stat small{display:block;color:var(--muted);font-size:11px}
+.stat strong{display:block;font-size:20px;margin-top:7px}
+.card{margin-top:12px}
+.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:11px}
+.teams{font-size:16px;font-weight:700;margin:16px 0 12px}
+.prediction{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
+.prediction small{display:block;color:var(--muted);margin-top:4px;font-size:11px}
+.prob{color:var(--green);font-weight:800;white-space:nowrap}
+.badge{padding:4px 8px;border-radius:6px;font-size:11px;font-weight:bold}
+.badge.win{background:#113a29;color:var(--green)}
+.badge.loss{background:#3a111a;color:var(--red)}
+.empty{color:var(--muted);padding:22px 4px;text-align:center}
+footer{border-top:1px solid var(--line);padding:20px 14px;color:var(--muted);font-size:12px;line-height:1.7}
+@media(min-width:600px){.filters{grid-template-columns:2fr 1fr}.teams{font-size:19px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="brand">PETER <span>FOOTBALL TIPS</span></div>
+  <p>Live football analysis • Predictions • Verified historical accuracy</p>
+ </div>
+</header>
+
+<main class="wrap">
+ <div class="stats">
+  <div class="stat"><small>LIVE PREDICTIONS</small><strong id="total-live">0</strong></div>
+  <div class="stat"><small>TOTAL SETTLED</small><strong id="settled">0</strong></div>
+  <div class="stat"><small>HISTORICAL ACCURACY</small><strong id="rate">—</strong></div>
+ </div>
+
+ <h2>Find Live Predictions</h2>
+ <div class="filters">
+  <input id="search" placeholder="Search teams..." aria-label="Search teams">
+  <select id="market" aria-label="Select prediction market">
+   <option value="all">All markets</option>
+   <option value="Double chance">Double chance</option>
+   <option value="Over 1.5 goals">Over 1.5 goals</option>
+  </select>
+ </div>
+
+ <h2>Current Matches Analysis</h2>
+ <div id="matches"></div>
+
+ <h2>Settled Results History</h2>
+ <div id="history-section"></div>
+</main>
+
+<footer>
+ <div class="wrap">
+  <strong>Peter Football Tips</strong><br>
+  Predictions are generated systematically and do not guarantee profits. This website does not accept gambling transactions.
+ </div>
+</footer>
+
+<script>
+const \$ = id => document.getElementById(id);
+let allMatches = [];
+
+// Fetch live calculated predictions data from our static repository file
+async function loadData() {
+    try {
+        const res = await fetch('./predictions.json');
+        if(!res.ok) throw new Error("No historical data file found yet.");
+        const data = await res.json();
+        
+        // Update dashboard stats
+        \$('settled').textContent = data.summary.total_settled;
+        \$('rate').textContent = data.summary.total_settled > 0 ? data.summary.accuracy_percentage + "%" : "—";
+        
+        allMatches = data.matches || [];
+        renderLists();
+    } catch(e) {
+        \$('matches').innerHTML = `<div class="empty">Running system setup. Run your first GitHub manual trigger to generate predictions.</div>`;
+    }
+}
+
+function renderLists() {
+    const query = \$("search").value.trim().toLowerCase();
+    const marketFilter = \$("market").value;
+
+    // Filter rules
+    const filtered = allMatches.filter(m => 
+        (m.home + " " + m.away).toLowerCase().includes(query) &&
+        (marketFilter === "all" || m.market === marketFilter)
+    );
+
+    const liveList = filtered.filter(m => m.status !== "FINISHED");
+    const settledList = filtered.filter(m => m.status === "FINISHED");
+
+    \$('total-live').textContent = liveList.length;
+
+    // Render Active Predictions
+    \$('matches').innerHTML = liveList.length ? "" : '<div class="empty">No upcoming active fixtures found.</div>';
+    liveList.forEach(m => \$('matches').append(createCard(m, false)));
+
+    // Render Settled History
+    \$('history-section').innerHTML = settledList.length ? "" : '<div class="empty">No settled matches yet. Completed matches will track here.</div>';
+    settledList.forEach(m => \$('history-section').append(createCard(m, true)));
+}
+
+function createCard(m, isSettled) {
+    const card = document.createElement("section");
+    card.className = "card";
+    
+    let badgeHTML = isSettled 
+        ? (m.is_correct ? `<span class="badge win">WIN</span>` : `<span class="badge loss">LOSS</span>`)
+        : `<span class="badge" style="background:#29374b;color:white">PENDING</span>`;
+
+    card.innerHTML = `
+        <div class="meta">
+            <span>${m.league} • ${new Date(m.utcDate).toLocaleDateString()}</span>
+            ${badgeHTML}
+        </div>
+        <div class="teams">${m.home} vs ${m.away} ${isSettled ? `(\${m.actual_result})` : ''}</div>
+        <div class="prediction">
+            <div>
+                <strong>${m.market}</strong>
+                <small>Pick: ${m.pick}</small>
+            </div>
+            <span class="prob">${m.prob}%</span>
+        </div>
+    `;
+    return card;
+}
+
+\$("search").oninput = renderLists;
+\$("market").onchange = renderLists;
+
+// Load website data on startup
+loadData();
+</script>
+</body>
+</html>

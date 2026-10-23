@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,7 @@
 <meta name="theme-color" content="#101827">
 <title>Peter Football Tips</title>
 <style>
-:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--muted:#9aaac0;--white:#f5f8ff}
+:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--red:#ff4a6b;--muted:#9aaac0;--white:#f5f8ff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
 header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line)}
@@ -16,11 +15,9 @@ header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line)}
 .brand span{color:var(--green)}
 header p{color:var(--muted);font-size:13px;margin-bottom:0}
 main{padding:18px 14px 45px}
-.notice{padding:12px;border:1px solid #66532a;background:#302719;color:#ffe4a3;border-radius:10px;font-size:12px;line-height:1.6}
 h2{font-size:19px;margin:24px 0 12px}
 .filters{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-input,select,button{font:inherit}
-input,select{width:100%;min-width:0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:var(--white)}
+input,select{font:inherit;width:100%;min-width:0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:var(--white)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
 .stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px}
 .stat small{display:block;color:var(--muted);font-size:11px}
@@ -31,12 +28,9 @@ input,select{width:100%;min-width:0;padding:12px;background:var(--panel);border:
 .prediction{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
 .prediction small{display:block;color:var(--muted);margin-top:4px;font-size:11px}
 .prob{color:var(--green);font-weight:800;white-space:nowrap}
-.actions{display:flex;gap:8px;margin-top:12px}
-button{padding:10px;border:0;border-radius:8px;cursor:pointer;font-weight:700}
-.win{background:var(--green);color:#092016;flex:1}
-.loss{background:#38242d;color:#ffb8c4;flex:1}
-button:active{transform:scale(.98)}
-.tag{color:var(--green);font-size:11px}
+.badge{padding:4px 8px;border-radius:6px;font-size:11px;font-weight:bold}
+.badge.win{background:#113a29;color:var(--green)}
+.badge.loss{background:#3a111a;color:var(--red)}
 .empty{color:var(--muted);padding:22px 4px;text-align:center}
 footer{border-top:1px solid var(--line);padding:20px 14px;color:var(--muted);font-size:12px;line-height:1.7}
 @media(min-width:600px){.filters{grid-template-columns:2fr 1fr}.teams{font-size:19px}}
@@ -46,216 +40,111 @@ footer{border-top:1px solid var(--line);padding:20px 14px;color:var(--muted);fon
 <header>
  <div class="wrap">
   <div class="brand">PETER <span>FOOTBALL TIPS</span></div>
-  <p>Football analysis • Predictions • Results tracking</p>
+  <p>Live football analysis • Predictions • Verified historical accuracy</p>
  </div>
 </header>
 
 <main class="wrap">
- <div class="notice">
-  DEMO MODE: The matches and percentages below are examples only.
-  They are not live fixtures or verified predictions. Live match data
-  will be connected in a later step.
- </div>
-
  <div class="stats">
-  <div class="stat"><small>DEMO MATCHES</small><strong id="total">3</strong></div>
-  <div class="stat"><small>TRACKED</small><strong id="tracked">0</strong></div>
-  <div class="stat"><small>WIN RATE</small><strong id="rate">—</strong></div>
+  <div class="stat"><small>LIVE PREDICTIONS</small><strong id="total-live">0</strong></div>
+  <div class="stat"><small>TOTAL SETTLED</small><strong id="settled">0</strong></div>
+  <div class="stat"><small>HISTORICAL ACCURACY</small><strong id="rate">—</strong></div>
  </div>
 
- <h2>Find predictions</h2>
+ <h2>Find Live Predictions</h2>
  <div class="filters">
-  <input id="search" placeholder="Search teams or league..." aria-label="Search teams or league">
+  <input id="search" placeholder="Search teams..." aria-label="Search teams">
   <select id="market" aria-label="Select prediction market">
    <option value="all">All markets</option>
    <option value="Double chance">Double chance</option>
    <option value="Over 1.5 goals">Over 1.5 goals</option>
-   <option value="Over 2.5 goals">Over 2.5 goals</option>
-   <option value="BTTS">BTTS</option>
   </select>
  </div>
 
- <h2>Match analysis</h2>
+ <h2>Current Matches Analysis</h2>
  <div id="matches"></div>
 
- <h2>My tracked predictions</h2>
- <div class="card">
-  <p style="color:var(--muted);font-size:13px;line-height:1.6">
-   Track a demo prediction as won or lost. Your selections are saved
-   in this browser on this device.
-  </p>
-  <div id="history"></div>
-  <button id="clear" style="background:#29374b;color:white;width:100%;margin-top:12px">
-   Clear tracking history
-  </button>
- </div>
+ <h2>Settled Results History</h2>
+ <div id="history-section"></div>
 </main>
 
 <footer>
  <div class="wrap">
   <strong>Peter Football Tips</strong><br>
-  Predictions are uncertain and no outcome is guaranteed.
-  Percentages in demo mode are illustrative, not model-calculated probabilities.
-  This website does not accept bets or payments.
+  Predictions are generated systematically and do not guarantee profits. This website does not accept gambling transactions.
  </div>
 </footer>
 
 <script>
-const demoMatches = [
- {
-  id:1,league:"Demo Premier League",home:"Home FC",away:"Away FC",
-  markets:[
-   {name:"Double chance",pick:"1X",prob:72},
-   {name:"Over 1.5 goals",pick:"Over 1.5",prob:78},
-   {name:"Over 2.5 goals",pick:"Over 2.5",prob:61},
-   {name:"BTTS",pick:"Yes",prob:55}
-  ]
- },
- {
-  id:2,league:"Demo La Liga",home:"City United",away:"Athletic Town",
-  markets:[
-   {name:"Double chance",pick:"X2",prob:68},
-   {name:"Over 1.5 goals",pick:"Over 1.5",prob:75},
-   {name:"Over 2.5 goals",pick:"Over 2.5",prob:58},
-   {name:"BTTS",pick:"No",prob:53}
-  ]
- },
- {
-  id:3,league:"Demo Serie A",home:"Rovers FC",away:"United Athletic",
-  markets:[
-   {name:"Double chance",pick:"1X",prob:70},
-   {name:"Over 1.5 goals",pick:"Over 1.5",prob:73},
-   {name:"Over 2.5 goals",pick:"Over 2.5",prob:57},
-   {name:"BTTS",pick:"Yes",prob:54}
-  ]
- }
-];
-
 const $ = id => document.getElementById(id);
-const key = "peterTipsTrackingV1";
-let history = [];
-try { history = JSON.parse(localStorage.getItem(key) || "[]"); }
-catch(e) { history = []; }
+let allMatches = [];
 
-function save(){
- try { localStorage.setItem(key, JSON.stringify(history)); }
- catch(e) { alert("Browser storage is unavailable. Your tracking may not be saved."); }
- renderHistory();
- renderStats();
+async function loadData() {
+    try {
+        const res = await fetch('./predictions.json');
+        if(!res.ok) throw new Error("No data file found yet.");
+        const data = await res.json();
+        
+        $('settled').textContent = data.summary.total_settled;
+        $('rate').textContent = data.summary.total_settled > 0 ? data.summary.accuracy_percentage + "%" : "—";
+        
+        allMatches = data.matches || [];
+        renderLists();
+    } catch(e) {
+        $('matches').innerHTML = `<div class="empty">Running system setup. Data updates will pop up here in real time.</div>`;
+    }
 }
 
-function renderStats(){
- $("total").textContent = demoMatches.length;
- $("tracked").textContent = history.length;
- const decided = history.filter(x => x.result === "Won" || x.result === "Lost");
- const won = decided.filter(x => x.result === "Won").length;
- $("rate").textContent = decided.length
-  ? Math.round(won / decided.length * 100) + "%"
-  : "—";
+function renderLists() {
+    const query = $("search").value.trim().toLowerCase();
+    const marketFilter = $("market").value;
+
+    const filtered = allMatches.filter(m => 
+        (m.home + " " + m.away).toLowerCase().includes(query) &&
+        (marketFilter === "all" || m.market === marketFilter)
+    );
+
+    const liveList = filtered.filter(m => m.status !== "FINISHED");
+    const settledList = filtered.filter(m => m.status === "FINISHED");
+
+    $('total-live').textContent = liveList.length;
+
+    $('matches').innerHTML = liveList.length ? "" : '<div class="empty">No upcoming active fixtures found.</div>';
+    liveList.forEach(m => $('matches').append(createCard(m, false)));
+
+    $('history-section').innerHTML = settledList.length ? "" : '<div class="empty">No settled matches yet. Completed matches will track here.</div>';
+    settledList.forEach(m => $('history-section').append(createCard(m, true)));
 }
 
-function renderMatches(){
- const query = $("search").value.trim().toLowerCase();
- const selected = $("market").value;
- const filtered = demoMatches.filter(m =>
-  (m.home+" "+m.away+" "+m.league).toLowerCase().includes(query) &&
-  (selected === "all" || m.markets.some(x => x.name === selected))
- );
- $("matches").innerHTML = "";
- if(!filtered.length){
-  $("matches").innerHTML = '<div class="empty">No matching demo matches.</div>';
-  return;
- }
- filtered.forEach(m => {
-  const card = document.createElement("section");
-  card.className = "card";
-  const meta = document.createElement("div");
-  meta.className = "meta";
-  const league = document.createElement("span");
-  league.textContent = m.league;
-  const tag = document.createElement("span");
-  tag.className = "tag";
-  tag.textContent = "DEMO DATA";
-  meta.append(league,tag);
-  card.append(meta);
-  const teams = document.createElement("div");
-  teams.className = "teams";
-  teams.textContent = m.home + " vs " + m.away;
-  card.append(teams);
-  m.markets.filter(x => selected === "all" || x.name === selected)
-   .forEach(p => {
-    const row = document.createElement("div");
-    row.className = "prediction";
-    const info = document.createElement("div");
-    const name = document.createElement("strong");
-    name.textContent = p.name;
-    const pick = document.createElement("small");
-    pick.textContent = "Pick: " + p.pick;
-    info.append(name,pick);
-    const prob = document.createElement("span");
-    prob.className = "prob";
-    prob.textContent = p.prob + "%*";
-    row.append(info,prob);
-    card.append(row);
-    const actions = document.createElement("div");
-    actions.className = "actions";
-    [["Won","win"],["Lost","loss"]].forEach(([result,cls]) => {
-     const btn = document.createElement("button");
-     btn.className = cls;
-     btn.textContent = "Mark " + result.toLowerCase();
-     btn.onclick = () => {
-      history.push({
-       id: Date.now() + Math.random(),
-       fixture: m.home+" vs "+m.away,
-       market: p.name,
-       pick: p.pick,
-       result
-      });
-      save();
-     };
-     actions.append(btn);
-    });
-    card.append(actions);
-   });
-  $("matches").append(card);
- });
+function createCard(m, isSettled) {
+    const card = document.createElement("section");
+    card.className = "card";
+    
+    let badgeHTML = isSettled 
+        ? (m.is_correct ? `<span class="badge win">WIN</span>` : `<span class="badge loss">LOSS</span>`)
+        : `<span class="badge" style="background:#29374b;color:white">PENDING</span>`;
+
+    card.innerHTML = `
+        <div class="meta">
+            <span>${m.league} • ${new Date(m.utcDate).toLocaleDateString()}</span>
+            \${badgeHTML}
+        </div>
+        <div class="teams">\${m.home} vs \${m.away} \${isSettled ? `(\${m.actual_result})` : ''}</div>
+        <div class="prediction">
+            <div>
+                <strong>\${m.market}</strong>
+                <small>Pick: \${m.pick}</small>
+            </div>
+            <span class="prob">\${m.prob}%</span>
+        </div>
+    `;
+    return card;
 }
 
-function renderHistory(){
- const area = $("history");
- area.innerHTML = "";
- if(!history.length){
-  area.innerHTML = '<p class="empty">No predictions tracked yet.</p>';
-  return;
- }
- [...history].reverse().forEach(item => {
-  const row = document.createElement("div");
-  row.className = "prediction";
-  const info = document.createElement("div");
-  const title = document.createElement("strong");
-  title.textContent = item.fixture;
-  const detail = document.createElement("small");
-  detail.textContent = item.market+" · "+item.pick;
-  info.append(title,detail);
-  const result = document.createElement("span");
-  result.className = item.result === "Won" ? "prob" : "";
-  result.textContent = item.result;
-  row.append(info,result);
-  area.append(row);
- });
-}
+$("search").oninput = renderLists;
+$("market").onchange = renderLists;
 
-$("search").addEventListener("input",renderMatches);
-$("market").addEventListener("change",renderMatches);
-$("clear").addEventListener("click",()=>{
- if(confirm("Delete all tracked predictions?")){
-  history=[];
-  save();
- }
-});
-renderMatches();
-renderHistory();
-renderStats();
+loadData();
 </script>
 </body>
 </html>

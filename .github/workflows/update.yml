@@ -2,8 +2,8 @@ name: Update Football Predictions Data
 
 on:
   schedule:
-    - cron: '0 */12 * * *' # Runs automatically every 12 hours
-  workflow_dispatch: # Allows you to force run it manually via a button
+    - cron: '0 */12 * * *'
+  workflow_dispatch:
 
 jobs:
   update-data:
@@ -17,7 +17,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-node-version: 18
+          node-version: 18
 
       - name: Run Prediction & Settlement Script
         env:
@@ -31,3 +31,4 @@ jobs:
           git add predictions.json
           git diff-index --quiet HEAD || git commit -m "Automated update: calculated match analytics"
           git push
+  

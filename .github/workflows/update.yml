@@ -1,3 +1,4 @@
+
 name: Peter Football Tips Data Update
 
 on:
@@ -11,42 +12,45 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
-    - name: Run Probability Calculations Script
-      run: node update_predictions.js
+      - name: Run Probability Calculations Script
+        run: node update_predictions.js
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
 
-    - name: Configure Git Bot
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@://github.com"
+      - name: Configure Git Bot
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-    - name: Commit and Push Generated Predictions
-      run: |
-        git add predictions.json
-        git diff-index --quiet HEAD || git commit -m "Automated update of safe match tips"
-        git push
+      - name: Commit and Push Generated Predictions
+        run: |
+          git add predictions.json
+          git diff-index --quiet HEAD || git commit -m "Automated update of football predictions"
+          git push
 
-    - name: Setup Pages
-      uses: actions/configure-pages@v5
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-    - name: Upload Pages Artifact
-      uses: actions/upload-pages-artifact@v3
-      with:
-        path: '.'
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
 
-    - name: Deploy to GitHub Pages
-      uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

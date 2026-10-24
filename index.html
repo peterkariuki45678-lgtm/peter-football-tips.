@@ -89,7 +89,6 @@ footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--
 <script>
 let database = [];
 
-// Complete 6-match base matrix to bypass any external file loading delays
 const BACKUP_LOCAL_DATA = [
     { league: "ENGLISH PREMIER LEAGUE", home: "Manchester United", away: "Chelsea", utcTime: "15:30", safe_bet: "Double Chance (1X)", confidence: "84.2%", raw_probabilities: { "1": "51.2", "X": "33.0", "2": "15.8" } },
     { league: "ENGLISH PREMIER LEAGUE", home: "Arsenal", away: "Liverpool", utcTime: "18:00", safe_bet: "Double Chance (1X)", confidence: "81.9%", raw_probabilities: { "1": "49.5", "X": "32.4", "2": "18.1" } },
@@ -104,7 +103,6 @@ async function loadSystemData() {
         const res = await fetch('./predictions.json?t=' + Date.now());
         if(!res.ok) throw new Error("File not found");
         const rawData = await res.json();
-        
         database = Array.isArray(rawData) ? rawData : (rawData.matches || BACKUP_LOCAL_DATA);
     } catch(e) {
         console.warn("Using local dataset fallback:", e.message);
@@ -186,3 +184,4 @@ function createBetikaInteractiveRow(m, uniqueId) {
                 <div>${homeTeam}</div>
                 <div>${awayTeam}</div>
             </div>
+            <div class="interactive-action-box">

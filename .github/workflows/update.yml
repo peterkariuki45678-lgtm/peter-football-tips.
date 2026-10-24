@@ -31,6 +31,8 @@ jobs:
           if [ -f package.json ]; then npm install; fi
 
       - name: Run Probability Calculations Script
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}  # <--- THIS PASSES YOUR SECRET TO THE BOT!
         run: |
           node update_predictions.js
 

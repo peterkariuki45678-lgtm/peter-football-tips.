@@ -81,12 +81,13 @@ let allMatches = [];
 
 async function loadData() {
     try {
-        const res = await fetch('./predictions.json');
+        // FIX: Added a random timestamp parameter (?t=...) to break cache and load instant updates
+        const res = await fetch('./predictions.json?t=' + Date.now());
         if(!res.ok) throw new Error("No data file found yet.");
         const data = await res.json();
         
-        $('settled').textContent = data.summary.total_settled;
-        $('rate').textContent = data.summary.total_settled > 0 ? data.summary.accuracy_percentage + "%" : "—";
+        $('settled').textContent = data.summary.total_settled || 0;
+        $('rate').textContent = data.summary.total_settled > 0 ? (data.summary.accuracy_percentage + "%") : "—";
         
         allMatches = data.matches || [];
         renderLists();
@@ -99,10 +100,11 @@ function renderLists() {
     const query = $("search").value.trim().toLowerCase();
     const marketFilter = $("market").value;
 
-    const filtered = allMatches.filter(m => 
-        (m.home + " " + m.away).toLowerCase().includes(query) &&
-        (marketFilter === "all" || m.market === marketFilter)
-    );
+    const filtered = allMatches.filter(m => {
+        const homeName = m.home ? m.home.toLowerCase() : "";
+        const awayName = m.away ? m.away.toLowerCase() : "";
+        return (homeName + " " + awayName).includes(query) && (marketFilter === "all" || m.market === marketFilter);
+    });
 
     const liveList = filtered.filter(m => m.status !== "FINISHED");
     const settledList = filtered.filter(m => m.status === "FINISHED");
@@ -124,18 +126,19 @@ function createCard(m, isSettled) {
         ? (m.is_correct ? `<span class="badge win">WIN</span>` : `<span class="badge loss">LOSS</span>`)
         : `<span class="badge" style="background:#29374b;color:white">PENDING</span>`;
 
+    // FIX: Removed escaping backslashes so string interpolations display properly
     card.innerHTML = `
         <div class="meta">
-            <span>${m.league} • ${new Date(m.utcDate).toLocaleDateString()}</span>
-            \${badgeHTML}
+            <span>${m.league || 'League'} • ${m.utcDate ? new Date(m.utcDate).toLocaleDateString() : ''}</span>
+            ${badgeHTML}
         </div>
-        <div class="teams">\${m.home} vs \${m.away} \${isSettled ? `(\${m.actual_result})` : ''}</div>
+        <div class="teams">${m.home || 'Home'} vs ${m.away || 'Away'} ${isSettled ? `(${m.actual_result || '0-0'})` : ''}</div>
         <div class="prediction">
             <div>
-                <strong>\${m.market}</strong>
-                <small>Pick: \${m.pick}</small>
+                <strong>${m.market || 'Market'}</strong>
+                <small>Pick: ${m.pick || 'N/A'}</small>
             </div>
-            <span class="prob">\${m.prob}%</span>
+            <span class="prob">${m.prob || 0}%</span>
         </div>
     `;
     return card;

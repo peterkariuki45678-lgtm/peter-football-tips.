@@ -2,7 +2,7 @@
 const fs = require("fs");
 
 const API_URL = "https://v3.football.api-sports.io";
-const API_KEY = process.env.API_FOOTBAL_KEY;
+const API_KEY = process.env.API_FOOTBAL;
 
 const OUTPUT_FILE = "predictions.json";
 const TIMEZONE = "Africa/Nairobi";

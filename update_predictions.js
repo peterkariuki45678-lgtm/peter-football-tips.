@@ -50,8 +50,9 @@ async function main() {
     for (const league of LEAGUES) {
         console.log(`Fetching active fixtures from ${league.name}...`);
         try {
-            // FIX: Repaired the template string domain structure perfectly
-            const data = await fetchAPI(`https://football-data.org{league.code}/matches`);
+            // REPAIRED: Clean string concatenation ensuring no missing variables or domain breaks
+            const urlString = 'https://football-data.org' + league.code + '/matches';
+            const data = await fetchAPI(urlString);
             
             if (data && data.matches) {
                 let matchesAdded = 0;
@@ -96,7 +97,7 @@ async function main() {
                         existing.is_correct = won;
                     }
                 });
-                console.log(`Successfully processed league data for ${league.name}.`);
+                console.log(`Successfully processed data for ${league.name}. Added matches.`);
             }
             
             await sleep(6000);

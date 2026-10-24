@@ -21,11 +21,10 @@ main{padding:10px 6px 60px}
 .premium-container{background:linear-gradient(135deg, #1b153a 0%, #080e1a 100%);border:2px solid var(--gold);border-radius:10px;padding:16px 12px;text-align:center;margin-bottom:14px}
 .premium-container h3{margin:0 0 4px 0;font-size:16px;color:var(--gold)}
 .premium-container p{margin:0 0 10px 0;font-size:12px;color:var(--muted)}
-.btn-unlock{background:var(--gold);color:#000;border:none;padding:10px 20px;font-size:13px;font-weight:bold;border-radius:4px;cursor:pointer;width:100%;max-width:260px}
+.btn-unlock{background:var(--gold);color:#000;border:none;padding:10px 20px;font-size:13px;font-weight:bold;border-radius:4px;cursor:pointer;width:100%;max-width:280px}
 .hidden-section{display:none}
 h2{font-size:12px;margin:14px 0 6px 4px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:bold}
 
-/* Flowing Betika Card Row Structure */
 .betika-row{background:var(--card);border-bottom:1px solid var(--line);padding:10px;margin-bottom:3px;border-radius:6px;position:relative}
 .row-header{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:4px}
 .league-title{font-weight:bold;color:var(--white)}
@@ -36,7 +35,7 @@ h2{font-size:12px;margin:14px 0 6px 4px;color:var(--muted);letter-spacing:.5px;t
 .btn-analyze{background:var(--action-btn);border:1px solid var(--line);color:var(--gold);font-size:12px;font-weight:bold;padding:10px 14px;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:75px}
 .btn-analyze small{font-size:9px;color:var(--muted);margin-top:2px}
 
-/* Hidden Dropdown Analysis Panel */
+/* Fixed Dropped Visibility Setup */
 .analysis-dropdown-panel{display:none;background:var(--betika-dark);border:1px solid var(--line);border-radius:6px;margin-top:10px;padding:10px}
 .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
 .analysis-column{background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--line)}
@@ -83,13 +82,12 @@ footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--
 
 <footer>
  <div class="wrap">
-  <strong>Peter Football Tips V3.5 • Betika Dynamic UI</strong><br>
+  <strong>Peter Football Tips V3.6 • Betika Dynamic UI</strong><br>
   Analysis is handled systematically based on history values. No commercial bookmaker values applied.
  </div>
 </footer>
 
 <script>
-const $ = id => document.getElementById(id);
 let database = { matches: [] };
 
 async function loadSystemData() {
@@ -99,53 +97,54 @@ async function loadSystemData() {
         database = await res.json();
         
         const displayDate = database.lastUpdated ? new Date(database.lastUpdated).toDateString() : new Date().toDateString();
-        $('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + displayDate.toUpperCase();
+        document.getElementById('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + displayDate.toUpperCase();
         
         renderInteractiveFlow();
     } catch(e) {
-        $('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + new Date().toDateString().toUpperCase();
-        $('general-list').innerHTML = '<div class="empty-msg">Syncing database files... Please wait.</div>';
+        document.getElementById('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + new Date().toDateString().toUpperCase();
+        document.getElementById('general-list').innerHTML = '<div class="empty-msg">Syncing database files... Please wait.</div>';
     }
 }
 
 function unlockSureGames() {
-    $('unlock-box').style.display = 'none';
-    $('premium-predictions-container').style.display = 'block';
+    document.getElementById('unlock-box').style.display = 'none';
+    document.getElementById('premium-predictions-container').style.display = 'block';
 }
 
+// FIX: Repaired internal browser selector logic to cleanly toggle target element classes
 function toggleAnalysisPanel(matchId) {
-    const panel = $('panel-' + matchId);
-    const button = $('btn-' + matchId);
+    const panel = document.getElementById('panel-' + matchId);
+    const button = document.getElementById('btn-' + matchId);
+    
     if (panel.style.display === 'block') {
         panel.style.display = 'none';
-        button.style.background = 'var(--action-btn)';
+        button.style.backgroundColor = 'var(--action-btn)';
         button.style.color = 'var(--gold)';
     } else {
         panel.style.display = 'block';
-        button.style.background = 'var(--gold)';
+        button.style.backgroundColor = 'var(--gold)';
         button.style.color = '#000';
     }
 }
 
 function renderInteractiveFlow() {
     const allGames = database.matches || [];
+    
+    // Top 6 highest selections are populated behind the primary user filter trigger
     const eliteSureGames = allGames.slice(0, 6);
     const alternativeGames = allGames.slice(6);
 
     if(eliteSureGames.length > 0) {
-        $('premium-list').innerHTML = "";
-        eliteSureGames.forEach(m => $('premium-list').append(createBetikaInteractiveRow(m, true)));
-    } else {
-        $('premium-list').innerHTML = '<div class="empty-msg">Compiling active prediction values...</div>';
+        document.getElementById('premium-list').innerHTML = "";
+        eliteSureGames.forEach(m => document.getElementById('premium-list').append(createBetikaInteractiveRow(m, true)));
     }
 
     if(alternativeGames.length > 0) {
-        $('general-list').innerHTML = "";
-        alternativeGames.forEach(m => $('general-list').append(createBetikaInteractiveRow(m, false)));
+        document.getElementById('general-list').innerHTML = "";
+        alternativeGames.forEach(m => document.getElementById('general-list').append(createBetikaInteractiveRow(m, false)));
     } else {
-        $('general-list').innerHTML = "";
-        // If everything is in the top 6, let them replicate so the page doesn't look blank
-        allGames.forEach(m => $('general-list').append(createBetikaInteractiveRow(m, false)));
+        document.getElementById('general-list').innerHTML = "";
+        allGames.forEach(m => document.getElementById('general-list').append(createBetikaInteractiveRow(m, false)));
     }
 }
 
@@ -171,7 +170,6 @@ function createBetikaInteractiveRow(m, isElite) {
             </div>
         </div>
         
-        <!-- Collapsible Analysis Panel Box -->
         <div class="analysis-dropdown-panel" id="panel-${m.id}">
             <div class="panel-grid">
                 <div class="analysis-column">

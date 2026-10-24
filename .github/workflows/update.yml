@@ -2,17 +2,13 @@ name: Peter Football Tips Data Update
 
 on:
   schedule:
-    - cron: '0 5 * * *' # Automatically runs every day at 5:00 AM
-  workflow_dispatch: # Allows you to manually trigger "Run workflow" anytime
+    - cron: '0 5 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
   pages: write
   id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   update-data:
@@ -26,13 +22,9 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Dependencies
-        run: |
-          if [ -f package.json ]; then npm install; fi
-
       - name: Run Probability Calculations Script
         env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}  # <--- THIS PASSES YOUR SECRET TO THE BOT!
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
         run: |
           node update_predictions.js
 

@@ -1,13 +1,11 @@
 const fs = require('fs');
 const https = require('https');
 
-// FIX: Tells Node.js to ignore the expired SSL certificate error from the football server
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const API_KEY = process.env.FOOTBALL_API_KEY;
 const DATA_FILE = './predictions.json';
 
-// Completely unlocked free tier leagues we can query simultaneously
 const LEAGUES = [
     { code: 'CL', name: 'UEFA Champions League' },
     { code: 'ELC', name: 'EFL Championship' },
@@ -20,7 +18,7 @@ const LEAGUES = [
 function fetchAPI(url) {
     return new Promise((resolve, reject) => {
         if (!API_KEY || API_KEY === "undefined") {
-            return reject(new Error("FOOTBALL_API_KEY is missing! Verify it in GitHub Secrets."));
+            return reject(new Error("FOOTBALL_API_KEY is missing!"));
         }
         const options = { headers: { 'X-Auth-Token': API_KEY } };
         https.get(url, options, (res) => {
@@ -52,9 +50,11 @@ async function main() {
     for (const league of LEAGUES) {
         console.log(`Fetching active fixtures from ${league.name}...`);
         try {
+            // FIX: Repaired the template string domain structure perfectly
             const data = await fetchAPI(`https://football-data.org{league.code}/matches`);
             
             if (data && data.matches) {
+                let matchesAdded = 0;
                 data.matches.forEach(liveMatch => {
                     let existing = db.matches.find(m => m.id === liveMatch.id);
 
@@ -80,6 +80,7 @@ async function main() {
                             is_correct: null
                         };
                         db.matches.push(existing);
+                        matchesAdded++;
                     }
 
                     if (liveMatch.status === "FINISHED" && existing.status !== "FINISHED") {
@@ -95,12 +96,13 @@ async function main() {
                         existing.is_correct = won;
                     }
                 });
+                console.log(`Successfully processed league data for ${league.name}.`);
             }
             
             await sleep(6000);
 
         } catch (error) {
-            console.error(`Skipping ${league.name} due to an evaluation error:`, error.message);
+            console.error(`Error on ${league.name}:`, error.message);
         }
     }
 

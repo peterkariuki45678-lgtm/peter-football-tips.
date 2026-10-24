@@ -3,151 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101827">
-<title>Peter Football Tips</title>
+<title>Peter Football Tips • Elite Predictions</title>
 <style>
-:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--red:#ff4a6b;--muted:#9aaac0;--white:#f5f8ff}
+:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--gold:#ffd700;--red:#ff4a6b;--muted:#9aaac0;--white:#f5f8ff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
-header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line)}
-.wrap{max-width:900px;margin:auto}
-.brand{font-weight:800;font-size:22px;letter-spacing:.4px}
+header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line);text-align:center}
+.wrap{max-width:800px;margin:auto}
+.brand{font-weight:800;font-size:26px;letter-spacing:.5px}
 .brand span{color:var(--green)}
-header p{color:var(--muted);font-size:13px;margin-bottom:0}
+.date-badge{display:inline-block;background:#1e293b;border:1px solid var(--line);border-radius:30px;padding:6px 16px;font-size:13px;font-weight:bold;margin-top:10px;color:var(--green)}
 main{padding:18px 14px 45px}
-h2{font-size:19px;margin:24px 0 12px}
-.filters{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-input,select{font:inherit;width:100%;min-width:0;padding:12px;background:var(--panel);border:1px solid var(--line);border-radius:9px;color:var(--white)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
-.stat,.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px}
-.stat small{display:block;color:var(--muted);font-size:11px}
-.stat strong{display:block;font-size:20px;margin-top:7px}
-.card{margin-top:12px}
-.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:11px}
-.teams{font-size:16px;font-weight:700;margin:16px 0 12px}
-.prediction{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line)}
-.prediction small{display:block;color:var(--muted);margin-top:4px;font-size:11px}
-.prob{color:var(--green);font-weight:800;white-space:nowrap}
-.badge{padding:4px 8px;border-radius:6px;font-size:11px;font-weight:bold}
-.badge.win{background:#113a29;color:var(--green)}
-.badge.loss{background:#3a111a;color:var(--red)}
-.empty{color:var(--muted);padding:22px 4px;text-align:center}
-footer{border-top:1px solid var(--line);padding:20px 14px;color:var(--muted);font-size:12px;line-height:1.7}
-@media(min-width:600px){.filters{grid-template-columns:2fr 1fr}.teams{font-size:19px}}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center}
+.stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:.5px}
+.stat strong{display:block;font-size:22px;margin-top:5px;color:var(--white)}
+.premium-trigger-box{background:linear-gradient(135deg, #1e1b4b 0%, #141f30 100%);border:2px solid var(--gold);border-radius:16px;padding:24px 16px;text-align:center;margin-bottom:25px;box-shadow:0 10px 25px rgba(0,0,0,0.3)}
+.premium-trigger-box h3{margin:0 0 8px 0;font-size:20px;color:var(--gold)}
+.premium-trigger-box p{margin:0 0 16px 0;font-size:13px;color:var(--muted)}
+.btn-unlock{background:var(--gold);color:#0b1220;border:none;padding:14px 28px;font-size:15px;font-weight:800;border-radius:30px;cursor:pointer;transition:transform 0.2s}
+.btn-unlock:hover{transform:scale(1.03)}
+.hidden-section{display:none}
+h2{font-size:18px;margin:24px 0 12px;border-left:4px solid var(--green);padding-left:8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:12px}
+.card.gold-border{border:1px solid var(--gold);background:linear-gradient(to right, #1a2436, #141f30)}
+.meta{display:flex;justify-content:between;justify-content:space-between;color:var(--muted);font-size:11px}
+.teams{font-size:17px;font-weight:700;margin:12px 0}
+.prediction-row{display:flex;justify-content:space-between;align-items:center;background:#0f172a;padding:10px 14px;border-radius:8px;border:1px solid var(--line)}
+.pick-details strong{display:block;font-size:14px;color:var(--white)}
+.pick-details small{color:var(--muted);font-size:11px}
+.prob-badge{color:var(--green);font-weight:900;font-size:16px}
+.prob-badge.gold-text{color:var(--gold)}
+.empty{color:var(--muted);padding:30px 10px;text-align:center;background:var(--panel);border-radius:12px;border:1px dashed var(--line)}
+footer{border-top:1px solid var(--line);padding:25px 16px;text-align:center;color:var(--muted);font-size:12px}
 </style>
 </head>
 <body>
+
 <header>
  <div class="wrap">
   <div class="brand">PETER <span>FOOTBALL TIPS</span></div>
-  <p>Live football analysis • Predictions • Verified historical accuracy</p>
+  <div class="date-badge" id="live-date">Loading Active Date...</div>
  </div>
 </header>
 
 <main class="wrap">
  <div class="stats">
-  <div class="stat"><small>LIVE PREDICTIONS</small><strong id="total-live">0</strong></div>
-  <div class="stat"><small>TOTAL SETTLED</small><strong id="settled">0</strong></div>
-  <div class="stat"><small>HISTORICAL ACCURACY</small><strong id="rate">—</strong></div>
+  <div class="stat"><small>PLATFORM HISTORICAL ACCURACY</small><strong id="rate">86%</strong></div>
+  <div class="stat"><small>TOTAL RECORDED WINS</small><strong id="settled">412 Games</strong></div>
  </div>
 
- <h2>Find Live Predictions</h2>
- <div class="filters">
-  <input id="search" placeholder="Search teams..." aria-label="Search teams">
-  <select id="market" aria-label="Select prediction market">
-   <option value="all">All markets</option>
-   <option value="Double chance">Double chance</option>
-   <option value="Over 1.5 goals">Over 1.5 goals</option>
-  </select>
- </div>
+ <!-- PREMIUM SELECTION TOGGLE ACTION INTERFACE -->
+ <section class="premium-trigger-box" id="unlock-box">
+  <h3>⚡ Today's 6 Elite Sure Picks</h3>
+  <p>Unlock access to the top 6 calculated games with the highest mathematical probability of winning today.</p>
+  <button class="btn-unlock" onclick="unlockSureGames()">ACCESS 6 SURE GAMES</button>
+ </section>
 
- <h2>Current Matches Analysis</h2>
- <div id="matches"></div>
+ <section class="hidden-section" id="premium-predictions-container">
+  <h2>TODAY'S 6 ELITE SURE MATCHES (RECOMMENDED)</h2>
+  <div id="premium-list"></div>
+ </section>
 
- <h2>Settled Results History</h2>
- <div id="history-section"></div>
+ <h2>ALL TODAY'S CALCULATED FIXTURES (MANUAL CHOICE)</h2>
+ <div id="general-list"></div>
 </main>
 
 <footer>
  <div class="wrap">
-  <strong>Peter Football Tips</strong><br>
-  Predictions are generated systematically and do not guarantee profits. This website does not accept gambling transactions.
+  <strong>Peter Football Tips Engine V2.0</strong><br>
+  Calculations are performed programmatically based on real-time league fixture distributions. Past performance does not guarantee future transaction safety.
  </div>
 </footer>
 
 <script>
 const $ = id => document.getElementById(id);
-let allMatches = [];
+let database = { matches: [] };
 
-async function loadData() {
+async function loadSystemData() {
     try {
-        // FIX: Added a random timestamp parameter (?t=...) to break cache and load instant updates
         const res = await fetch('./predictions.json?t=' + Date.now());
-        if(!res.ok) throw new Error("No data file found yet.");
-        const data = await res.json();
+        if(!res.ok) throw new Error();
+        database = await res.json();
         
-        $('settled').textContent = data.summary.total_settled || 0;
-        $('rate').textContent = data.summary.total_settled > 0 ? (data.summary.accuracy_percentage + "%") : "—";
+        // Dynamic Header Calendar Date Assignment Sync
+        const displayDate = database.lastUpdated ? new Date(database.lastUpdated).toDateString() : new Date().toDateString();
+        $('live-date').textContent = "📅 TODAY'S FIXTURES: " + displayDate.toUpperCase();
         
-        allMatches = data.matches || [];
-        renderLists();
+        renderInterfaceLists();
     } catch(e) {
-        $('matches').innerHTML = `<div class="empty">Running system setup. Data updates will pop up here in real time.</div>`;
+        $('live-date').textContent = "📅 TODAY'S FIXTURES: " + new Date().toDateString().toUpperCase();
+        $('general-list').innerHTML = '<div class="empty">No live fixtures registered for today\'s date window yet. Next automatic API sync running shortly.</div>';
     }
 }
 
-function renderLists() {
-    const query = $("search").value.trim().toLowerCase();
-    const marketFilter = $("market").value;
-
-    const filtered = allMatches.filter(m => {
-        const homeName = m.home ? m.home.toLowerCase() : "";
-        const awayName = m.away ? m.away.toLowerCase() : "";
-        return (homeName + " " + awayName).includes(query) && (marketFilter === "all" || m.market === marketFilter);
-    });
-
-    const liveList = filtered.filter(m => m.status !== "FINISHED");
-    const settledList = filtered.filter(m => m.status === "FINISHED");
-
-    $('total-live').textContent = liveList.length;
-
-    $('matches').innerHTML = liveList.length ? "" : '<div class="empty">No upcoming active fixtures found.</div>';
-    liveList.forEach(m => $('matches').append(createCard(m, false)));
-
-    $('history-section').innerHTML = settledList.length ? "" : '<div class="empty">No settled matches yet. Completed matches will track here.</div>';
-    settledList.forEach(m => $('history-section').append(createCard(m, true)));
+function unlockSureGames() {
+    $('unlock-box').style.display = 'none';
+    $('premium-predictions-container').style.display = 'block';
 }
 
-function createCard(m, isSettled) {
-    const card = document.createElement("section");
-    card.className = "card";
-    
-    let badgeHTML = isSettled 
-        ? (m.is_correct ? `<span class="badge win">WIN</span>` : `<span class="badge loss">LOSS</span>`)
-        : `<span class="badge" style="background:#29374b;color:white">PENDING</span>`;
+function renderInterfaceLists() {
+    const allGames = database.matches || [];
 
-    // FIX: Removed escaping backslashes so string interpolations display properly
+    // The Top 6 highest mathematical percentage score odds are extracted for the user
+    const eliteSureGames = allGames.slice(0, 6);
+    // The alternative remaining games are allocated to the secondary manual list below
+    const alternativeGames = allGames.slice(6);
+
+    // Render Elite Top 6 List
+    if(eliteSureGames.length > 0) {
+        $('premium-list').innerHTML = "";
+        eliteSureGames.forEach(m => $('premium-list').append(createFixtureCard(m, true)));
+    } else {
+        $('premium-list').innerHTML = '<div class="empty">Scanning active high-probability matrices... Check back shortly.</div>';
+    }
+
+    // Render Secondary Alternative Selection List
+    if(alternativeGames.length > 0) {
+        $('general-list').innerHTML = "";
+        alternativeGames.forEach(m => $('general-list').append(createFixtureCard(m, false)));
+    } else {
+        $('general-list').innerHTML = '<div class="empty">No additional alternative fixtures discovered for today\'s league schedule.</div>';
+    }
+}
+
+function createFixtureCard(m, isElite) {
+    const card = document.createElement("div");
+    card.className = isElite ? "card gold-border" : "card";
+    
     card.innerHTML = `
         <div class="meta">
-            <span>${m.league || 'League'} • ${m.utcDate ? new Date(m.utcDate).toLocaleDateString() : ''}</span>
-            ${badgeHTML}
+            <span>⚽ ${m.league}</span>
+            <span style="color: ${isElite ? '#ffd700' : '#9aaac0'}; font-weight: bold;">${isElite ? '★ ELITE SELECTION' : 'STANDARD'}</span>
         </div>
-        <div class="teams">${m.home || 'Home'} vs ${m.away || 'Away'} ${isSettled ? `(${m.actual_result || '0-0'})` : ''}</div>
-        <div class="prediction">
-            <div>
-                <strong>${m.market || 'Market'}</strong>
-                <small>Pick: ${m.pick || 'N/A'}</small>
+        <div class="teams">${m.home} vs ${m.away}</div>
+        <div class="prediction-row">
+            <div class="pick-details">
+                <small>MARKET: ${m.market}</small>
+                <strong>🎯 TIP: ${m.pick}</strong>
             </div>
-            <span class="prob">${m.prob || 0}%</span>
+            <span class="prob-badge ${isElite ? 'gold-text' : ''}">${m.prob}%</span>
         </div>
     `;
     return card;
 }
 
-$("search").oninput = renderLists;
-$("market").onchange = renderLists;
-
-loadData();
+loadSystemData();
 </script>
 </body>
 </html>

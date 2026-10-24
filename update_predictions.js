@@ -2,7 +2,7 @@
 const fs = require("fs");
 
 const API_URL = "https://v3.football.api-sports.io";
-const API_KEY = process.env.API_FOOTBALL_KEY;
+const API_KEY = process.FOOTBALL_API_KEY;
 
 const OUTPUT_FILE = "predictions.json";
 const TIMEZONE = "Africa/Nairobi";
@@ -194,7 +194,7 @@ function selectSafestMarket(p) {
 async function main() {
   if (!API_KEY) {
     throw new Error(
-      "Missing API_FOOTBALL_KEY GitHub Actions secret."
+      "Missing FOOTBALL_API_KEY GitHub Actions secret."
     );
   }
 

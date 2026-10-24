@@ -111,7 +111,6 @@ function runMathematicalCalculations() {
     });
 
     fs.writeFileSync('predictions.json', JSON.stringify(computedMatches, null, 4));
-    console.log(`Expanding dataset to fulfill the 30-match requirement...`);
     console.log(`Database successfully synchronized with ${computedMatches.length} entries.`);
 }
 

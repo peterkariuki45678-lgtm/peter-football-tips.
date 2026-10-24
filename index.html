@@ -61,7 +61,6 @@ footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--
 <main class="wrap">
  <div class="stats-banner">
   <div class="stat-box"><small>Mathematical Win Rate</small><strong>86% WR</strong></div>
-  <div class="stats-banner"></div>
   <div class="stat-box"><small>Calculated Wins History</small><strong>448 Games</strong></div>
  </div>
 
@@ -101,12 +100,14 @@ const BACKUP_LOCAL_DATA = [
 
 async function loadSystemData() {
     try {
-        const res = await fetch('./predictions.json?t=' + Date.now());
-        if(!res.ok) throw new Error("File missing");
+        // Absolute URL fetch parsing rule to completely destroy directory routing errors
+        const targetUrl = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/predictions.json?t=' + Date.now();
+        const res = await fetch(targetUrl);
+        if(!res.ok) throw new Error("File not found on absolute origin path");
         const rawData = await res.json();
         database = Array.isArray(rawData) ? rawData : (rawData.matches || BACKUP_LOCAL_DATA);
     } catch(e) {
-        console.warn("Using fallback script dataset arrays:", e.message);
+        console.warn("Redirected to fallback script layout array:", e.message);
         database = BACKUP_LOCAL_DATA;
     } finally {
         const displayDate = new Date().toDateString();
@@ -182,7 +183,3 @@ function createBetikaInteractiveRow(m, uniqueId) {
             <span>⏱️ Today ${matchTime}</span>
         </div>
         <div class="match-main-block">
-            <div class="teams-info">
-                <div>${homeTeam}</div>
-                <div>${awayTeam}</div>
-            </div>

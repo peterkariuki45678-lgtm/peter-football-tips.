@@ -45,6 +45,7 @@ h2{font-size:12px;margin:14px 0 6px 4px;color:var(--muted);letter-spacing:.5px;t
 .outcome-pill-box{background:var(--card);border:1px dashed var(--green);border-radius:4px;padding:8px;text-align:center}
 .outcome-pill-box small{font-size:10px;color:var(--muted);display:block;text-transform:uppercase}
 .outcome-pill-box strong{font-size:13px;color:var(--green);display:block;margin-top:2px}
+.empty-msg{color:var(--muted);padding:30px;text-align:center;background:var(--card);border-radius:6px;font-size:12px}
 footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--muted);font-size:11px;margin-top:40px;border-top:1px solid var(--line)}
 </style>
 </head>
@@ -90,16 +91,21 @@ let database = [];
 
 async function loadSystemData() {
     try {
-        // Enforces exact lowercase tracking across target file repository nodes
         const res = await fetch('./predictions.json?t=' + Date.now());
-        if(!res.ok) throw new Error();
-        database = await res.json();
-    } catch(e) {
-        console.warn("Retrying fallback loading paths...");
-    } finally {
+        if(!res.ok) throw new Error("File fetch failed");
+        const rawData = await res.json();
+        
+        // Dynamic map check: Reads raw data arrays directly to stop layout stalls
+        database = Array.isArray(rawData) ? rawData : (rawData.matches || []);
+        
         const displayDate = new Date().toDateString();
         document.getElementById('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + displayDate.toUpperCase();
+        
         renderInteractiveFlow();
+    } catch(e) {
+        console.error("System synchronization failed:", e.message);
+        document.getElementById('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + new Date().toDateString().toUpperCase();
+        document.getElementById('general-list').innerHTML = '<div class="empty-msg">Syncing database files... Please wait.</div>';
     }
 }
 
@@ -125,8 +131,8 @@ function toggleAnalysisPanel(matchId) {
 }
 
 function renderInteractiveFlow() {
-    if(!Array.isArray(database) || database.length === 0) {
-        document.getElementById('general-list').innerHTML = '<div class="empty-msg">No active match predictions found for today. Check back later.</div>';
+    if(!Array.isArray(database) || database.length === 0){
+        document.getElementById('general-list').innerHTML = '<div class="empty-msg">No active matches found in the prediction feed.</div>';
         return;
     }
 
@@ -191,15 +197,3 @@ function createBetikaInteractiveRow(m, uniqueId) {
                     <div class="prob-item"><span>Draw (X)</span><strong>${rawDraw}%</strong></div>
                     <div class="prob-item"><span>Away Win (2)</span><strong>${rawAway}%</strong></div>
                 </div>
-                <div class="analysis-column" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
-                    <div style="font-size:10px; color:var(--muted); text-transform:uppercase; margin-bottom:4px;">Model Confidence</div>
-                    <div style="font-size:19px; font-weight:bold; color:var(--gold);">${scoreRating}</div>
-                </div>
-            </div>
-            <div class="outcome-pill-box">
-                <small>🛡️ Algorithmic Low-Risk Choice</small>
-                <strong>${recommendation}</strong>
-            </div>
-        </div>
-    `;
-    return container;

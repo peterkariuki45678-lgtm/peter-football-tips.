@@ -29,10 +29,13 @@ jobs:
     - name: Run Probability Calculations Script
       run: node update_predictions.js
 
-    - name: Commit and Push Generated Predictions
+    - name: Configure Git Bot
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
+
+    - name: Commit and Push Generated Predictions
+      run: |
         git add predictions.json
         git diff-index --quiet HEAD || git commit -m "Automated update of safe match tips"
         git push

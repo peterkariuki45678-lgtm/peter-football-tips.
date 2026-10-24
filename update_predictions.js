@@ -2,7 +2,7 @@
 const fs = require("fs");
 
 const API_URL = "https://v3.football.api-sports.io";
-const API_KEY = process.env.FOOTBALL_API_KEY;
+const API_KEY = process.env.API_FOOTBAL_KEY;
 
 const OUTPUT_FILE = "predictions.json";
 const TIMEZONE = "Africa/Nairobi";
@@ -171,7 +171,7 @@ function chooseMarket(p) {
 async function main() {
   if (!API_KEY) {
     throw new Error(
-      "FOOTBALL_API_KEY is missing. Check the GitHub Actions secret and workflow."
+      "API_FOOTBALL_KEY is missing. Check the GitHub Actions secret and workflow."
     );
   }
 
@@ -270,7 +270,7 @@ async function main() {
       calculation_model: "neutral_ground",
       home_advantage: 0,
       historical_matches_used: 6,
-      data_source: "API-Football"
+      data_source: "API-Football_KEY"
     });
   }
 

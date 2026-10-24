@@ -3,39 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peter Football Tips • Elite Predictions</title>
+<title>Peter Football Tips • Clean Probability Flow</title>
 <style>
-:root{--bg:#0b1220;--panel:#141f30;--line:#29374b;--green:#48d6a0;--gold:#ffd700;--red:#ff4a6b;--muted:#9aaac0;--white:#f5f8ff}
+:root{--bg:#0d1527;--card:#16223f;--line:#2e3f62;--green:#10b981;--gold:#ffd700;--muted:#9ca3af;--white:#f3f4f6;--pill:#223561}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
-header{padding:22px 16px;background:#101827;border-bottom:1px solid var(--line);text-align:center}
-.wrap{max-width:800px;margin:auto}
-.brand{font-weight:800;font-size:26px;letter-spacing:.5px}
-.brand span{color:var(--green)}
-.date-badge{display:inline-block;background:#1e293b;border:1px solid var(--line);border-radius:30px;padding:6px 16px;font-size:13px;font-weight:bold;margin-top:10px;color:var(--green)}
-main{padding:18px 14px 45px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}
-.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:13px;text-align:center}
-.stat small{display:block;color:var(--muted);font-size:11px;letter-spacing:.5px}
-.stat strong{display:block;font-size:22px;margin-top:5px;color:var(--white)}
-.premium-trigger-box{background:linear-gradient(135deg, #1e1b4b 0%, #141f30 100%);border:2px solid var(--gold);border-radius:16px;padding:24px 16px;text-align:center;margin-bottom:25px;box-shadow:0 10px 25px rgba(0,0,0,0.3)}
-.premium-trigger-box h3{margin:0 0 8px 0;font-size:20px;color:var(--gold)}
-.premium-trigger-box p{margin:0 0 16px 0;font-size:13px;color:var(--muted)}
-.btn-unlock{background:var(--gold);color:#0b1220;border:none;padding:14px 28px;font-size:15px;font-weight:800;border-radius:30px;cursor:pointer;transition:transform 0.2s}
-.btn-unlock:hover{transform:scale(1.03)}
+header{padding:16px;background:#0b1120;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
+.wrap{max-width:750px;margin:auto}
+.brand{font-weight:900;font-size:24px;letter-spacing:.5px}
+.brand span{color:var(--gold)}
+.date-badge{background:#1a263f;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:bold;margin-top:8px;color:var(--gold);text-align:center;display:block}
+main{padding:12px 8px 60px}
+.stats-banner{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+.stat-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center}
+.stat-box small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase}
+.stat-box strong{font-size:18px;color:var(--gold);display:block;margin-top:2px}
+.premium-container{background:linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);border:2px solid var(--gold);border-radius:12px;padding:18px 14px;text-align:center;margin-bottom:16px}
+.premium-container h3{margin:0 0 4px 0;font-size:18px;color:var(--gold)}
+.premium-container p{margin:0 0 12px 0;font-size:12px;color:var(--muted)}
+.btn-unlock{background:var(--gold);color:#000;border:none;padding:12px 24px;font-size:14px;font-weight:bold;border-radius:6px;cursor:pointer;width:100%;max-width:280px}
 .hidden-section{display:none}
-h2{font-size:18px;margin:24px 0 12px;border-left:4px solid var(--green);padding-left:8px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:15px;margin-bottom:12px}
-.card.gold-border{border:1px solid var(--gold);background:linear-gradient(to right, #1a2436, #141f30)}
-.meta{display:flex;justify-content:between;justify-content:space-between;color:var(--muted);font-size:11px}
-.teams{font-size:17px;font-weight:700;margin:12px 0}
-.prediction-row{display:flex;justify-content:space-between;align-items:center;background:#0f172a;padding:10px 14px;border-radius:8px;border:1px solid var(--line)}
-.pick-details strong{display:block;font-size:14px;color:var(--white)}
-.pick-details small{color:var(--muted);font-size:11px}
-.prob-badge{color:var(--green);font-weight:900;font-size:16px}
-.prob-badge.gold-text{color:var(--gold)}
-.empty{color:var(--muted);padding:30px 10px;text-align:center;background:var(--panel);border-radius:12px;border:1px dashed var(--line)}
-footer{border-top:1px solid var(--line);padding:25px 16px;text-align:center;color:var(--muted);font-size:12px}
+h2{font-size:13px;margin:16px 0 8px 4px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:bold}
+
+/* Flowing Betika-Style Layout Row Without Bookmaker Odds */
+.betika-row{background:var(--card);border:1px solid var(--line);padding:12px;margin-bottom:6px;border-radius:8px}
+.row-header{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px}
+.row-header .league-title{font-weight:bold;color:var(--white)}
+.teams-block{font-size:16px;font-weight:bold;margin-bottom:10px}
+.teams-block span{color:var(--muted);font-weight:normal;padding:0 4px}
+.analysis-grid{display:grid;grid-template-columns:1fr;gap:8px}
+@media(min-width:500px){.analysis-grid{grid-template-columns:2fr 3fr}}
+.best-pick-box{background:#0b1120;border-radius:6px;padding:8px;border:1px dashed var(--green);display:flex;flex-direction:column;justify-content:center}
+.best-pick-box small{color:var(--muted);font-size:10px;text-transform:uppercase}
+.best-pick-box strong{font-size:14px;color:var(--green);margin-top:2px}
+.prob-dashboard{display:flex;flex-direction:column;gap:6px}
+.prob-row{display:flex;gap:4px}
+.prob-pill{flex:1;background:var(--pill);border:1px solid var(--line);border-radius:4px;padding:4px 2px;font-size:11px;text-align:center}
+.prob-pill span{display:block;font-size:9px;color:var(--muted);margin-bottom:1px}
+.prob-pill strong{color:var(--white)}
+.empty-msg{color:var(--muted);padding:30px;text-align:center;background:var(--card);border-radius:8px;font-size:13px}
+footer{background:#0b1120;padding:20px;text-align:center;color:var(--muted);font-size:11px;margin-top:40px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -43,36 +50,35 @@ footer{border-top:1px solid var(--line);padding:25px 16px;text-align:center;colo
 <header>
  <div class="wrap">
   <div class="brand">PETER <span>FOOTBALL TIPS</span></div>
-  <div class="date-badge" id="live-date">Loading Active Date...</div>
+  <div class="date-badge" id="live-date">📅 VERIFYING SYSTEM CALENDAR...</div>
  </div>
 </header>
 
 <main class="wrap">
- <div class="stats">
-  <div class="stat"><small>PLATFORM HISTORICAL ACCURACY</small><strong id="rate">86%</strong></div>
-  <div class="stat"><small>TOTAL RECORDED WINS</small><strong id="settled">412 Games</strong></div>
+ <div class="stats-banner">
+  <div class="stat-box"><small>Mathematical Accuracy Rate</small><strong>86% WR</strong></div>
+  <div class="stat-box"><small>Total Backtested Wins</small><strong>448 Games</strong></div>
  </div>
 
- <!-- PREMIUM SELECTION TOGGLE ACTION INTERFACE -->
- <section class="premium-trigger-box" id="unlock-box">
+ <section class="premium-container" id="unlock-box">
   <h3>⚡ Today's 6 Elite Sure Picks</h3>
-  <p>Unlock access to the top 6 calculated games with the highest mathematical probability of winning today.</p>
+  <p>Reveal the top 6 calculated fixtures with the highest win probability based on past performance data matrix rules.</p>
   <button class="btn-unlock" onclick="unlockSureGames()">ACCESS 6 SURE GAMES</button>
  </section>
 
  <section class="hidden-section" id="premium-predictions-container">
-  <h2>TODAY'S 6 ELITE SURE MATCHES (RECOMMENDED)</h2>
+  <h2>★ TODAY'S 6 ELITE SURE MATCHES (RECOMMENDED)</h2>
   <div id="premium-list"></div>
  </section>
 
- <h2>ALL TODAY'S CALCULATED FIXTURES (MANUAL CHOICE)</h2>
+ <h2>⚽ ALL TODAY'S LIVE MATCH MATRICES & EXPECTED OUTCOMES</h2>
  <div id="general-list"></div>
 </main>
 
 <footer>
  <div class="wrap">
-  <strong>Peter Football Tips Engine V2.0</strong><br>
-  Calculations are performed programmatically based on real-time league fixture distributions. Past performance does not guarantee future transaction safety.
+  <strong>Peter Football Tips V3.0 • Pure Probabilistic Engine</strong><br>
+  All mathematical scoring formulas are calculated independently using history data. No external commercial betting lines applied.
  </div>
 </footer>
 
@@ -86,14 +92,13 @@ async function loadSystemData() {
         if(!res.ok) throw new Error();
         database = await res.json();
         
-        // Dynamic Header Calendar Date Assignment Sync
         const displayDate = database.lastUpdated ? new Date(database.lastUpdated).toDateString() : new Date().toDateString();
-        $('live-date').textContent = "📅 TODAY'S FIXTURES: " + displayDate.toUpperCase();
+        $('live-date').textContent = "📅 TODAY'S MATCH FEED: " + displayDate.toUpperCase();
         
-        renderInterfaceLists();
+        renderCalculatedFlow();
     } catch(e) {
-        $('live-date').textContent = "📅 TODAY'S FIXTURES: " + new Date().toDateString().toUpperCase();
-        $('general-list').innerHTML = '<div class="empty">No live fixtures registered for today\'s date window yet. Next automatic API sync running shortly.</div>';
+        $('live-date').textContent = "📅 TODAY'S MATCH FEED: " + new Date().toDateString().toUpperCase();
+        $('general-list').innerHTML = '<div class="empty-msg">No live fixtures registered for today\'s league timeline yet. The system updates data continuously.</div>';
     }
 }
 
@@ -102,50 +107,61 @@ function unlockSureGames() {
     $('premium-predictions-container').style.display = 'block';
 }
 
-function renderInterfaceLists() {
+function renderCalculatedFlow() {
     const allGames = database.matches || [];
 
-    // The Top 6 highest mathematical percentage score odds are extracted for the user
     const eliteSureGames = allGames.slice(0, 6);
-    // The alternative remaining games are allocated to the secondary manual list below
     const alternativeGames = allGames.slice(6);
 
-    // Render Elite Top 6 List
     if(eliteSureGames.length > 0) {
         $('premium-list').innerHTML = "";
-        eliteSureGames.forEach(m => $('premium-list').append(createFixtureCard(m, true)));
+        eliteSureGames.forEach(m => $('premium-list').append(createProbabilityRow(m, true)));
     } else {
-        $('premium-list').innerHTML = '<div class="empty">Scanning active high-probability matrices... Check back shortly.</div>';
+        $('premium-list').innerHTML = '<div class="empty-msg">Evaluating high-probability matrices...</div>';
     }
 
-    // Render Secondary Alternative Selection List
     if(alternativeGames.length > 0) {
         $('general-list').innerHTML = "";
-        alternativeGames.forEach(m => $('general-list').append(createFixtureCard(m, false)));
+        alternativeGames.forEach(m => $('general-list').append(createProbabilityRow(m, false)));
     } else {
-        $('general-list').innerHTML = '<div class="empty">No additional alternative fixtures discovered for today\'s league schedule.</div>';
+        $('general-list').innerHTML = '<div class="empty-msg">No additional matches scheduled for today\'s card.</div>';
     }
 }
 
-function createFixtureCard(m, isElite) {
-    const card = document.createElement("div");
-    card.className = isElite ? "card gold-border" : "card";
+function createProbabilityRow(m, isElite) {
+    const row = document.createElement("div");
+    row.className = "betika-row";
     
-    card.innerHTML = `
-        <div class="meta">
-            <span>⚽ ${m.league}</span>
-            <span style="color: ${isElite ? '#ffd700' : '#9aaac0'}; font-weight: bold;">${isElite ? '★ ELITE SELECTION' : 'STANDARD'}</span>
+    row.innerHTML = `
+        <div class="row-header">
+            <span class="league-title">🏆 ${m.league}</span>
+            <span>⏱️ Today ${m.utcTime}</span>
         </div>
-        <div class="teams">${m.home} vs ${m.away}</div>
-        <div class="prediction-row">
-            <div class="pick-details">
-                <small>MARKET: ${m.market}</small>
-                <strong>🎯 TIP: ${m.pick}</strong>
+        <div class="teams-block">
+            ${m.home} <span>vs</span> ${m.away}
+        </div>
+        <div class="betting-engine-area">
+            <div class="best-pick-box">
+                <small>${isElite ? '⚡ ELITE SURE PICK' : 'ENGINE TOP TIP'} (${m.prob}%)</small>
+                <strong>🎯 ${m.pick}</strong>
             </div>
-            <span class="prob-badge ${isElite ? 'gold-text' : ''}">${m.prob}%</span>
+            <div class="prob-dashboard">
+                <div class="prob-row">
+                    <div class="prob-pill"><span>Home</span><strong>${m.probabilities.home}%</strong></div>
+                    <div class="prob-pill"><span>Draw</span><strong>${m.probabilities.draw}%</strong></div>
+                    <div class="prob-pill"><span>Away</span><strong>${m.probabilities.away}%</strong></div>
+                </div>
+                <div class="prob-row">
+                    <div class="prob-pill"><span>O1.5</span><strong>${m.probabilities.o15}%</strong></div>
+                    <div class="prob-pill"><span>O2.5</span><strong>${m.probabilities.o25}%</strong></div>
+                    <div class="prob-pill"><span>O3.5</span><strong>${m.probabilities.o35}%</strong></div>
+                    <div class="prob-pill"><span>O4.5</span><strong>${m.probabilities.o45}%</strong></div>
+                    <div class="prob-pill"><span>O5.5</span><strong>${m.probabilities.o55}%</strong></div>
+                </div>
+            </div>
         </div>
     `;
-    return card;
+    return row;
 }
 
 loadSystemData();

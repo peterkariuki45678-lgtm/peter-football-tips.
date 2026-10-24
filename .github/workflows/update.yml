@@ -7,39 +7,26 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   update-data:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
 
-      - name: Run Probability Calculations Script
-        env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
-        run: |
-          node update_predictions.js
+    - name: Run Probability Calculations Script
+      run: node update_predictions.js
 
-      - name: Upload Complete Project Assets
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-  deploy-site:
-    needs: update-data
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+    - name: Commit and Push Generated Predictions
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git add predictions.json
+        git diff-index --quiet HEAD || git commit -m "Automated update of safe match tips"
+        git push

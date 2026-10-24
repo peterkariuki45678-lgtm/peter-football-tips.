@@ -61,6 +61,7 @@ footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--
 <main class="wrap">
  <div class="stats-banner">
   <div class="stat-box"><small>Mathematical Win Rate</small><strong>86% WR</strong></div>
+  <div class="stats-banner"></div>
   <div class="stat-box"><small>Calculated Wins History</small><strong>448 Games</strong></div>
  </div>
 
@@ -101,11 +102,11 @@ const BACKUP_LOCAL_DATA = [
 async function loadSystemData() {
     try {
         const res = await fetch('./predictions.json?t=' + Date.now());
-        if(!res.ok) throw new Error("File not found");
+        if(!res.ok) throw new Error("File missing");
         const rawData = await res.json();
         database = Array.isArray(rawData) ? rawData : (rawData.matches || BACKUP_LOCAL_DATA);
     } catch(e) {
-        console.warn("Using local dataset fallback:", e.message);
+        console.warn("Using fallback script dataset arrays:", e.message);
         database = BACKUP_LOCAL_DATA;
     } finally {
         const displayDate = new Date().toDateString();
@@ -122,6 +123,7 @@ function unlockSureGames() {
 function toggleAnalysisPanel(matchId) {
     const panel = document.getElementById('panel-' + matchId);
     const button = document.getElementById('btn-' + matchId);
+    if (!panel || !button) return;
     
     if (panel.style.display === 'block') {
         panel.style.display = 'none';
@@ -184,4 +186,3 @@ function createBetikaInteractiveRow(m, uniqueId) {
                 <div>${homeTeam}</div>
                 <div>${awayTeam}</div>
             </div>
-            <div class="interactive-action-box">

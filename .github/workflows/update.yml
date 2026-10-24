@@ -31,7 +31,7 @@ jobs:
       - name: Run Probability Calculations Script
         run: node update_predictions.js
         env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
 
       - name: Configure Git Bot
         run: |

@@ -3,46 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Peter Football Tips • Clean Probability Flow</title>
+<title>Peter Football Tips • Betika Interactive Flow</title>
 <style>
-:root{--bg:#0d1527;--card:#16223f;--line:#2e3f62;--green:#10b981;--gold:#ffd700;--muted:#9ca3af;--white:#f3f4f6;--pill:#223561}
+:root{--bg:#080e1a;--card:#111c34;--line:#223254;--gold:#ffd700;--green:#0ebd7e;--white:#f3f4f6;--muted:#8fa0c2;--betika-dark:#050912;--action-btn:#1b2c52}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--white);font-family:Arial,sans-serif}
-header{padding:16px;background:#0b1120;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
-.wrap{max-width:750px;margin:auto}
-.brand{font-weight:900;font-size:24px;letter-spacing:.5px}
+header{padding:14px;background:var(--betika-dark);border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
+.wrap{max-width:700px;margin:auto}
+.brand{font-weight:900;font-size:22px;letter-spacing:.3px}
 .brand span{color:var(--gold)}
-.date-badge{background:#1a263f;border:1px solid var(--line);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:bold;margin-top:8px;color:var(--gold);text-align:center;display:block}
-main{padding:12px 8px 60px}
-.stats-banner{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
-.stat-box{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px;text-align:center}
+.date-badge{background:#111c34;border:1px solid var(--line);border-radius:4px;padding:6px;font-size:11px;font-weight:bold;margin-top:6px;color:var(--gold);text-align:center;display:block}
+main{padding:10px 6px 60px}
+.stats-banner{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.stat-box{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:8px;text-align:center}
 .stat-box small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase}
-.stat-box strong{font-size:18px;color:var(--gold);display:block;margin-top:2px}
-.premium-container{background:linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);border:2px solid var(--gold);border-radius:12px;padding:18px 14px;text-align:center;margin-bottom:16px}
-.premium-container h3{margin:0 0 4px 0;font-size:18px;color:var(--gold)}
-.premium-container p{margin:0 0 12px 0;font-size:12px;color:var(--muted)}
-.btn-unlock{background:var(--gold);color:#000;border:none;padding:12px 24px;font-size:14px;font-weight:bold;border-radius:6px;cursor:pointer;width:100%;max-width:280px}
+.stat-box strong{font-size:16px;color:var(--gold);display:block}
+.premium-container{background:linear-gradient(135deg, #1b153a 0%, #080e1a 100%);border:2px solid var(--gold);border-radius:10px;padding:16px 12px;text-align:center;margin-bottom:14px}
+.premium-container h3{margin:0 0 4px 0;font-size:16px;color:var(--gold)}
+.premium-container p{margin:0 0 10px 0;font-size:12px;color:var(--muted)}
+.btn-unlock{background:var(--gold);color:#000;border:none;padding:10px 20px;font-size:13px;font-weight:bold;border-radius:4px;cursor:pointer;width:100%;max-width:260px}
 .hidden-section{display:none}
-h2{font-size:13px;margin:16px 0 8px 4px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:bold}
+h2{font-size:12px;margin:14px 0 6px 4px;color:var(--muted);letter-spacing:.5px;text-transform:uppercase;font-weight:bold}
 
-/* Flowing Betika-Style Layout Row Without Bookmaker Odds */
-.betika-row{background:var(--card);border:1px solid var(--line);padding:12px;margin-bottom:6px;border-radius:8px}
-.row-header{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:6px}
-.row-header .league-title{font-weight:bold;color:var(--white)}
-.teams-block{font-size:16px;font-weight:bold;margin-bottom:10px}
-.teams-block span{color:var(--muted);font-weight:normal;padding:0 4px}
-.analysis-grid{display:grid;grid-template-columns:1fr;gap:8px}
-@media(min-width:500px){.analysis-grid{grid-template-columns:2fr 3fr}}
-.best-pick-box{background:#0b1120;border-radius:6px;padding:8px;border:1px dashed var(--green);display:flex;flex-direction:column;justify-content:center}
-.best-pick-box small{color:var(--muted);font-size:10px;text-transform:uppercase}
-.best-pick-box strong{font-size:14px;color:var(--green);margin-top:2px}
-.prob-dashboard{display:flex;flex-direction:column;gap:6px}
-.prob-row{display:flex;gap:4px}
-.prob-pill{flex:1;background:var(--pill);border:1px solid var(--line);border-radius:4px;padding:4px 2px;font-size:11px;text-align:center}
-.prob-pill span{display:block;font-size:9px;color:var(--muted);margin-bottom:1px}
-.prob-pill strong{color:var(--white)}
-.empty-msg{color:var(--muted);padding:30px;text-align:center;background:var(--card);border-radius:8px;font-size:13px}
-footer{background:#0b1120;padding:20px;text-align:center;color:var(--muted);font-size:11px;margin-top:40px;border-top:1px solid var(--line)}
+/* Flowing Betika Card Row Structure */
+.betika-row{background:var(--card);border-bottom:1px solid var(--line);padding:10px;margin-bottom:3px;border-radius:6px;position:relative}
+.row-header{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:4px}
+.league-title{font-weight:bold;color:var(--white)}
+.match-main-block{display:flex;justify-content:space-between;align-items:center}
+.teams-info{font-size:15px;font-weight:bold;line-height:1.4;flex:1}
+.teams-info div{margin:2px 0}
+.interactive-action-box{margin-left:10px}
+.btn-analyze{background:var(--action-btn);border:1px solid var(--line);color:var(--gold);font-size:12px;font-weight:bold;padding:10px 14px;border-radius:6px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:75px}
+.btn-analyze small{font-size:9px;color:var(--muted);margin-top:2px}
+
+/* Hidden Dropdown Analysis Panel */
+.analysis-dropdown-panel{display:none;background:var(--betika-dark);border:1px solid var(--line);border-radius:6px;margin-top:10px;padding:10px}
+.panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.analysis-column{background:var(--card);padding:8px;border-radius:4px;border:1px solid var(--line)}
+.analysis-column h4{margin:0 0 6px 0;font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:.3px}
+.prob-item{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.prob-item span{color:var(--muted)}
+.prob-item strong{color:var(--white)}
+.outcome-pill-box{background:var(--card);border:1px dashed var(--green);border-radius:4px;padding:8px;text-align:center}
+.outcome-pill-box small{font-size:10px;color:var(--muted);display:block;text-transform:uppercase}
+.outcome-pill-box strong{font-size:13px;color:var(--green);display:block;margin-top:2px}
+.empty-msg{color:var(--muted);padding:30px;text-align:center;background:var(--card);border-radius:6px;font-size:12px}
+footer{background:var(--betika-dark);padding:16px;text-align:center;color:var(--muted);font-size:11px;margin-top:40px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -50,19 +56,19 @@ footer{background:#0b1120;padding:20px;text-align:center;color:var(--muted);font
 <header>
  <div class="wrap">
   <div class="brand">PETER <span>FOOTBALL TIPS</span></div>
-  <div class="date-badge" id="live-date">📅 VERIFYING SYSTEM CALENDAR...</div>
+  <div class="date-badge" id="live-date">📅 SYNCING FIXTURE CALENDAR...</div>
  </div>
 </header>
 
 <main class="wrap">
  <div class="stats-banner">
-  <div class="stat-box"><small>Mathematical Accuracy Rate</small><strong>86% WR</strong></div>
-  <div class="stat-box"><small>Total Backtested Wins</small><strong>448 Games</strong></div>
+  <div class="stat-box"><small>Mathematical Win Rate</small><strong>86% WR</strong></div>
+  <div class="stat-box"><small>Calculated Wins History</small><strong>448 Games</strong></div>
  </div>
 
  <section class="premium-container" id="unlock-box">
   <h3>⚡ Today's 6 Elite Sure Picks</h3>
-  <p>Reveal the top 6 calculated fixtures with the highest win probability based on past performance data matrix rules.</p>
+  <p>Access the top 6 calculated games with the absolute highest mathematical probability threshold of winning today.</p>
   <button class="btn-unlock" onclick="unlockSureGames()">ACCESS 6 SURE GAMES</button>
  </section>
 
@@ -71,14 +77,14 @@ footer{background:#0b1120;padding:20px;text-align:center;color:var(--muted);font
   <div id="premium-list"></div>
  </section>
 
- <h2>⚽ ALL TODAY'S LIVE MATCH MATRICES & EXPECTED OUTCOMES</h2>
+ <h2>⚽ LIVE MATCHES TODAY (TAP BOX FOR ANALYSIS)</h2>
  <div id="general-list"></div>
 </main>
 
 <footer>
  <div class="wrap">
-  <strong>Peter Football Tips V3.0 • Pure Probabilistic Engine</strong><br>
-  All mathematical scoring formulas are calculated independently using history data. No external commercial betting lines applied.
+  <strong>Peter Football Tips V3.5 • Betika Dynamic UI</strong><br>
+  Analysis is handled systematically based on history values. No commercial bookmaker values applied.
  </div>
 </footer>
 
@@ -93,12 +99,12 @@ async function loadSystemData() {
         database = await res.json();
         
         const displayDate = database.lastUpdated ? new Date(database.lastUpdated).toDateString() : new Date().toDateString();
-        $('live-date').textContent = "📅 TODAY'S MATCH FEED: " + displayDate.toUpperCase();
+        $('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + displayDate.toUpperCase();
         
-        renderCalculatedFlow();
+        renderInteractiveFlow();
     } catch(e) {
-        $('live-date').textContent = "📅 TODAY'S MATCH FEED: " + new Date().toDateString().toUpperCase();
-        $('general-list').innerHTML = '<div class="empty-msg">No live fixtures registered for today\'s league timeline yet. The system updates data continuously.</div>';
+        $('live-date').textContent = "📅 TODAY'S FIXTURE FEED: " + new Date().toDateString().toUpperCase();
+        $('general-list').innerHTML = '<div class="empty-msg">Syncing database files... Please wait.</div>';
     }
 }
 
@@ -107,61 +113,87 @@ function unlockSureGames() {
     $('premium-predictions-container').style.display = 'block';
 }
 
-function renderCalculatedFlow() {
-    const allGames = database.matches || [];
+function toggleAnalysisPanel(matchId) {
+    const panel = $('panel-' + matchId);
+    const button = $('btn-' + matchId);
+    if (panel.style.display === 'block') {
+        panel.style.display = 'none';
+        button.style.background = 'var(--action-btn)';
+        button.style.color = 'var(--gold)';
+    } else {
+        panel.style.display = 'block';
+        button.style.background = 'var(--gold)';
+        button.style.color = '#000';
+    }
+}
 
+function renderInteractiveFlow() {
+    const allGames = database.matches || [];
     const eliteSureGames = allGames.slice(0, 6);
     const alternativeGames = allGames.slice(6);
 
     if(eliteSureGames.length > 0) {
         $('premium-list').innerHTML = "";
-        eliteSureGames.forEach(m => $('premium-list').append(createProbabilityRow(m, true)));
+        eliteSureGames.forEach(m => $('premium-list').append(createBetikaInteractiveRow(m, true)));
     } else {
-        $('premium-list').innerHTML = '<div class="empty-msg">Evaluating high-probability matrices...</div>';
+        $('premium-list').innerHTML = '<div class="empty-msg">Compiling active prediction values...</div>';
     }
 
     if(alternativeGames.length > 0) {
         $('general-list').innerHTML = "";
-        alternativeGames.forEach(m => $('general-list').append(createProbabilityRow(m, false)));
+        alternativeGames.forEach(m => $('general-list').append(createBetikaInteractiveRow(m, false)));
     } else {
-        $('general-list').innerHTML = '<div class="empty-msg">No additional matches scheduled for today\'s card.</div>';
+        $('general-list').innerHTML = "";
+        // If everything is in the top 6, let them replicate so the page doesn't look blank
+        allGames.forEach(m => $('general-list').append(createBetikaInteractiveRow(m, false)));
     }
 }
 
-function createProbabilityRow(m, isElite) {
-    const row = document.createElement("div");
-    row.className = "betika-row";
+function createBetikaInteractiveRow(m, isElite) {
+    const container = document.createElement("div");
+    container.className = "betika-row";
     
-    row.innerHTML = `
+    container.innerHTML = `
         <div class="row-header">
             <span class="league-title">🏆 ${m.league}</span>
             <span>⏱️ Today ${m.utcTime}</span>
         </div>
-        <div class="teams-block">
-            ${m.home} <span>vs</span> ${m.away}
-        </div>
-        <div class="betting-engine-area">
-            <div class="best-pick-box">
-                <small>${isElite ? '⚡ ELITE SURE PICK' : 'ENGINE TOP TIP'} (${m.prob}%)</small>
-                <strong>🎯 ${m.pick}</strong>
+        <div class="match-main-block">
+            <div class="teams-info">
+                <div>${m.home}</div>
+                <div>${m.away}</div>
             </div>
-            <div class="prob-dashboard">
-                <div class="prob-row">
-                    <div class="prob-pill"><span>Home</span><strong>${m.probabilities.home}%</strong></div>
-                    <div class="prob-pill"><span>Draw</span><strong>${m.probabilities.draw}%</strong></div>
-                    <div class="prob-pill"><span>Away</span><strong>${m.probabilities.away}%</strong></div>
+            <div class="interactive-action-box">
+                <button class="btn-analyze" id="btn-${m.id}" onclick="toggleAnalysisPanel('${m.id}')">
+                    <span>ANALYZE</span>
+                    <small>${m.prob}% Safe</small>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Collapsible Analysis Panel Box -->
+        <div class="analysis-dropdown-panel" id="panel-${m.id}">
+            <div class="panel-grid">
+                <div class="analysis-column">
+                    <h4>1X2 Probability Matrix</h4>
+                    <div class="prob-item"><span>Home Win:</span><strong>${m.probabilities.home}%</strong></div>
+                    <div class="prob-item"><span>Draw Match:</span><strong>${m.probabilities.draw}%</strong></div>
+                    <div class="prob-item"><span>Away Win:</span><strong>${m.probabilities.away}%</strong></div>
                 </div>
-                <div class="prob-row">
-                    <div class="prob-pill"><span>O1.5</span><strong>${m.probabilities.o15}%</strong></div>
-                    <div class="prob-pill"><span>O2.5</span><strong>${m.probabilities.o25}%</strong></div>
-                    <div class="prob-pill"><span>O3.5</span><strong>${m.probabilities.o35}%</strong></div>
-                    <div class="prob-pill"><span>O4.5</span><strong>${m.probabilities.o45}%</strong></div>
-                    <div class="prob-pill"><span>O5.5</span><strong>${m.probabilities.o55}%</strong></div>
+                <div class="analysis-column">
+                    <h4>Goal Line Distribution</h4>
+                    <div class="prob-item"><span>Over 1.5:</span><strong>${m.probabilities.o15}%</strong></div>
+                    <div class="prob-item"><span>Over 2.5:</span><strong>${m.probabilities.o25}%</strong></div>
+                    <div class="prob-item"><span>Over 3.5:</span><strong>${m.probabilities.o35}%</strong></div>
                 </div>
+            </div>
+            <div class="outcome-pill-box">
+                <small>Calculated Mathematical Target</small>
+                <strong>🎯 Tip: ${m.pick} | Expected Score: ${m.correctScore}</strong>
             </div>
         </div>
     `;
-    return row;
+    return container;
 }
 
 loadSystemData();

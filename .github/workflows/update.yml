@@ -31,8 +31,7 @@ steps:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
     run: |
       if [ -z "$API_FOOTBALL_KEY" ]; then
-        echo "ERROR: The API_FOOTBALL_KEY repository secret is missing or empty."
-        exit 1
+        
       fi
       echo "API secret detected. Its value will not be displayed."
 

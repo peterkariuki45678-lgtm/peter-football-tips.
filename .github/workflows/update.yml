@@ -2,9 +2,9 @@
 name: Peter Football Tips Data Update
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 5 * * *'
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,15 +28,26 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Run Probability Calculations Script
-        run: node update_predictions.js
+      - name: Check API Secret
         env:
           FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: |
+          if [ -z "$FOOTBALL_API_KEY" ]; then
+            echo "ERROR: GitHub did not provide the API secret."
+            exit 1
+          else
+            echo "SUCCESS: API secret is available to this workflow."
+          fi
+
+      - name: Run Probability Calculations Script
+        env:
+          FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: node update_predictions.js
 
       - name: Configure Git Bot
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and Push Generated Predictions
         run: |

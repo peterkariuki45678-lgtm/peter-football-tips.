@@ -26,12 +26,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Run Probability Calculations Script
         run: node update_predictions.js
         env:
-          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
 
       - name: Configure Git Bot
         run: |
@@ -41,7 +41,7 @@ jobs:
       - name: Commit and Push Generated Predictions
         run: |
           git add predictions.json
-          git diff-index --quiet HEAD || git commit -m "Automated update of football predictions"
+          git diff --cached --quiet || git commit -m "Update football predictions"
           git push
 
       - name: Setup Pages

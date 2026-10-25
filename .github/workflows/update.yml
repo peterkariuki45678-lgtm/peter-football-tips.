@@ -19,21 +19,49 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
+      - name: Verify required files
+        run: |
+          echo "Repository directory:"
+          pwd
+          echo "Files in repository:"
+          ls -la
+          test -f update-predictions.js || {
+            echo "ERROR: update-predictions.js not found in repository root"
+            exit 1
+          }
+
       - name: Run prediction updater
+        working-directory: ${{ github.workspace }}
         env:
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: node update-predictions.js
+        run: node ./update-predictions.js
+
+      - name: Verify predictions file
+        run: |
+          if [ ! -f predictions.json ]; then
+            echo "ERROR: predictions.json was not generated in repository root"
+            exit 1
+          fi
+          echo "predictions.json exists."
+          cat predictions.json
 
       - name: Commit updated predictions
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add predictions.json
-          git diff --cached --quiet || git commit -m "Update football predictions"
-          git push
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Update football predictions"
+            git push origin HEAD:main
+          fi

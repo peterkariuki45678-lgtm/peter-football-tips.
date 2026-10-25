@@ -12,43 +12,43 @@ permissions:
 contents: write
 
 jobs:
-update-predictions:
+update:
 runs-on: ubuntu-latest
 
 steps:
-  - name: Checkout Repository
+  - name: Checkout repository
     uses: actions/checkout@v4
     with:
       persist-credentials: true
 
-  - name: Set Up Node.js
+  - name: Set up Node.js
     uses: actions/setup-node@v4
     with:
       node-version: "20"
 
-  - name: Check API Secret
+  - name: Verify API secret
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
     run: |
       if [ -z "$API_FOOTBALL_KEY" ]; then
-        echo "ERROR: API_FOOTBALL_KEY secret is missing or empty."
+        echo "ERROR: The API_FOOTBALL_KEY repository secret is missing or empty."
         exit 1
       fi
-      echo "API secret is available."
+      echo "API secret detected. Its value will not be displayed."
 
-  - name: Run Probability Calculations Script
+  - name: Run predictions
     env:
       API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
       FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
     run: node update_predictions.js
 
-  - name: Commit and Push Updated Predictions
+  - name: Save updated predictions
     run: |
       git config user.name "github-actions[bot]"
       git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      git add predictions.json
+      git add -A
       if git diff --cached --quiet; then
-        echo "No prediction changes to commit."
+        echo "No file changes to commit."
       else
         git commit -m "Update football predictions"
         git push

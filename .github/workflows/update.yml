@@ -1,67 +1,55 @@
-
-name: Peter Football Tips Data Update
+name: Update Football Predictions
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 5 * * *'
+workflow_dispatch:
+push:
+branches:
+- main
+schedule:
+- cron: "0 */6 * * *"
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
+contents: write
 
 jobs:
-  update-data:
-    runs-on: ubuntu-latest
+update-predictions:
+runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+steps:
+  - name: Checkout Repository
+    uses: actions/checkout@v4
+    with:
+      persist-credentials: true
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+  - name: Set Up Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: "20"
 
-      - name: Check API Secret
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: |
-          if [ -z "$API_FOOTBALL_KEY" ]; then
-            echo "ERROR: GitHub did not provide the API secret."
-            exit 1
-          else
-            echo "SUCCESS: API secret is available to this workflow."
-          fi
+  - name: Check API Secret
+    env:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+    run: |
+      if [ -z "$API_FOOTBALL_KEY" ]; then
+        echo "ERROR: API_FOOTBALL_KEY secret is missing or empty."
+        exit 1
+      fi
+      echo "API secret is available."
 
-      - name: Run Probability Calculations Script
-        env:
-          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: node update_predictions.js
+  - name: Run Probability Calculations Script
+    env:
+      API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+      FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+    run: node update_predictions.js
 
-      - name: Configure Git Bot
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and Push Generated Predictions
-        run: |
-          git add predictions.json
-          git diff --cached --quiet || git commit -m "Update football predictions"
-          git push
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+  - name: Commit and Push Updated Predictions
+    run: |
+      git config user.name "github-actions[bot]"
+      git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      git add predictions.json
+      if git diff --cached --quiet; then
+        echo "No prediction changes to commit."
+      else
+        git commit -m "Update football predictions"
+        git push
+      fi

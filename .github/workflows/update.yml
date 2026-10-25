@@ -30,9 +30,9 @@ jobs:
 
       - name: Check API Secret
         env:
-          FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: |
-          if [ -z "$FOOTBALL_API_KEY" ]; then
+          if [ -z "$API_FOOTBALL_KEY" ]; then
             echo "ERROR: GitHub did not provide the API secret."
             exit 1
           else
@@ -41,7 +41,7 @@ jobs:
 
       - name: Run Probability Calculations Script
         env:
-          FOOTBALL_API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: node update_predictions.js
 
       - name: Configure Git Bot

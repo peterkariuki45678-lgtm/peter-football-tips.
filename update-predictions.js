@@ -10,8 +10,8 @@ async function runAggregatorEngine() {
 
         console.log('Running Calculation Engine for Date: ' + formattedDate);
 
-        // Hard-concatenated URL to guarantee NO string injection bugs
-        const url = 'https://openligadb.de' + yyyy;
+        // HARDCODED API ENDPOINT URL - No brackets or string concatenation templates
+        const url = 'https://openligadb.de';
         console.log('Fetching from URL: ' + url);
         
         const response = await fetch(url);
@@ -62,7 +62,7 @@ async function runAggregatorEngine() {
                 confidence: confidenceScore + "%",
                 homePercent: homeProbability + "%",
                 drawPercent: drawProbability + "%",
-                awayPercent: awayProbability + "%"
+                awayPercent: awayPercent = awayProbability + "%"
             };
         });
 

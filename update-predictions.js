@@ -8,20 +8,31 @@ async function runAggregatorEngine() {
         const dd = String(today.getDate()).padStart(2, '0');
         const formattedDate = yyyy + '-' + mm + '-' + dd;
 
-        console.log('Running Calculation Engine for Date: ' + formattedDate);
+        console.log('Running Multi-League Engine for Date: ' + formattedDate);
 
-        // Fixed clear endpoint target
-        const url = 'https://api.openligadb.de/getmatchdata/bl1/' + yyyy;
-        console.log('Fetching from URL: ' + url);
-        
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
-        
-        const matches = await response.json();
-        console.log("Total entries pulled from feed: " + matches.length);
+        // List of different league shortcuts from the open database
+        const leagues = ['bl1', 'bl2', 'bl3', 'dfb']; 
+        let allMatches = [];
 
-        // Filter and isolate matches occurring on this calendar date
-        const todaysMatches = matches.filter(match => match.matchDateTime && match.matchDateTime.startsWith(formattedDate));
+        // Loop through leagues to pull matches
+        for (const league of leagues) {
+            const url = 'https://openligadb.de' + league + '/' + yyyy;
+            console.log('Fetching league: ' + league);
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const data = await response.json();
+                    allMatches = allMatches.concat(data);
+                }
+            } catch (e) {
+                console.log('Skipping ' + league + ' due to network pause');
+            }
+        }
+
+        console.log("Total database entries pulled: " + allMatches.length);
+
+        // Filter to isolate matches occurring on this calendar date
+        const todaysMatches = allMatches.filter(match => match.matchDateTime && match.matchDateTime.startsWith(formattedDate));
 
         const finalizedPredictions = todaysMatches.map(match => {
             const homeForm = match.team1.points || 65;
@@ -55,7 +66,6 @@ async function runAggregatorEngine() {
                 confidenceScore = 85;
             }
 
-            // FIXED LINE: Cleaned up mapping syntax assignments
             return {
                 homeTeam: match.team1.teamName,
                 awayTeam: match.team2.teamName,

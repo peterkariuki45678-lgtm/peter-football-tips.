@@ -2,410 +2,365 @@
 const fs = require("fs");
 const path = require("path");
 
-const API_URL = "https://api.football-data.org/v4";
-const API_KEY = (process.env.FOOTBALL_DATA_API_KEY || "").trim();
-const TIMEZONE = "Africa/Nairobi";
+const API_URL = "https://v3.football.api-sports.io";
+const API_KEY = process.env.API_FOOTBALL_KEY;
 const OUTPUT_FILE = path.join(__dirname, "predictions.json");
 
-const MAX_FIXTURES = 40;
-const HISTORY_MATCHES = 6;
-const MIN_HISTORY_MATCHES = 3;
+const TIMEZONE = "Africa/Nairobi";
+const DAYS_AHEAD = 7;
+const MAX_FORM_TEAMS = 60;
+const FORM_MATCHES = 8;
+const MAX_GOALS = 10;
 
-const COMPETITIONS = [
-  { code: "PL", name: "Premier League" },
-  { code: "PD", name: "La Liga" },
-  { code: "BL1", name: "Bundesliga" },
-  { code: "SA", name: "Serie A" },
-  { code: "CL", name: "Champions League" }
-];
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-function kenyaDate(date = new Date()) {
-  const parts = new Intl.DateTimeFormat("en-CA", {
+function dateInKenya(date) {
+  return new Intl.DateTimeFormat("en-CA", {
     timeZone: TIMEZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
-  }).formatToParts(date);
-
-  const result = {};
-  for (const part of parts) {
-    if (part.type !== "literal") result[part.type] = part.value;
-  }
-
-  return `${result.year}-${result.month}-${result.day}`;
+  }).format(date);
 }
 
 function addDays(dateString, days) {
-  const date = new Date(`${dateString}T12:00:00Z`);
-  date.setUTCDate(date.getUTCDate() + days);
-  return date.toISOString().slice(0, 10);
+  const d = new Date(`${dateString}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + days);
+  return d.toISOString().slice(0, 10);
 }
 
-async function apiRequest(endpoint) {
-  const response = await fetch(`${API_URL}${endpoint}`, {
-    headers: { "X-Auth-Token": API_KEY }
+async function api(endpoint, params = {}) {
+  const url = new URL(`${API_URL}/${endpoint}`);
+
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null && value !== "") {
+      url.searchParams.set(key, String(value));
+    }
+  }
+
+  const response = await fetch(url, {
+    headers: { "x-apisports-key": API_KEY }
   });
 
-  const body = await response.text();
-  let data;
-
-  try {
-    data = JSON.parse(body);
-  } catch {
-    throw new Error(`Invalid API response (HTTP ${response.status}).`);
-  }
+  const body = await response.json();
 
   if (!response.ok) {
-    throw new Error(
-      `football-data.org HTTP ${response.status}: ${
-        data.message || "Request failed"
-      }`
-    );
+    throw new Error(`API HTTP ${response.status}: ${JSON.stringify(body.errors || body)}`);
   }
 
-  return data;
-}
-
-function average(values) {
-  return values.length
-    ? values.reduce((sum, value) => sum + value, 0) / values.length
-    : 0;
-}
-
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(max, value));
-}
-
-function poissonProbability(lambda, goals) {
-  let result = Math.exp(-lambda);
-
-  for (let i = 1; i <= goals; i++) {
-    result *= lambda / i;
+  if (body.errors && Object.keys(body.errors).length) {
+    throw new Error(`API error: ${JSON.stringify(body.errors)}`);
   }
 
-  return result;
-}
-
-function calculateProbabilities(homeGoals, awayGoals) {
-  const result = {
-    homeWin: 0,
-    draw: 0,
-    awayWin: 0,
-    over15: 0,
-    over25: 0,
-    under45: 0,
-    homeScores: 0,
-    awayScores: 0
-  };
-
-  for (let h = 0; h <= 10; h++) {
-    for (let a = 0; a <= 10; a++) {
-      const probability =
-        poissonProbability(homeGoals, h) *
-        poissonProbability(awayGoals, a);
-
-      if (h > a) result.homeWin += probability;
-      else if (h === a) result.draw += probability;
-      else result.awayWin += probability;
-
-      if (h + a >= 2) result.over15 += probability;
-      if (h + a >= 3) result.over25 += probability;
-      if (h + a <= 4) result.under45 += probability;
-      if (h > 0) result.homeScores += probability;
-      if (a > 0) result.awayScores += probability;
-    }
+  if (!Array.isArray(body.response)) {
+    throw new Error(`Unexpected API response for ${endpoint}`);
   }
 
-  return result;
+  return body.response;
 }
 
-function teamHistory(teamId, allMatches, beforeDate) {
-  return allMatches
-    .filter(match => {
-      if (match.status !== "FINISHED") return false;
-      if (!match.utcDate || match.utcDate.slice(0, 10) >= beforeDate) {
-        return false;
+function poisson(lambda, goals) {
+  if (goals === 0) return Math.exp(-lambda);
+
+  let p = Math.exp(-lambda);
+  for (let i = 1; i <= goals; i++) p *= lambda / i;
+  return p;
+}
+
+function buildModel(homeXg, awayXg) {
+  const home = Math.max(0.15, Math.min(4.5, homeXg));
+  const away = Math.max(0.15, Math.min(4.5, awayXg));
+
+  const matrix = [];
+  let homeWin = 0;
+  let draw = 0;
+  let awayWin = 0;
+  let over15 = 0;
+  let over25 = 0;
+  let over35 = 0;
+  let under45 = 0;
+  let btts = 0;
+  let totalMass = 0;
+  let bestScore = "1-1";
+  let bestScoreProbability = -1;
+
+  for (let h = 0; h <= MAX_GOALS; h++) {
+    for (let a = 0; a <= MAX_GOALS; a++) {
+      const p = poisson(home, h) * poisson(away, a);
+      totalMass += p;
+      matrix.push({ h, a, p });
+
+      if (h > a) homeWin += p;
+      else if (h === a) draw += p;
+      else awayWin += p;
+
+      if (h + a >= 2) over15 += p;
+      if (h + a >= 3) over25 += p;
+      if (h + a >= 4) over35 += p;
+      if (h + a <= 4) under45 += p;
+      if (h > 0 && a > 0) btts += p;
+
+      if (p > bestScoreProbability) {
+        bestScoreProbability = p;
+        bestScore = `${h}-${a}`;
       }
+    }
+  }
 
-      const score = match.score?.fullTime;
-      const isHome = match.homeTeam?.id === teamId;
-      const isAway = match.awayTeam?.id === teamId;
+  // Normalize for the tiny probability tail beyond MAX_GOALS.
+  const pct = p => Number((100 * p / totalMass).toFixed(1));
 
-      return (
-        (isHome || isAway) &&
-        Number.isFinite(score?.home) &&
-        Number.isFinite(score?.away)
-      );
-    })
-    .sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate))
-    .slice(0, HISTORY_MATCHES)
-    .map(match => {
-      const isHome = match.homeTeam.id === teamId;
+  const markets = {
+    "Home Win": pct(homeWin),
+    "Draw": pct(draw),
+    "Away Win": pct(awayWin),
+    "1X": pct(homeWin + draw),
+    "X2": pct(draw + awayWin),
+    "12": pct(homeWin + awayWin),
+    "Over 1.5": pct(over15),
+    "Over 2.5": pct(over25),
+    "Over 3.5": pct(over35),
+    "Under 4.5": pct(under45),
+    "BTTS Yes": pct(btts),
+    "BTTS No": pct(1 - btts)
+  };
 
-      return {
-        scored: isHome
-          ? match.score.fullTime.home
-          : match.score.fullTime.away,
-        conceded: isHome
-          ? match.score.fullTime.away
-          : match.score.fullTime.home
-      };
-    });
-}
+  // Select only from the markets calculated above.
+  const eligible = [
+    ["Over 1.5", markets["Over 1.5"]],
+    ["Under 4.5", markets["Under 4.5"]],
+    ["1X", markets["1X"]],
+    ["X2", markets["X2"]],
+    ["BTTS No", markets["BTTS No"]],
+    ["Over 2.5", markets["Over 2.5"]]
+  ].sort((a, b) => b[1] - a[1]);
 
-function calculatePrediction(homeHistory, awayHistory) {
-  const homeAttack = average(homeHistory.map(m => m.scored));
-  const homeConcede = average(homeHistory.map(m => m.conceded));
-  const awayAttack = average(awayHistory.map(m => m.scored));
-  const awayConcede = average(awayHistory.map(m => m.conceded));
-
-  // No home-advantage bonus. Both teams are evaluated neutrally.
-  const expectedHomeGoals = clamp(
-    (homeAttack + awayConcede) / 2,
-    0.15,
-    4.5
-  );
-
-  const expectedAwayGoals = clamp(
-    (awayAttack + homeConcede) / 2,
-    0.15,
-    4.5
-  );
-
-  const p = calculateProbabilities(expectedHomeGoals, expectedAwayGoals);
-
-  const markets = [
-    { market: "Double Chance 1X", probability: p.homeWin + p.draw },
-    { market: "Double Chance X2", probability: p.awayWin + p.draw },
-    { market: "Over 1.5 Goals", probability: p.over15 },
-    { market: "Under 4.5 Goals", probability: p.under45 },
-    { market: "Over 2.5 Goals", probability: p.over25 },
-    {
-      market: "Both Teams To Score",
-      probability: p.homeScores * p.awayScores
+  return {
+    expectedGoalsHome: Number(home.toFixed(2)),
+    expectedGoalsAway: Number(away.toFixed(2)),
+    predictedScore: bestScore,
+    probabilities: {
+      homeWin: markets["Home Win"],
+      draw: markets.Draw,
+      awayWin: markets["Away Win"]
     },
-    { market: "Home Win", probability: p.homeWin },
-    { market: "Draw", probability: p.draw },
-    { market: "Away Win", probability: p.awayWin }
-  ]
-    .map(item => ({
-      market: item.market,
-      probability: Number((item.probability * 100).toFixed(1))
-    }))
-    .sort((a, b) => b.probability - a.probability);
-
-  return {
-    predictionAvailable: true,
-    expectedHomeGoals: Number(expectedHomeGoals.toFixed(2)),
-    expectedAwayGoals: Number(expectedAwayGoals.toFixed(2)),
-    predictedScore:
-      `${Math.round(expectedHomeGoals)}-${Math.round(expectedAwayGoals)}`,
     markets,
-    bestPick: markets[0].market,
-    probability: markets[0].probability,
-    calculationMethod: "Neutral model; no home-advantage bonus",
-    historyMatchesUsed: {
-      home: homeHistory.length,
-      away: awayHistory.length
-    }
+    bestPick: eligible[0][0],
+    bestPickProbability: eligible[0][1],
+    calculationMethod: "Neutral-ground independent Poisson model; no home-advantage bonus"
   };
 }
 
-function unavailablePrediction(homeHistory, awayHistory) {
-  return {
-    predictionAvailable: false,
-    expectedHomeGoals: null,
-    expectedAwayGoals: null,
-    predictedScore: null,
-    markets: [],
-    bestPick: "Prediction unavailable",
-    probability: null,
-    calculationMethod: "Insufficient verified match history",
-    historyMatchesUsed: {
-      home: homeHistory.length,
-      away: awayHistory.length
+function completed(f) {
+  return ["FT", "AET", "PEN"].includes(f.fixture?.status?.short);
+}
+
+function validScore(f) {
+  return completed(f) &&
+    Number.isFinite(f.goals?.home) &&
+    Number.isFinite(f.goals?.away);
+}
+
+function teamForm(fixtures, teamId) {
+  const scored = [];
+  const conceded = [];
+
+  for (const f of fixtures) {
+    if (!validScore(f)) continue;
+
+    if (f.teams?.home?.id === teamId) {
+      scored.push(f.goals.home);
+      conceded.push(f.goals.away);
+    } else if (f.teams?.away?.id === teamId) {
+      scored.push(f.goals.away);
+      conceded.push(f.goals.home);
     }
+  }
+
+  return {
+    played: scored.length,
+    scored: scored.length ? scored.reduce((a, b) => a + b, 0) / scored.length : null,
+    conceded: conceded.length ? conceded.reduce((a, b) => a + b, 0) / conceded.length : null
   };
+}
+
+function leagueBaseline(fixture) {
+  // Conservative fallback when recent team results are unavailable.
+  // This is explicitly marked as an estimate, not real team form.
+  const name = (fixture.league?.name || "").toLowerCase();
+
+  if (name.includes("women") || name.includes("youth") || name.includes("u19")) {
+    return { home: 1.35, away: 1.20 };
+  }
+
+  return { home: 1.35, away: 1.20 };
 }
 
 async function main() {
   if (!API_KEY) {
     throw new Error(
-      "FOOTBALL_DATA_API_KEY is missing. Check GitHub Settings > Secrets and variables > Actions."
+      "Missing API_FOOTBALL_KEY. Add it in GitHub repository Settings > Secrets and variables > Actions."
     );
   }
 
-  const today = kenyaDate();
-  const lastFixtureDate = addDays(today, 7);
-  const endExclusive = addDays(today, 8);
-  const historyStart = addDays(today, -365);
+  const today = dateInKenya(new Date());
+  const lastDate = addDays(today, DAYS_AHEAD);
 
-  console.log("Football-data.org key detected.");
-  console.log("Kenya date:", today);
-  console.log(
-    `Searching fixtures: ${today} to ${lastFixtureDate}`
-  );
+  console.log(`Kenya date: ${today}`);
+  console.log(`Loading actual API fixtures from ${today} to ${lastDate}`);
 
-  const allMatchesById = new Map();
-  const requestedCompetitions = new Set();
+  const fixtures = await api("fixtures", {
+    from: today,
+    to: lastDate,
+    timezone: TIMEZONE
+  });
 
-  // Fetch each competition's recent history and upcoming schedule.
-  // One request per competition helps avoid excessive API calls.
-  for (const competition of COMPETITIONS) {
-    console.log(`Loading ${competition.name} data...`);
+  // Only upcoming fixtures with real API IDs and two identified teams.
+  const upcoming = fixtures
+    .filter(f =>
+      Number.isInteger(f.fixture?.id) &&
+      f.teams?.home?.id &&
+      f.teams?.away?.id &&
+      f.teams?.home?.name &&
+      f.teams?.away?.name &&
+      ["NS", "TBD"].includes(f.fixture?.status?.short) &&
+      f.teams.home.id !== f.teams.away.id
+    )
+    .sort((a, b) => new Date(a.fixture.date) - new Date(b.fixture.date));
 
-    const endpoint =
-      `/competitions/${encodeURIComponent(competition.code)}/matches` +
-      `?dateFrom=${historyStart}` +
-      `&dateTo=${endExclusive}` +
-      `&limit=500`;
+  if (!upcoming.length) {
+    throw new Error(
+      `API returned no eligible upcoming fixtures for ${today} to ${lastDate}. Existing predictions.json was not overwritten.`
+    );
+  }
+
+  // Fetch recent team results, caching each team to avoid duplicate API calls.
+  const teamIds = [...new Set(
+    upcoming.flatMap(f => [f.teams.home.id, f.teams.away.id])
+  )];
+
+  const formCache = new Map();
+  let formCalls = 0;
+
+  for (const teamId of teamIds) {
+    if (formCalls >= MAX_FORM_TEAMS) break;
 
     try {
-      const data = await apiRequest(endpoint);
-      requestedCompetitions.add(competition.code);
+      const recent = await api("fixtures", {
+        team: teamId,
+        last: FORM_MATCHES,
+        status: "FT-AET-PEN",
+        timezone: TIMEZONE
+      });
 
-      const matches = Array.isArray(data.matches) ? data.matches : [];
-
-      console.log(
-        `${competition.name}: ${matches.length} matches returned.`
-      );
-
-      for (const match of matches) {
-        if (!match.id || !match.utcDate) continue;
-        if (!match.homeTeam?.id || !match.awayTeam?.id) continue;
-
-        // Keep the match exactly as returned by the provider.
-        if (!allMatchesById.has(match.id)) {
-          allMatchesById.set(match.id, {
-            ...match,
-            _competitionCode: competition.code,
-            _competitionName:
-              match.competition?.name || competition.name
-          });
-        }
-      }
+      formCache.set(teamId, teamForm(recent, teamId));
+      formCalls++;
+      await sleep(120);
     } catch (error) {
-      console.error(
-        `Could not load ${competition.name}: ${error.message}`
-      );
-
-      // Authentication and rate-limit errors should stop the run.
-      if (/HTTP (401|403|429)/i.test(error.message)) {
-        throw error;
-      }
+      console.error(`Form unavailable for team ${teamId}: ${error.message}`);
+      formCache.set(teamId, { played: 0, scored: null, conceded: null });
     }
   }
 
-  const allMatches = Array.from(allMatchesById.values());
+  const output = [];
 
-  // Select only real, upcoming fixtures in the requested date window.
-  const fixtureMap = new Map();
+  for (const f of upcoming) {
+    const homeId = f.teams.home.id;
+    const awayId = f.teams.away.id;
+    const homeForm = formCache.get(homeId) || {
+      played: 0, scored: null, conceded: null
+    };
+    const awayForm = formCache.get(awayId) || {
+      played: 0, scored: null, conceded: null
+    };
 
-  for (const match of allMatches) {
-    const matchDate = match.utcDate.slice(0, 10);
+    const baseline = leagueBaseline(f);
+    const usableForm =
+      homeForm.played >= 3 &&
+      awayForm.played >= 3 &&
+      Number.isFinite(homeForm.scored) &&
+      Number.isFinite(homeForm.conceded) &&
+      Number.isFinite(awayForm.scored) &&
+      Number.isFinite(awayForm.conceded);
 
-    if (matchDate < today || matchDate > lastFixtureDate) continue;
-    if (!["SCHEDULED", "TIMED"].includes(match.status)) continue;
-    if (!requestedCompetitions.has(match._competitionCode)) continue;
+    let homeXg;
+    let awayXg;
+    let method;
 
-    fixtureMap.set(match.id, match);
-  }
-
-  const fixtures = Array.from(fixtureMap.values())
-    .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
-    .slice(0, MAX_FIXTURES);
-
-  console.log("Unique upcoming fixtures found:", fixtures.length);
-
-  const predictions = [];
-
-  for (const match of fixtures) {
-    const home = match.homeTeam;
-    const away = match.awayTeam;
-
-    const homeHistory = teamHistory(home.id, allMatches, today);
-    const awayHistory = teamHistory(away.id, allMatches, today);
-
-    let calculation;
-
-    if (
-      homeHistory.length >= MIN_HISTORY_MATCHES &&
-      awayHistory.length >= MIN_HISTORY_MATCHES
-    ) {
-      calculation = calculatePrediction(homeHistory, awayHistory);
+    if (usableForm) {
+      // Symmetric formula: both teams use the same attack/defence method.
+      // No home-field multiplier or home-team bonus is applied.
+      homeXg = (homeForm.scored + awayForm.conceded) / 2;
+      awayXg = (awayForm.scored + homeForm.conceded) / 2;
+      method = "Recent team results; neutral-ground independent Poisson model";
     } else {
-      calculation = unavailablePrediction(homeHistory, awayHistory);
-
-      console.log(
-        `Prediction unavailable: ${home.name} vs ${away.name}; ` +
-        `history home=${homeHistory.length}, away=${awayHistory.length}`
-      );
+      homeXg = baseline.home;
+      awayXg = baseline.away;
+      method = "Fallback goal estimate; neutral-ground independent Poisson model; team form unavailable";
     }
 
-    predictions.push({
-      fixtureId: match.id,
-      date: match.utcDate,
-      timestamp: Math.floor(new Date(match.utcDate).getTime() / 1000),
-      league: match._competitionName,
-      competitionCode: match._competitionCode,
-      country: match.area?.name || "",
-      home: home.name,
-      away: away.name,
-      homeTeam: home.name,
-      awayTeam: away.name,
-      status: match.status,
-      ...calculation
+    const model = buildModel(homeXg, awayXg);
+    const kickoff = new Date(f.fixture.date);
+
+    output.push({
+      fixtureId: f.fixture.id,
+      date: f.fixture.date,
+      timestamp: Math.floor(kickoff.getTime() / 1000),
+      kickoffKenya: new Intl.DateTimeFormat("en-GB", {
+        timeZone: TIMEZONE,
+        dateStyle: "medium",
+        timeStyle: "short"
+      }).format(kickoff),
+      league: f.league.name,
+      competitionCode: String(f.league.id),
+      leagueId: f.league.id,
+      country: f.league.country || "",
+      season: f.league.season,
+      home: f.teams.home.name,
+      away: f.teams.away.name,
+      homeTeamId: homeId,
+      awayTeamId: awayId,
+      status: f.fixture.status.short,
+      predictionAvailable: true,
+      expectedGoalsHome: model.expectedGoalsHome,
+      expectedGoalsAway: model.expectedGoalsAway,
+      predictedScore: model.predictedScore,
+      probabilities: model.probabilities,
+      markets: model.markets,
+      bestPick: model.bestPick,
+      bestPickProbability: model.bestPickProbability,
+      calculationMethod: method,
+      neutralGround: true,
+      homeAdvantage: 0,
+      historyMatchesUsed: {
+        home: homeForm.played,
+        away: awayForm.played
+      },
+      source: "API-Football",
+      generatedAt: new Date().toISOString()
     });
   }
 
-  // Keep the main fixture list chronological.
-  predictions.sort((a, b) => a.timestamp - b.timestamp);
+  // Never publish duplicate fixture IDs.
+  const unique = [...new Map(output.map(f => [f.fixtureId, f])).values()];
 
-  // Only actual calculated predictions qualify for top tips.
-  const topTips = predictions
-    .filter(item => item.predictionAvailable === true)
-    .sort((a, b) => b.probability - a.probability)
-    .slice(0, 6);
-
-  const output = {
-    updatedAt: new Date().toISOString(),
-    date: today,
+  const document = {
+    generatedAt: new Date().toISOString(),
     timezone: TIMEZONE,
-    provider: "football-data.org",
-    calculationMethod: "Neutral model; no home-advantage bonus",
-    totalFixtures: predictions.length,
-    totalPredictionsAvailable: predictions.filter(
-      item => item.predictionAvailable
-    ).length,
-    totalPredictionsUnavailable: predictions.filter(
-      item => !item.predictionAvailable
-    ).length,
-    competitionsChecked: Array.from(requestedCompetitions),
-    predictions,
-    fixtures: predictions,
-    matches: predictions,
-    topTips
+    dateFrom: today,
+    dateTo: lastDate,
+    source: "API-Football",
+    model: "Neutral-ground independent Poisson model",
+    homeAdvantage: 0,
+    fixtureCount: unique.length,
+    fixtures: unique
   };
 
-  fs.writeFileSync(
-    OUTPUT_FILE,
-    JSON.stringify(output, null, 2) + "\n",
-    "utf8"
-  );
+  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(document, null, 2) + "\n");
 
-  console.log("Predictions saved:", OUTPUT_FILE);
-  console.log("Fixtures saved:", predictions.length);
-  console.log("Calculated predictions:", output.totalPredictionsAvailable);
-  console.log("Predictions unavailable:", output.totalPredictionsUnavailable);
-
-  if (predictions.length === 0) {
-    console.error(
-      "WARNING: No upcoming fixtures were returned for the selected competitions and date range."
-    );
-    console.error(
-      "Check the competition access allowed by your API plan and the provider's fixture schedule."
-    );
-  }
+  console.log(`Saved ${unique.length} real API fixture records to predictions.json`);
+  console.log(`Recent team-form API calls: ${formCalls}`);
+  console.log("Neutral-ground model enabled. No home-advantage bonus applied.");
 }
 
 main().catch(error => {

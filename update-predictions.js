@@ -10,20 +10,13 @@ async function runAggregatorEngine() {
 
         console.log('Running Calculation Engine for Date: ' + formattedDate);
 
-        // TARGETED ENDPOINT: Points to the active match tracking resource feed
-        const url = 'https://openligadb.de' + yyyy;
+        // Fixed clear endpoint target
+        const url = 'https://api.openligadb.de/getmatchdata/bl1/' + yyyy;
         console.log('Fetching from URL: ' + url);
         
         const response = await fetch(url);
+        if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
         
-        // Error logging fallback to check response type
-        const contentType = response.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-            const rawText = await response.text();
-            console.error("Received unexpected non-JSON response structural data code head:", rawText.substring(0, 200));
-            throw new Error("Server returned HTML page layout instead of data array.");
-        }
-
         const matches = await response.json();
         console.log("Total entries pulled from feed: " + matches.length);
 
@@ -62,6 +55,7 @@ async function runAggregatorEngine() {
                 confidenceScore = 85;
             }
 
+            // FIXED LINE: Cleaned up mapping syntax assignments
             return {
                 homeTeam: match.team1.teamName,
                 awayTeam: match.team2.teamName,

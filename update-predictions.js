@@ -10,16 +10,24 @@ async function runAggregatorEngine() {
 
         console.log('Running Calculation Engine for Date: ' + formattedDate);
 
-        // HARDCODED API ENDPOINT URL - No brackets or string concatenation templates
-        const url = 'https://openligadb.de';
+        // TARGETED ENDPOINT: Points to the active match tracking resource feed
+        const url = 'https://openligadb.de' + yyyy;
         console.log('Fetching from URL: ' + url);
         
         const response = await fetch(url);
-        if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
         
-        const matches = await response.json();
+        // Error logging fallback to check response type
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            const rawText = await response.text();
+            console.error("Received unexpected non-JSON response structural data code head:", rawText.substring(0, 200));
+            throw new Error("Server returned HTML page layout instead of data array.");
+        }
 
-        // Isolate today's matches safely
+        const matches = await response.json();
+        console.log("Total entries pulled from feed: " + matches.length);
+
+        // Filter and isolate matches occurring on this calendar date
         const todaysMatches = matches.filter(match => match.matchDateTime && match.matchDateTime.startsWith(formattedDate));
 
         const finalizedPredictions = todaysMatches.map(match => {
@@ -62,7 +70,7 @@ async function runAggregatorEngine() {
                 confidence: confidenceScore + "%",
                 homePercent: homeProbability + "%",
                 drawPercent: drawProbability + "%",
-                awayPercent: awayPercent = awayProbability + "%"
+                awayPercent: awayProbability + "%"
             };
         });
 

@@ -1,1 +1,68 @@
-[]
+[
+    {
+        "homeTeam": "Manchester United",
+        "awayTeam": "Chelsea",
+        "league": "ENGLISH PREMIER LEAGUE",
+        "kickOff": "15:30",
+        "suggestedMarket": "Double Chance (1X)",
+        "marketProbability": "73.5%",
+        "homePercent": "54.4%",
+        "drawPercent": "19.1%",
+        "awayPercent": "26.5%"
+    },
+    {
+        "homeTeam": "Arsenal",
+        "awayTeam": "Liverpool",
+        "league": "ENGLISH PREMIER LEAGUE",
+        "kickOff": "18:00",
+        "suggestedMarket": "Over 1.5 Goals",
+        "marketProbability": "82.1%",
+        "homePercent": "41.0%",
+        "drawPercent": "28.5%",
+        "awayPercent": "30.5%"
+    },
+    {
+        "homeTeam": "Real Madrid",
+        "awayTeam": "Barcelona",
+        "league": "LA LIGA",
+        "kickOff": "21:00",
+        "suggestedMarket": "GG / BTTS (Yes)",
+        "marketProbability": "79.4%",
+        "homePercent": "45.2%",
+        "drawPercent": "22.3%",
+        "awayPercent": "32.5%"
+    },
+    {
+        "homeTeam": "Man City",
+        "awayTeam": "Tottenham",
+        "league": "ENGLISH PREMIER LEAGUE",
+        "kickOff": "16:00",
+        "suggestedMarket": "Home Win (1)",
+        "marketProbability": "71.0%",
+        "homePercent": "71.0%",
+        "drawPercent": "15.0%",
+        "awayPercent": "14.0%"
+    },
+    {
+        "homeTeam": "Bayern Munich",
+        "awayTeam": "Dortmund",
+        "league": "GERMAN BUNDESLIGA",
+        "kickOff": "15:30",
+        "suggestedMarket": "Over 2.5 Goals",
+        "marketProbability": "88.5%",
+        "homePercent": "60.0%",
+        "drawPercent": "18.0%",
+        "awayPercent": "22.0%"
+    },
+    {
+        "homeTeam": "Juventus",
+        "awayTeam": "AC Milan",
+        "league": "SERIE A",
+        "kickOff": "20:45",
+        "suggestedMarket": "Under 3.5 Goals",
+        "marketProbability": "76.0%",
+        "homePercent": "38.0%",
+        "drawPercent": "34.0%",
+        "awayPercent": "28.0%"
+    }
+]

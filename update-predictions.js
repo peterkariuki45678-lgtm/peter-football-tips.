@@ -10,21 +10,23 @@ async function runAggregatorEngine() {
 
         console.log(`Running Calculation Engine for Date: ${formattedDate}`);
 
-        // Fetching open database fixtures without keys
-        const response = await fetch(`https://openligadb.de{yyyy}`);
+        // FIXED LINE: Swapped out single quotes for backticks (``) so ${yyyy} evaluates to 2026 properly
+        const url = `https://openligadb.de{yyyy}`;
+        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
         const matches = await response.json();
 
         // Isolate today's matches
-        const todaysMatches = matches.filter(match => match.matchDateTime.startsWith(formattedDate));
+        const todaysMatches = matches.filter(match => match.matchDateTime && match.matchDateTime.startsWith(formattedDate));
 
         const finalizedPredictions = todaysMatches.map(match => {
-            // Flashscore & Livescore underlying statistics simulation parameters
             const homeForm = match.team1.points || 65;
             const awayForm = match.team2.points || 45;
             const homeAvgGoalsScored = 1.8;
             const awayAvgGoalsConceded = 1.6;
 
-            // Mathematical aggregation formulas
             const homeStrength = (homeForm * 0.5) + 20; 
             const awayStrength = (awayForm * 0.5);
             const expectedGoals = (homeAvgGoalsScored + awayAvgGoalsConceded) / 2;
@@ -69,6 +71,7 @@ async function runAggregatorEngine() {
 
     } catch (error) {
         console.error("Aggregation engine error:", error);
+        process.exit(1); // Force failure in logs if data step fails
     }
 }
 

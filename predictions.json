@@ -1,12 +1,7837 @@
 {
-  "updatedAt": "2026-10-26T07:53:43.741Z",
+  "updatedAt": "2026-10-26T08:12:23.336Z",
   "date": "2026-10-26",
   "timezone": "Africa/Nairobi",
   "provider": "football-data.org",
-  "calculationMethod": "Neutral venue; no home-advantage bonus",
-  "totalFixtures": 0,
-  "predictions": [],
-  "fixtures": [],
-  "matches": [],
-  "topTips": []
+  "calculationMethod": "Neutral model; no home-advantage bonus",
+  "totalFixtures": 40,
+  "totalPredictionsAvailable": 40,
+  "totalPredictionsUnavailable": 0,
+  "competitionsChecked": [
+    "PL",
+    "PD",
+    "BL1",
+    "SA",
+    "CL"
+  ],
+  "predictions": [
+    {
+      "fixtureId": 564721,
+      "date": "2026-10-26T20:00:00Z",
+      "timestamp": 1793044800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Sevilla FC",
+      "away": "CA Osasuna",
+      "homeTeam": "Sevilla FC",
+      "awayTeam": "CA Osasuna",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 87.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 72.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 71
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 69.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 27.7
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 87.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558556,
+      "date": "2026-10-27T17:30:00Z",
+      "timestamp": 1793122200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "US Sassuolo Calcio",
+      "away": "SS Lazio",
+      "homeTeam": "US Sassuolo Calcio",
+      "awayTeam": "SS Lazio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 2.25,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 61.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 61.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 38.2
+        },
+        {
+          "market": "Draw",
+          "probability": 19.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558555,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AS Roma",
+      "away": "Cagliari Calcio",
+      "homeTeam": "AS Roma",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 47
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558557,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Torino FC",
+      "away": "Como 1907",
+      "homeTeam": "Torino FC",
+      "awayTeam": "Como 1907",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 62.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 60.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558549,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "Bologna FC 1909",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Bologna FC 1909",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558550,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Venezia FC",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "Venezia FC",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 74.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68.1
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 64.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 64.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 35.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.1
+        },
+        {
+          "market": "Draw",
+          "probability": 17.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558553,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Parma Calcio 1913",
+      "away": "Udinese Calcio",
+      "homeTeam": "Parma Calcio 1913",
+      "awayTeam": "Udinese Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 65.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 61.4
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558552,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Genoa CFC",
+      "away": "Juventus FC",
+      "homeTeam": "Genoa CFC",
+      "awayTeam": "Juventus FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 74
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 51.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 48.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 26
+        },
+        {
+          "market": "Draw",
+          "probability": 25.1
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558554,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Monza",
+      "away": "SSC Napoli",
+      "homeTeam": "AC Monza",
+      "awayTeam": "SSC Napoli",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 72.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 60.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Draw",
+          "probability": 21.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558558,
+      "date": "2026-10-29T17:30:00Z",
+      "timestamp": 1793295000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "US Lecce",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "US Lecce",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 62.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 56.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 43.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 22.5
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558551,
+      "date": "2026-10-29T19:45:00Z",
+      "timestamp": 1793303100,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "ACF Fiorentina",
+      "away": "Atalanta BC",
+      "homeTeam": "ACF Fiorentina",
+      "awayTeam": "Atalanta BC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 66.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 56.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 43.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 33.2
+        },
+        {
+          "market": "Draw",
+          "probability": 23
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565846,
+      "date": "2026-10-30T19:30:00Z",
+      "timestamp": 1793388600,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "homeTeam": "SV 07 Elversberg",
+      "awayTeam": "1. FSV Mainz 05",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 92.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 79.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 76.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 70.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 58
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 29.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 92.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564737,
+      "date": "2026-10-30T20:00:00Z",
+      "timestamp": 1793390400,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Villarreal CF",
+      "away": "RCD Espanyol de Barcelona",
+      "homeTeam": "Villarreal CF",
+      "awayTeam": "RCD Espanyol de Barcelona",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560626,
+      "date": "2026-10-31T12:30:00Z",
+      "timestamp": 1793449800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Chelsea FC",
+      "away": "Manchester United FC",
+      "homeTeam": "Chelsea FC",
+      "awayTeam": "Manchester United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564730,
+      "date": "2026-10-31T13:00:00Z",
+      "timestamp": 1793451600,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Levante UD",
+      "away": "Club Atlético de Madrid",
+      "homeTeam": "Levante UD",
+      "awayTeam": "Club Atlético de Madrid",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 76.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 23.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 23.4
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558539,
+      "date": "2026-10-31T14:00:00Z",
+      "timestamp": 1793455200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Bologna FC 1909",
+      "away": "AC Monza",
+      "homeTeam": "Bologna FC 1909",
+      "awayTeam": "AC Monza",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.58,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565839,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Borussia Mönchengladbach",
+      "away": "SC Paderborn 07",
+      "homeTeam": "Borussia Mönchengladbach",
+      "awayTeam": "SC Paderborn 07",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.08,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 68.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 52.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 31.3
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565840,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Schalke 04",
+      "away": "RB Leipzig",
+      "homeTeam": "FC Schalke 04",
+      "awayTeam": "RB Leipzig",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.1
+        },
+        {
+          "market": "Home Win",
+          "probability": 35.3
+        },
+        {
+          "market": "Draw",
+          "probability": 25.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565842,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "homeTeam": "FC Augsburg",
+      "awayTeam": "SC Freiburg",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.33,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 76.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 73.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 72.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 62.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 52.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 27.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565843,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV Werder Bremen",
+      "away": "TSG 1899 Hoffenheim",
+      "homeTeam": "SV Werder Bremen",
+      "awayTeam": "TSG 1899 Hoffenheim",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.33,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 91.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 77.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 74.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.9
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.1
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 91.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565847,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Bayer 04 Leverkusen",
+      "away": "VfB Stuttgart",
+      "homeTeam": "Bayer 04 Leverkusen",
+      "awayTeam": "VfB Stuttgart",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 52.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 47.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.9
+        },
+        {
+          "market": "Draw",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560623,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Manchester City FC",
+      "away": "Brighton & Hove Albion FC",
+      "homeTeam": "Manchester City FC",
+      "awayTeam": "Brighton & Hove Albion FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "2-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 94.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 79.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 69.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 51.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 30.2
+        },
+        {
+          "market": "Draw",
+          "probability": 18.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 94.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560624,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "AFC Bournemouth",
+      "away": "Leeds United FC",
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Leeds United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 71.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 53
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 47
+        },
+        {
+          "market": "Home Win",
+          "probability": 28.1
+        },
+        {
+          "market": "Draw",
+          "probability": 24.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560625,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Coventry City FC",
+      "away": "Sunderland AFC",
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Sunderland AFC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 66.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 58.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 41.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 33.7
+        },
+        {
+          "market": "Draw",
+          "probability": 25
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560629,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Hull City AFC",
+      "away": "Ipswich Town FC",
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Ipswich Town FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 88
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 72.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 65.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 34.8
+        },
+        {
+          "market": "Draw",
+          "probability": 26.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 88,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560630,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Brentford FC",
+      "away": "Nottingham Forest FC",
+      "homeTeam": "Brentford FC",
+      "awayTeam": "Nottingham Forest FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 1,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 69.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 53.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 46.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 43.5
+        },
+        {
+          "market": "Draw",
+          "probability": 26.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564735,
+      "date": "2026-10-31T15:15:00Z",
+      "timestamp": 1793459700,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RC Celta de Vigo",
+      "homeTeam": "Rayo Vallecano de Madrid",
+      "awayTeam": "RC Celta de Vigo",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 0.92,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 80.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 57
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 49.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 43
+        },
+        {
+          "market": "Draw",
+          "probability": 23.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 19.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558542,
+      "date": "2026-10-31T17:00:00Z",
+      "timestamp": 1793466000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Udinese Calcio",
+      "away": "AS Roma",
+      "homeTeam": "Udinese Calcio",
+      "awayTeam": "AS Roma",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 78.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 69
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 59.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 40.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 21.5
+        },
+        {
+          "market": "Draw",
+          "probability": 18.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560627,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Tottenham Hotspur FC",
+      "away": "Crystal Palace FC",
+      "homeTeam": "Tottenham Hotspur FC",
+      "awayTeam": "Crystal Palace FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 59.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 58.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 23
+        },
+        {
+          "market": "Draw",
+          "probability": 22.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 81.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564736,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Betis Balompié",
+      "away": "Málaga CF",
+      "homeTeam": "Real Betis Balompié",
+      "awayTeam": "Málaga CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565845,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Bayern München",
+      "away": "Borussia Dortmund",
+      "homeTeam": "FC Bayern München",
+      "awayTeam": "Borussia Dortmund",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.17,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 78.6
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 21.4
+        },
+        {
+          "market": "Draw",
+          "probability": 20.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558548,
+      "date": "2026-10-31T19:45:00Z",
+      "timestamp": 1793475900,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "AC Milan",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.6
+        },
+        {
+          "market": "Draw",
+          "probability": 21.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560628,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Aston Villa FC",
+      "away": "Fulham FC",
+      "homeTeam": "Aston Villa FC",
+      "awayTeam": "Fulham FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 82.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 80.7
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 78.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 55.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 53.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 82.9,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564732,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "FC Barcelona",
+      "away": "Deportivo Alavés",
+      "homeTeam": "FC Barcelona",
+      "awayTeam": "Deportivo Alavés",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "3-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 85.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 69.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 30.7
+        },
+        {
+          "market": "Draw",
+          "probability": 16.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 14.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558543,
+      "date": "2026-11-01T11:30:00Z",
+      "timestamp": 1793532600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Como 1907",
+      "away": "Venezia FC",
+      "homeTeam": "Como 1907",
+      "awayTeam": "Venezia FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.08,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 82.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 81
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 78.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 60.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39.6
+        },
+        {
+          "market": "Draw",
+          "probability": 20.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 19
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 82.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564733,
+      "date": "2026-11-01T13:00:00Z",
+      "timestamp": 1793538000,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Getafe CF",
+      "away": "Sevilla FC",
+      "homeTeam": "Getafe CF",
+      "awayTeam": "Sevilla FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.25,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 89.1
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 71.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 50.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 45.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Draw",
+          "probability": 27
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 89.1,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558544,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "Torino FC",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "Torino FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 59.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558546,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "SS Lazio",
+      "away": "Cagliari Calcio",
+      "homeTeam": "SS Lazio",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 0.83,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 83.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 61
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39
+        },
+        {
+          "market": "Draw",
+          "probability": 22.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 16.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565841,
+      "date": "2026-11-01T14:30:00Z",
+      "timestamp": 1793543400,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "1. FC Union Berlin",
+      "away": "1. FC Köln",
+      "homeTeam": "1. FC Union Berlin",
+      "awayTeam": "1. FC Köln",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 77.3
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 51.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564734,
+      "date": "2026-11-01T15:15:00Z",
+      "timestamp": 1793546100,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Racing Club de Santander",
+      "away": "Real Madrid CF",
+      "homeTeam": "Real Racing Club de Santander",
+      "awayTeam": "Real Madrid CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.92,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 93
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 83.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 80.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 68.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 56.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 31.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 16.1
+        },
+        {
+          "market": "Draw",
+          "probability": 15.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 93,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    }
+  ],
+  "fixtures": [
+    {
+      "fixtureId": 564721,
+      "date": "2026-10-26T20:00:00Z",
+      "timestamp": 1793044800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Sevilla FC",
+      "away": "CA Osasuna",
+      "homeTeam": "Sevilla FC",
+      "awayTeam": "CA Osasuna",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 87.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 72.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 71
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 69.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 27.7
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 87.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558556,
+      "date": "2026-10-27T17:30:00Z",
+      "timestamp": 1793122200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "US Sassuolo Calcio",
+      "away": "SS Lazio",
+      "homeTeam": "US Sassuolo Calcio",
+      "awayTeam": "SS Lazio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 2.25,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 61.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 61.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 38.2
+        },
+        {
+          "market": "Draw",
+          "probability": 19.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558555,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AS Roma",
+      "away": "Cagliari Calcio",
+      "homeTeam": "AS Roma",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 47
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558557,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Torino FC",
+      "away": "Como 1907",
+      "homeTeam": "Torino FC",
+      "awayTeam": "Como 1907",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 62.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 60.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558549,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "Bologna FC 1909",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Bologna FC 1909",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558550,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Venezia FC",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "Venezia FC",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 74.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68.1
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 64.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 64.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 35.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.1
+        },
+        {
+          "market": "Draw",
+          "probability": 17.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558553,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Parma Calcio 1913",
+      "away": "Udinese Calcio",
+      "homeTeam": "Parma Calcio 1913",
+      "awayTeam": "Udinese Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 65.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 61.4
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558552,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Genoa CFC",
+      "away": "Juventus FC",
+      "homeTeam": "Genoa CFC",
+      "awayTeam": "Juventus FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 74
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 51.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 48.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 26
+        },
+        {
+          "market": "Draw",
+          "probability": 25.1
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558554,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Monza",
+      "away": "SSC Napoli",
+      "homeTeam": "AC Monza",
+      "awayTeam": "SSC Napoli",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 72.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 60.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Draw",
+          "probability": 21.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558558,
+      "date": "2026-10-29T17:30:00Z",
+      "timestamp": 1793295000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "US Lecce",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "US Lecce",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 62.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 56.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 43.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 22.5
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558551,
+      "date": "2026-10-29T19:45:00Z",
+      "timestamp": 1793303100,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "ACF Fiorentina",
+      "away": "Atalanta BC",
+      "homeTeam": "ACF Fiorentina",
+      "awayTeam": "Atalanta BC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 66.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 56.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 43.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 33.2
+        },
+        {
+          "market": "Draw",
+          "probability": 23
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565846,
+      "date": "2026-10-30T19:30:00Z",
+      "timestamp": 1793388600,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "homeTeam": "SV 07 Elversberg",
+      "awayTeam": "1. FSV Mainz 05",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 92.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 79.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 76.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 70.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 58
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 29.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 92.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564737,
+      "date": "2026-10-30T20:00:00Z",
+      "timestamp": 1793390400,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Villarreal CF",
+      "away": "RCD Espanyol de Barcelona",
+      "homeTeam": "Villarreal CF",
+      "awayTeam": "RCD Espanyol de Barcelona",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560626,
+      "date": "2026-10-31T12:30:00Z",
+      "timestamp": 1793449800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Chelsea FC",
+      "away": "Manchester United FC",
+      "homeTeam": "Chelsea FC",
+      "awayTeam": "Manchester United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564730,
+      "date": "2026-10-31T13:00:00Z",
+      "timestamp": 1793451600,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Levante UD",
+      "away": "Club Atlético de Madrid",
+      "homeTeam": "Levante UD",
+      "awayTeam": "Club Atlético de Madrid",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 76.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 23.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 23.4
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558539,
+      "date": "2026-10-31T14:00:00Z",
+      "timestamp": 1793455200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Bologna FC 1909",
+      "away": "AC Monza",
+      "homeTeam": "Bologna FC 1909",
+      "awayTeam": "AC Monza",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.58,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565839,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Borussia Mönchengladbach",
+      "away": "SC Paderborn 07",
+      "homeTeam": "Borussia Mönchengladbach",
+      "awayTeam": "SC Paderborn 07",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.08,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 68.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 52.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 31.3
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565840,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Schalke 04",
+      "away": "RB Leipzig",
+      "homeTeam": "FC Schalke 04",
+      "awayTeam": "RB Leipzig",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.1
+        },
+        {
+          "market": "Home Win",
+          "probability": 35.3
+        },
+        {
+          "market": "Draw",
+          "probability": 25.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565842,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "homeTeam": "FC Augsburg",
+      "awayTeam": "SC Freiburg",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.33,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 76.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 73.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 72.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 62.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 52.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 27.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565843,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV Werder Bremen",
+      "away": "TSG 1899 Hoffenheim",
+      "homeTeam": "SV Werder Bremen",
+      "awayTeam": "TSG 1899 Hoffenheim",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.33,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 91.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 77.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 74.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.9
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.1
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 91.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565847,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Bayer 04 Leverkusen",
+      "away": "VfB Stuttgart",
+      "homeTeam": "Bayer 04 Leverkusen",
+      "awayTeam": "VfB Stuttgart",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 52.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 47.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.9
+        },
+        {
+          "market": "Draw",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560623,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Manchester City FC",
+      "away": "Brighton & Hove Albion FC",
+      "homeTeam": "Manchester City FC",
+      "awayTeam": "Brighton & Hove Albion FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "2-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 94.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 79.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 69.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 51.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 30.2
+        },
+        {
+          "market": "Draw",
+          "probability": 18.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 94.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560624,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "AFC Bournemouth",
+      "away": "Leeds United FC",
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Leeds United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 71.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 53
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 47
+        },
+        {
+          "market": "Home Win",
+          "probability": 28.1
+        },
+        {
+          "market": "Draw",
+          "probability": 24.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560625,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Coventry City FC",
+      "away": "Sunderland AFC",
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Sunderland AFC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 66.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 58.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 41.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 33.7
+        },
+        {
+          "market": "Draw",
+          "probability": 25
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560629,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Hull City AFC",
+      "away": "Ipswich Town FC",
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Ipswich Town FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 88
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 72.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 65.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 34.8
+        },
+        {
+          "market": "Draw",
+          "probability": 26.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 88,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560630,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Brentford FC",
+      "away": "Nottingham Forest FC",
+      "homeTeam": "Brentford FC",
+      "awayTeam": "Nottingham Forest FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 1,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 69.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 53.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 46.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 43.5
+        },
+        {
+          "market": "Draw",
+          "probability": 26.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564735,
+      "date": "2026-10-31T15:15:00Z",
+      "timestamp": 1793459700,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RC Celta de Vigo",
+      "homeTeam": "Rayo Vallecano de Madrid",
+      "awayTeam": "RC Celta de Vigo",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 0.92,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 80.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 57
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 49.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 43
+        },
+        {
+          "market": "Draw",
+          "probability": 23.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 19.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558542,
+      "date": "2026-10-31T17:00:00Z",
+      "timestamp": 1793466000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Udinese Calcio",
+      "away": "AS Roma",
+      "homeTeam": "Udinese Calcio",
+      "awayTeam": "AS Roma",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 78.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 69
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 59.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 40.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 21.5
+        },
+        {
+          "market": "Draw",
+          "probability": 18.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560627,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Tottenham Hotspur FC",
+      "away": "Crystal Palace FC",
+      "homeTeam": "Tottenham Hotspur FC",
+      "awayTeam": "Crystal Palace FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 59.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 58.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 23
+        },
+        {
+          "market": "Draw",
+          "probability": 22.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 81.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564736,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Betis Balompié",
+      "away": "Málaga CF",
+      "homeTeam": "Real Betis Balompié",
+      "awayTeam": "Málaga CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565845,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Bayern München",
+      "away": "Borussia Dortmund",
+      "homeTeam": "FC Bayern München",
+      "awayTeam": "Borussia Dortmund",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.17,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 78.6
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 21.4
+        },
+        {
+          "market": "Draw",
+          "probability": 20.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558548,
+      "date": "2026-10-31T19:45:00Z",
+      "timestamp": 1793475900,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "AC Milan",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.6
+        },
+        {
+          "market": "Draw",
+          "probability": 21.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560628,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Aston Villa FC",
+      "away": "Fulham FC",
+      "homeTeam": "Aston Villa FC",
+      "awayTeam": "Fulham FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 82.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 80.7
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 78.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 55.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 53.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 82.9,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564732,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "FC Barcelona",
+      "away": "Deportivo Alavés",
+      "homeTeam": "FC Barcelona",
+      "awayTeam": "Deportivo Alavés",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "3-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 85.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 69.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 30.7
+        },
+        {
+          "market": "Draw",
+          "probability": 16.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 14.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558543,
+      "date": "2026-11-01T11:30:00Z",
+      "timestamp": 1793532600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Como 1907",
+      "away": "Venezia FC",
+      "homeTeam": "Como 1907",
+      "awayTeam": "Venezia FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.08,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 82.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 81
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 78.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 60.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39.6
+        },
+        {
+          "market": "Draw",
+          "probability": 20.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 19
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 82.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564733,
+      "date": "2026-11-01T13:00:00Z",
+      "timestamp": 1793538000,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Getafe CF",
+      "away": "Sevilla FC",
+      "homeTeam": "Getafe CF",
+      "awayTeam": "Sevilla FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.25,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 89.1
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 71.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 50.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 45.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Draw",
+          "probability": 27
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 89.1,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558544,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "Torino FC",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "Torino FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 59.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558546,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "SS Lazio",
+      "away": "Cagliari Calcio",
+      "homeTeam": "SS Lazio",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 0.83,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 83.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 61
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39
+        },
+        {
+          "market": "Draw",
+          "probability": 22.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 16.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565841,
+      "date": "2026-11-01T14:30:00Z",
+      "timestamp": 1793543400,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "1. FC Union Berlin",
+      "away": "1. FC Köln",
+      "homeTeam": "1. FC Union Berlin",
+      "awayTeam": "1. FC Köln",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 77.3
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 51.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564734,
+      "date": "2026-11-01T15:15:00Z",
+      "timestamp": 1793546100,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Racing Club de Santander",
+      "away": "Real Madrid CF",
+      "homeTeam": "Real Racing Club de Santander",
+      "awayTeam": "Real Madrid CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.92,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 93
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 83.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 80.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 68.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 56.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 31.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 16.1
+        },
+        {
+          "market": "Draw",
+          "probability": 15.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 93,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    }
+  ],
+  "matches": [
+    {
+      "fixtureId": 564721,
+      "date": "2026-10-26T20:00:00Z",
+      "timestamp": 1793044800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Sevilla FC",
+      "away": "CA Osasuna",
+      "homeTeam": "Sevilla FC",
+      "awayTeam": "CA Osasuna",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 87.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 72.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 71
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 69.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 27.7
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 87.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558556,
+      "date": "2026-10-27T17:30:00Z",
+      "timestamp": 1793122200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "US Sassuolo Calcio",
+      "away": "SS Lazio",
+      "homeTeam": "US Sassuolo Calcio",
+      "awayTeam": "SS Lazio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 2.25,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 61.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 61.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 38.2
+        },
+        {
+          "market": "Draw",
+          "probability": 19.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558555,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AS Roma",
+      "away": "Cagliari Calcio",
+      "homeTeam": "AS Roma",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 47
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558557,
+      "date": "2026-10-27T19:45:00Z",
+      "timestamp": 1793130300,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Torino FC",
+      "away": "Como 1907",
+      "homeTeam": "Torino FC",
+      "awayTeam": "Como 1907",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.5,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 81.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 62.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 60.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 57.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 37.8
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 81.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558549,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "Bologna FC 1909",
+      "homeTeam": "AC Milan",
+      "awayTeam": "Bologna FC 1909",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558550,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Venezia FC",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "Venezia FC",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 74.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68.1
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 64.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 64.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 35.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.1
+        },
+        {
+          "market": "Draw",
+          "probability": 17.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558553,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Parma Calcio 1913",
+      "away": "Udinese Calcio",
+      "homeTeam": "Parma Calcio 1913",
+      "awayTeam": "Udinese Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 65.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 61.4
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 38.6
+        },
+        {
+          "market": "Draw",
+          "probability": 22.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558552,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Genoa CFC",
+      "away": "Juventus FC",
+      "homeTeam": "Genoa CFC",
+      "awayTeam": "Juventus FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 74
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 51.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 48.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 26
+        },
+        {
+          "market": "Draw",
+          "probability": 25.1
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558554,
+      "date": "2026-10-28T19:45:00Z",
+      "timestamp": 1793216700,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Monza",
+      "away": "SSC Napoli",
+      "homeTeam": "AC Monza",
+      "awayTeam": "SSC Napoli",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 72.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 60.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.4
+        },
+        {
+          "market": "Draw",
+          "probability": 21.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558558,
+      "date": "2026-10-29T17:30:00Z",
+      "timestamp": 1793295000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "US Lecce",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "US Lecce",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 84.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 75.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 64.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 62.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 56.6
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 43.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 22.5
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 84.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558551,
+      "date": "2026-10-29T19:45:00Z",
+      "timestamp": 1793303100,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "ACF Fiorentina",
+      "away": "Atalanta BC",
+      "homeTeam": "ACF Fiorentina",
+      "awayTeam": "Atalanta BC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 66.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 56.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 43.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 33.2
+        },
+        {
+          "market": "Draw",
+          "probability": 23
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565846,
+      "date": "2026-10-30T19:30:00Z",
+      "timestamp": 1793388600,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "homeTeam": "SV 07 Elversberg",
+      "awayTeam": "1. FSV Mainz 05",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 92.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 79.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 76.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 70.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 58
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 29.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 92.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564737,
+      "date": "2026-10-30T20:00:00Z",
+      "timestamp": 1793390400,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Villarreal CF",
+      "away": "RCD Espanyol de Barcelona",
+      "homeTeam": "Villarreal CF",
+      "awayTeam": "RCD Espanyol de Barcelona",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560626,
+      "date": "2026-10-31T12:30:00Z",
+      "timestamp": 1793449800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Chelsea FC",
+      "away": "Manchester United FC",
+      "homeTeam": "Chelsea FC",
+      "awayTeam": "Manchester United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 51
+        },
+        {
+          "market": "Home Win",
+          "probability": 49
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.7
+        },
+        {
+          "market": "Draw",
+          "probability": 24.2
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564730,
+      "date": "2026-10-31T13:00:00Z",
+      "timestamp": 1793451600,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Levante UD",
+      "away": "Club Atlético de Madrid",
+      "homeTeam": "Levante UD",
+      "awayTeam": "Club Atlético de Madrid",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.08,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 76.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 23.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 23.4
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558539,
+      "date": "2026-10-31T14:00:00Z",
+      "timestamp": 1793455200,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Bologna FC 1909",
+      "away": "AC Monza",
+      "homeTeam": "Bologna FC 1909",
+      "awayTeam": "AC Monza",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.58,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565839,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Borussia Mönchengladbach",
+      "away": "SC Paderborn 07",
+      "homeTeam": "Borussia Mönchengladbach",
+      "awayTeam": "SC Paderborn 07",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.08,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 68.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 52.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 31.3
+        },
+        {
+          "market": "Draw",
+          "probability": 21
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565840,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Schalke 04",
+      "away": "RB Leipzig",
+      "homeTeam": "FC Schalke 04",
+      "awayTeam": "RB Leipzig",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 64.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 60.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 55.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 39.1
+        },
+        {
+          "market": "Home Win",
+          "probability": 35.3
+        },
+        {
+          "market": "Draw",
+          "probability": 25.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565842,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "homeTeam": "FC Augsburg",
+      "awayTeam": "SC Freiburg",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.33,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 76.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 73.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 72.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 62.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 52.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 27.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565843,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV Werder Bremen",
+      "away": "TSG 1899 Hoffenheim",
+      "homeTeam": "SV Werder Bremen",
+      "awayTeam": "TSG 1899 Hoffenheim",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.33,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 91.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 77.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 74.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.9
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.1
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 91.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565847,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "Bayer 04 Leverkusen",
+      "away": "VfB Stuttgart",
+      "homeTeam": "Bayer 04 Leverkusen",
+      "awayTeam": "VfB Stuttgart",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.42,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 52.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 47.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.9
+        },
+        {
+          "market": "Draw",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560623,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Manchester City FC",
+      "away": "Brighton & Hove Albion FC",
+      "homeTeam": "Manchester City FC",
+      "awayTeam": "Brighton & Hove Albion FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "2-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 94.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 79.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 69.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 51.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 30.2
+        },
+        {
+          "market": "Draw",
+          "probability": 18.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 94.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560624,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "AFC Bournemouth",
+      "away": "Leeds United FC",
+      "homeTeam": "AFC Bournemouth",
+      "awayTeam": "Leeds United FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.17,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 76
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 71.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 53
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 51.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 47
+        },
+        {
+          "market": "Home Win",
+          "probability": 28.1
+        },
+        {
+          "market": "Draw",
+          "probability": 24.9
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560625,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Coventry City FC",
+      "away": "Sunderland AFC",
+      "homeTeam": "Coventry City FC",
+      "awayTeam": "Sunderland AFC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.5,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 84.2
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 77.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 66.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 58.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.2
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 53.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 41.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 33.7
+        },
+        {
+          "market": "Draw",
+          "probability": 25
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 84.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560629,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Hull City AFC",
+      "away": "Ipswich Town FC",
+      "homeTeam": "Hull City AFC",
+      "awayTeam": "Ipswich Town FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 88
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 72.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 65.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 61.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 52.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 47.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 38.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 34.8
+        },
+        {
+          "market": "Draw",
+          "probability": 26.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 88,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560630,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Brentford FC",
+      "away": "Nottingham Forest FC",
+      "homeTeam": "Brentford FC",
+      "awayTeam": "Nottingham Forest FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 1,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 73.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 69.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 53.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 46.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 43.5
+        },
+        {
+          "market": "Draw",
+          "probability": 26.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 26.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564735,
+      "date": "2026-10-31T15:15:00Z",
+      "timestamp": 1793459700,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Rayo Vallecano de Madrid",
+      "away": "RC Celta de Vigo",
+      "homeTeam": "Rayo Vallecano de Madrid",
+      "awayTeam": "RC Celta de Vigo",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 0.92,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 80.5
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 57
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 49.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 43
+        },
+        {
+          "market": "Draw",
+          "probability": 23.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 19.5
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558542,
+      "date": "2026-10-31T17:00:00Z",
+      "timestamp": 1793466000,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Udinese Calcio",
+      "away": "AS Roma",
+      "homeTeam": "Udinese Calcio",
+      "awayTeam": "AS Roma",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 78.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 69
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 59.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 40.4
+        },
+        {
+          "market": "Home Win",
+          "probability": 21.5
+        },
+        {
+          "market": "Draw",
+          "probability": 18.9
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560627,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Tottenham Hotspur FC",
+      "away": "Crystal Palace FC",
+      "homeTeam": "Tottenham Hotspur FC",
+      "awayTeam": "Crystal Palace FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 81.3
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 80.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 77
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 59.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 58.7
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 23
+        },
+        {
+          "market": "Draw",
+          "probability": 22.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 81.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564736,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Betis Balompié",
+      "away": "Málaga CF",
+      "homeTeam": "Real Betis Balompié",
+      "awayTeam": "Málaga CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.33,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 75.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 54.7
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 45.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 24.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.1
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565845,
+      "date": "2026-10-31T17:30:00Z",
+      "timestamp": 1793467800,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Bayern München",
+      "away": "Borussia Dortmund",
+      "homeTeam": "FC Bayern München",
+      "awayTeam": "Borussia Dortmund",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.17,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 85.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 78.6
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 74.1
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 66.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 63.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.3
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.7
+        },
+        {
+          "market": "Away Win",
+          "probability": 21.4
+        },
+        {
+          "market": "Draw",
+          "probability": 20.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 85.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558548,
+      "date": "2026-10-31T19:45:00Z",
+      "timestamp": 1793475900,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "AC Milan",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "AC Milan",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 1.92,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 88.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 72.3
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.7
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 67.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 62.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 59.1
+        },
+        {
+          "market": "Away Win",
+          "probability": 40.9
+        },
+        {
+          "market": "Home Win",
+          "probability": 37.6
+        },
+        {
+          "market": "Draw",
+          "probability": 21.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 88.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 560628,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Aston Villa FC",
+      "away": "Fulham FC",
+      "homeTeam": "Aston Villa FC",
+      "awayTeam": "Fulham FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.92,
+      "expectedAwayGoals": 1,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 82.9
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 80.7
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 78.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 58.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 55.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 53.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 41.2
+        },
+        {
+          "market": "Draw",
+          "probability": 21.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 82.9,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564732,
+      "date": "2026-10-31T20:00:00Z",
+      "timestamp": 1793476800,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "FC Barcelona",
+      "away": "Deportivo Alavés",
+      "homeTeam": "FC Barcelona",
+      "awayTeam": "Deportivo Alavés",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.67,
+      "expectedAwayGoals": 1.17,
+      "predictedScore": "3-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 89.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 85.6
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 73.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 69.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 66.1
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.1
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 30.7
+        },
+        {
+          "market": "Draw",
+          "probability": 16.3
+        },
+        {
+          "market": "Away Win",
+          "probability": 14.4
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 89.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558543,
+      "date": "2026-11-01T11:30:00Z",
+      "timestamp": 1793532600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Como 1907",
+      "away": "Venezia FC",
+      "homeTeam": "Como 1907",
+      "awayTeam": "Venezia FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.08,
+      "expectedAwayGoals": 1.08,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 82.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 81
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 78.7
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 60.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 57.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39.6
+        },
+        {
+          "market": "Draw",
+          "probability": 20.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 19
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 82.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564733,
+      "date": "2026-11-01T13:00:00Z",
+      "timestamp": 1793538000,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Getafe CF",
+      "away": "Sevilla FC",
+      "homeTeam": "Getafe CF",
+      "awayTeam": "Sevilla FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.25,
+      "expectedAwayGoals": 1.25,
+      "predictedScore": "1-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 89.1
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 71.3
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 63.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 50.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 45.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.5
+        },
+        {
+          "market": "Draw",
+          "probability": 27
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 89.1,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558544,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Frosinone Calcio",
+      "away": "Torino FC",
+      "homeTeam": "Frosinone Calcio",
+      "awayTeam": "Torino FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 1.58,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 77.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 64.5
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 63.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 63
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 59.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 40.2
+        },
+        {
+          "market": "Away Win",
+          "probability": 36.6
+        },
+        {
+          "market": "Draw",
+          "probability": 23.2
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 83.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558546,
+      "date": "2026-11-01T14:00:00Z",
+      "timestamp": 1793541600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "SS Lazio",
+      "away": "Cagliari Calcio",
+      "homeTeam": "SS Lazio",
+      "awayTeam": "Cagliari Calcio",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 0.83,
+      "predictedScore": "2-1",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 83.4
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Home Win",
+          "probability": 61
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 47.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 39
+        },
+        {
+          "market": "Draw",
+          "probability": 22.4
+        },
+        {
+          "market": "Away Win",
+          "probability": 16.6
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565841,
+      "date": "2026-11-01T14:30:00Z",
+      "timestamp": 1793543400,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "1. FC Union Berlin",
+      "away": "1. FC Köln",
+      "homeTeam": "1. FC Union Berlin",
+      "awayTeam": "1. FC Köln",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1,
+      "expectedAwayGoals": 1.67,
+      "predictedScore": "1-2",
+      "markets": [
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 86.8
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 77.3
+        },
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 74.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 53
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 51.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 49.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47
+        },
+        {
+          "market": "Draw",
+          "probability": 24.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 22.7
+        }
+      ],
+      "bestPick": "Under 4.5 Goals",
+      "probability": 86.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564734,
+      "date": "2026-11-01T15:15:00Z",
+      "timestamp": 1793546100,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Racing Club de Santander",
+      "away": "Real Madrid CF",
+      "homeTeam": "Real Racing Club de Santander",
+      "awayTeam": "Real Madrid CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.92,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 93
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 83.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 80.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 68.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 56.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 31.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 16.1
+        },
+        {
+          "market": "Draw",
+          "probability": 15.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 93,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    }
+  ],
+  "topTips": [
+    {
+      "fixtureId": 560623,
+      "date": "2026-10-31T15:00:00Z",
+      "timestamp": 1793458800,
+      "league": "Premier League",
+      "competitionCode": "PL",
+      "country": "England",
+      "home": "Manchester City FC",
+      "away": "Brighton & Hove Albion FC",
+      "homeTeam": "Manchester City FC",
+      "awayTeam": "Brighton & Hove Albion FC",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "2-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 94.3
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 83.5
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 79.9
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 69.8
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 51.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.1
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 30.2
+        },
+        {
+          "market": "Draw",
+          "probability": 18.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 94.3,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 564734,
+      "date": "2026-11-01T15:15:00Z",
+      "timestamp": 1793546100,
+      "league": "Primera Division",
+      "competitionCode": "PD",
+      "country": "Spain",
+      "home": "Real Racing Club de Santander",
+      "away": "Real Madrid CF",
+      "homeTeam": "Real Racing Club de Santander",
+      "awayTeam": "Real Madrid CF",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.42,
+      "expectedAwayGoals": 2.92,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 93
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 83.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 80.7
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 71.6
+        },
+        {
+          "market": "Away Win",
+          "probability": 68.2
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 56.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 31.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 16.1
+        },
+        {
+          "market": "Draw",
+          "probability": 15.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 93,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565846,
+      "date": "2026-10-30T19:30:00Z",
+      "timestamp": 1793388600,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV 07 Elversberg",
+      "away": "1. FSV Mainz 05",
+      "homeTeam": "SV 07 Elversberg",
+      "awayTeam": "1. FSV Mainz 05",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.83,
+      "expectedAwayGoals": 2.42,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 92.5
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 79.6
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 76.5
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 70.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 58
+        },
+        {
+          "market": "Away Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 48.8
+        },
+        {
+          "market": "Home Win",
+          "probability": 29.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.3
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 92.5,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565843,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "SV Werder Bremen",
+      "away": "TSG 1899 Hoffenheim",
+      "homeTeam": "SV Werder Bremen",
+      "awayTeam": "TSG 1899 Hoffenheim",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 2.33,
+      "expectedAwayGoals": 1.75,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 91.4
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 77.4
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 74.6
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 70.9
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 61.3
+        },
+        {
+          "market": "Home Win",
+          "probability": 51.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 48.8
+        },
+        {
+          "market": "Away Win",
+          "probability": 29.1
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 91.4,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 565842,
+      "date": "2026-10-31T14:30:00Z",
+      "timestamp": 1793457000,
+      "league": "Bundesliga",
+      "competitionCode": "BL1",
+      "country": "Germany",
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "homeTeam": "FC Augsburg",
+      "awayTeam": "SC Freiburg",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.67,
+      "expectedAwayGoals": 2.33,
+      "predictedScore": "2-2",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.8
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 76.2
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 73.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 72.5
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 62.9
+        },
+        {
+          "market": "Away Win",
+          "probability": 52.8
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 47.2
+        },
+        {
+          "market": "Home Win",
+          "probability": 27.5
+        },
+        {
+          "market": "Draw",
+          "probability": 19.7
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.8,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    },
+    {
+      "fixtureId": 558550,
+      "date": "2026-10-28T17:30:00Z",
+      "timestamp": 1793208600,
+      "league": "Serie A",
+      "competitionCode": "SA",
+      "country": "Italy",
+      "home": "Venezia FC",
+      "away": "FC Internazionale Milano",
+      "homeTeam": "Venezia FC",
+      "awayTeam": "FC Internazionale Milano",
+      "status": "TIMED",
+      "predictionAvailable": true,
+      "expectedHomeGoals": 1.33,
+      "expectedAwayGoals": 2.58,
+      "predictedScore": "1-3",
+      "markets": [
+        {
+          "market": "Over 1.5 Goals",
+          "probability": 90.2
+        },
+        {
+          "market": "Double Chance X2",
+          "probability": 81.9
+        },
+        {
+          "market": "Over 2.5 Goals",
+          "probability": 74.9
+        },
+        {
+          "market": "Both Teams To Score",
+          "probability": 68.1
+        },
+        {
+          "market": "Under 4.5 Goals",
+          "probability": 64.5
+        },
+        {
+          "market": "Away Win",
+          "probability": 64.4
+        },
+        {
+          "market": "Double Chance 1X",
+          "probability": 35.6
+        },
+        {
+          "market": "Home Win",
+          "probability": 18.1
+        },
+        {
+          "market": "Draw",
+          "probability": 17.6
+        }
+      ],
+      "bestPick": "Over 1.5 Goals",
+      "probability": 90.2,
+      "calculationMethod": "Neutral model; no home-advantage bonus",
+      "historyMatchesUsed": {
+        "home": 6,
+        "away": 6
+      }
+    }
+  ]
 }

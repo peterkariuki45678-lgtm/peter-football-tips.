@@ -6,19 +6,20 @@ async function runAggregatorEngine() {
         const yyyy = today.getFullYear();
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
-        const formattedDate = `${yyyy}-${mm}-${dd}`;
+        const formattedDate = yyyy + '-' + mm + '-' + dd;
 
-        console.log(`Running Calculation Engine for Date: ${formattedDate}`);
+        console.log('Running Calculation Engine for Date: ' + formattedDate);
 
-        // FIXED LINE: Swapped out single quotes for backticks (``) so ${yyyy} evaluates to 2026 properly
-        const url = `https://openligadb.de{yyyy}`;
+        // Hard-concatenated URL to guarantee NO string injection bugs
+        const url = 'https://openligadb.de' + yyyy;
+        console.log('Fetching from URL: ' + url);
         
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
         
         const matches = await response.json();
 
-        // Isolate today's matches
+        // Isolate today's matches safely
         const todaysMatches = matches.filter(match => match.matchDateTime && match.matchDateTime.startsWith(formattedDate));
 
         const finalizedPredictions = todaysMatches.map(match => {
@@ -67,11 +68,11 @@ async function runAggregatorEngine() {
 
         // Write directly into your predictions.json database file inside your repository
         fs.writeFileSync('predictions.json', JSON.stringify(finalizedPredictions, null, 4));
-        console.log("Predictions database successfully compiled!");
+        console.log("Predictions database successfully compiled with " + finalizedPredictions.length + " matches!");
 
     } catch (error) {
         console.error("Aggregation engine error:", error);
-        process.exit(1); // Force failure in logs if data step fails
+        process.exit(1); 
     }
 }
 

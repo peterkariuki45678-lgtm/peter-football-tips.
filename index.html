@@ -19,40 +19,30 @@
     }
 
     header {
-      padding: 25px 16px;
       text-align: center;
+      padding: 24px 12px;
       background: #10243a;
       border-bottom: 2px solid #18d7a1;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 27px;
-      letter-spacing: 1px;
-    }
+    h1 { margin: 0; font-size: 27px; }
 
     header p { color: #b8cce0; }
 
     main {
-      width: min(950px, 94%);
-      margin: 25px auto;
+      width: min(900px, 94%);
+      margin: 22px auto;
     }
 
-    .notice, .search-box, .match {
+    .panel, .match {
       background: #10243a;
       border: 1px solid #29445f;
       border-radius: 10px;
       padding: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
-    .notice, .muted { color: #b8cce0; }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+    .muted { color: #b8cce0; }
 
     .search-row {
       display: flex;
@@ -74,9 +64,9 @@
     }
 
     button {
+      border: 0;
       background: #18d7a1;
       color: #07111f;
-      border: 0;
       font-weight: bold;
       cursor: pointer;
     }
@@ -89,32 +79,36 @@
     }
 
     .teams {
-      font-size: 19px;
+      font-size: 20px;
       font-weight: bold;
       margin: 8px 0;
     }
 
-    .match-meta {
+    .market { margin-top: 10px; }
+
+    .probabilities, .meta {
       color: #b8cce0;
       font-size: 14px;
     }
 
-    .status {
-      padding: 12px 0;
+    details {
+      margin-top: 12px;
+      border-top: 1px solid #29445f;
+      padding-top: 10px;
+    }
+
+    summary {
       color: #18d7a1;
+      cursor: pointer;
+      font-weight: bold;
     }
 
+    .status { padding: 10px 0; }
     .error { color: #ffbd8a; }
-
-    .empty {
-      padding: 20px;
-      background: #10243a;
-      border-radius: 8px;
-    }
 
     footer {
       text-align: center;
-      padding: 22px;
+      padding: 20px;
       color: #b8cce0;
       font-size: 13px;
     }
@@ -122,343 +116,220 @@
 </head>
 
 <body>
-  <header>
-    <h1>PETER FOOTBALL TIPS</h1>
-    <p>Football Fixtures · Online Data · No API Key</p>
-  </header>
+<header>
+  <h1>PETER FOOTBALL TIPS</h1>
+  <p>Online Fixtures · Data-Based Predictions · Neutral-Ground Model</p>
+</header>
 
-  <main>
-    <div class="notice">
-      Upcoming fixtures collected from a public football dataset.
-      Fixtures are loaded online, not generated manually.
-      Data availability depends on the source.
-    </div>
-
-    <section class="search-box">
-      <label for="match-search">Search teams or competitions</label>
-      <div class="search-row">
-        <input
-          id="match-search"
-          type="search"
-          placeholder="Search Arsenal, Barcelona, Premier League..."
-          autocomplete="off"
-        >
-        <button id="clear-search" type="button">Clear</button>
-      </div>
-    </section>
-
-    <div id="status" class="status" role="status" aria-live="polite">
-      Connecting to online fixture data...
-    </div>
-
-    <div id="general-list"></div>
-
+<main>
+  <section class="panel">
+    <strong>Real fixture data</strong>
     <p class="muted">
-      Data source:
-      <a href="https://github.com/oladeeayo/open-matchday"
-         target="_blank" rel="noopener noreferrer"
-         style="color:#18d7a1">
-        open-matchday
-      </a>.
-      Fixture schedules may change. Kick-off times are shown as
-      published by the data source.
+      Fixtures come from the online data updater. Matches are filtered
+      using Kenya's current date. No sample fixtures are substituted
+      when data is unavailable.
     </p>
-  </main>
+  </section>
 
-  <footer>
-    Peter Football Tips · Real fixture records only.
-  </footer>
+  <section class="panel">
+    <label for="search"><strong>Search teams or leagues</strong></label>
+    <div class="search-row">
+      <input id="search" type="search"
+             placeholder="Arsenal, Barcelona, Premier League...">
+      <button id="clear" type="button">Clear</button>
+    </div>
+  </section>
 
-  <script>
-    "use strict";
+  <div id="status" class="status" role="status" aria-live="polite">
+    Loading the latest predictions...
+  </div>
 
-    const BASE =
-      "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/";
+  <section id="matches"></section>
 
-    const LEAGUES = [
-      {
-        name: "English Premier League",
-        file: "ENG_1_premier-league"
-      },
-      {
-        name: "Spanish La Liga",
-        file: "ESP_1_la-liga"
-      },
-      {
-        name: "Italian Serie A",
-        file: "ITA_1_serie-a"
-      },
-      {
-        name: "German Bundesliga",
-        file: "GER_1_bundesliga"
-      },
-      {
-        name: "French Ligue 1",
-        file: "FRA_1_ligue-1"
-      },
-      {
-        name: "Dutch Eredivisie",
-        file: "NED_1_eredivisie"
-      },
-      {
-        name: "Portuguese Primeira Liga",
-        file: "POR_1_primeira-liga"
-      },
-      {
-        name: "UEFA Champions League",
-        file: "UEFA_1_champions-league"
-      }
-    ];
+  <button id="refresh" type="button">Refresh fixture data</button>
+</main>
 
-    const list = document.getElementById("general-list");
-    const status = document.getElementById("status");
-    const search = document.getElementById("match-search");
-    const clear = document.getElementById("clear-search");
+<footer>
+  Peter Football Tips · Statistical estimates based on available data.
+</footer>
 
-    let fixtures = [];
+<script>
+"use strict";
 
-    // Parse CSV while preserving commas inside quoted fields.
-    function parseCSV(text) {
-      const rows = [];
-      let row = [];
-      let field = "";
-      let quoted = false;
+const DATA_URL = "./predictions.json";
+const statusBox = document.getElementById("status");
+const matchesBox = document.getElementById("matches");
+const searchBox = document.getElementById("search");
 
-      for (let i = 0; i < text.length; i++) {
-        const c = text[i];
+let fixtures = [];
 
-        if (c === '"' && quoted && text[i + 1] === '"') {
-          field += '"';
-          i++;
-        } else if (c === '"') {
-          quoted = !quoted;
-        } else if (c === "," && !quoted) {
-          row.push(field);
-          field = "";
-        } else if ((c === "\n" || c === "\r") && !quoted) {
-          if (c === "\r" && text[i + 1] === "\n") i++;
+function kenyaToday() {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Africa/Nairobi",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(new Date());
 
-          row.push(field);
-          if (row.some(value => value.trim() !== "")) {
-            rows.push(row);
-          }
+  const part = type => parts.find(p => p.type === type).value;
 
-          row = [];
-          field = "";
-        } else {
-          field += c;
-        }
-      }
+  return `${part("year")}-${part("month")}-${part("day")}`;
+}
 
-      if (field || row.length) {
-        row.push(field);
-        rows.push(row);
-      }
+function escapeHTML(value) {
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[c]);
+}
 
-      if (!rows.length) return [];
+function validDate(value) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(String(value || ""));
+}
 
-      const headers = rows.shift().map(value =>
-        value.trim().toLowerCase().replace(/^\uFEFF/, "")
+function render() {
+  const query = searchBox.value.trim().toLowerCase();
+
+  const filtered = fixtures.filter(f =>
+    [f.home, f.away, f.league].some(value =>
+      String(value || "").toLowerCase().includes(query)
+    )
+  );
+
+  matchesBox.replaceChildren();
+
+  if (!filtered.length) {
+    const message = document.createElement("div");
+    message.className = "panel";
+    message.textContent = fixtures.length
+      ? "No matches found for that search."
+      : "No verified upcoming fixtures are available in predictions.json. Run the GitHub Actions updater after checking its logs.";
+    matchesBox.appendChild(message);
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+
+  for (const f of filtered) {
+    const card = document.createElement("article");
+    card.className = "match";
+
+    const home = escapeHTML(f.home);
+    const away = escapeHTML(f.away);
+    const league = escapeHTML(f.league || "Competition unavailable");
+    const date = escapeHTML(f.date);
+    const time = escapeHTML(f.kickoff || "Kick-off time unavailable");
+    const market = escapeHTML(f.safe_bet || "Prediction unavailable");
+
+    const confidence = Number(f.confidence);
+    const confidenceText = Number.isFinite(confidence)
+      ? `${confidence.toFixed(1)}%`
+      : "Unavailable";
+
+    const probs = f.raw_probabilities || {};
+    const homeWin = Number(probs["1"]);
+    const draw = Number(probs.X);
+    const awayWin = Number(probs["2"]);
+
+    const probabilityText =
+      Number.isFinite(homeWin) &&
+      Number.isFinite(draw) &&
+      Number.isFinite(awayWin)
+        ? `Home win: ${homeWin}% · Draw: ${draw}% · Away win: ${awayWin}%`
+        : "Outcome probabilities unavailable";
+
+    card.innerHTML = `
+      <div class="league">${league}</div>
+      <div class="meta">${date} · ${time}</div>
+      <div class="teams">${home} vs ${away}</div>
+      <div class="market">
+        Suggested market: <strong>${market}</strong>
+      </div>
+      <div>
+        Estimated market probability: <strong>${confidenceText}</strong>
+      </div>
+      <div class="probabilities">${probabilityText}</div>
+      <details>
+        <summary>View calculation details</summary>
+        <p>Model: ${escapeHTML(f.calculation_model || "Not specified")}</p>
+        <p>Home advantage: ${escapeHTML(f.home_advantage ?? "Not specified")}</p>
+        <p>Home historical matches: ${escapeHTML(f.home_historical_matches_used ?? "Unavailable")}</p>
+        <p>Away historical matches: ${escapeHTML(f.away_historical_matches_used ?? "Unavailable")}</p>
+        <p>Data source: ${escapeHTML(f.data_source || "Unspecified")}</p>
+        <p>Expected goals: ${escapeHTML(f.expected_goals?.home ?? "N/A")} - ${escapeHTML(f.expected_goals?.away ?? "N/A")}</p>
+      </details>
+    `;
+
+    fragment.appendChild(card);
+  }
+
+  matchesBox.appendChild(fragment);
+}
+
+async function loadFixtures() {
+  statusBox.className = "status";
+  statusBox.textContent = "Checking the latest fixture data...";
+  matchesBox.replaceChildren();
+
+  try {
+    const response = await fetch(
+      `${DATA_URL}?updated=${Date.now()}`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error(`predictions.json returned HTTP ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error(
+        "The JSON format is outdated. The new updater must write a JSON array."
       );
-
-      return rows.map(values => {
-        const item = {};
-
-        headers.forEach((header, index) => {
-          item[header] = (values[index] || "").trim();
-        });
-
-        return item;
-      });
     }
 
-    function todayInKenya() {
-      return new Intl.DateTimeFormat("en-CA", {
-        timeZone: "Africa/Nairobi",
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit"
-      }).format(new Date());
-    }
+    const today = kenyaToday();
 
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, char => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      })[char]);
-    }
+    fixtures = data.filter(f =>
+      f &&
+      f.data_source === "OpenFootball public dataset" &&
+      validDate(f.date) &&
+      f.date >= today &&
+      typeof f.home === "string" &&
+      f.home.trim() &&
+      typeof f.away === "string" &&
+      f.away.trim()
+    );
 
-    function formatDate(date) {
-      const parts = date.split("-");
+    statusBox.textContent =
+      `${fixtures.length} verified upcoming fixture record(s) loaded.`;
 
-      if (parts.length !== 3) return date;
+    render();
+  } catch (error) {
+    fixtures = [];
+    statusBox.className = "status error";
+    statusBox.textContent =
+      `Could not load updated fixture data: ${error.message}`;
+    render();
+    console.error(error);
+  }
+}
 
-      return new Date(
-        Number(parts[0]),
-        Number(parts[1]) - 1,
-        Number(parts[2])
-      ).toLocaleDateString("en-GB", {
-        day: "numeric",
-        month: "short",
-        year: "numeric"
-      });
-    }
+searchBox.addEventListener("input", render);
 
-    async function loadLeague(league) {
-      const url =
-        BASE + league.file + "/fixtures_2627.csv";
+document.getElementById("clear").addEventListener("click", () => {
+  searchBox.value = "";
+  render();
+  searchBox.focus();
+});
 
-      const response = await fetch(url, {
-        cache: "no-store"
-      });
+document.getElementById("refresh").addEventListener("click", loadFixtures);
 
-      if (!response.ok) {
-        throw new Error(
-          league.name + ": HTTP " + response.status
-        );
-      }
-
-      const records = parseCSV(await response.text());
-
-      return records
-        .filter(match =>
-          /^\d{4}-\d{2}-\d{2}$/.test(match.date || "") &&
-          match.home &&
-          match.away &&
-          match.date >= todayInKenya()
-        )
-        .map(match => ({
-          league: league.name,
-          date: match.date,
-          time: match.time || "",
-          home: match.home,
-          away: match.away
-        }));
-    }
-
-    function render() {
-      const query = search.value.trim().toLowerCase();
-
-      const filtered = fixtures
-        .filter(match =>
-          [
-            match.home,
-            match.away,
-            match.league
-          ].some(value => value.toLowerCase().includes(query))
-        )
-        .sort((a, b) =>
-          (a.date + a.time).localeCompare(b.date + b.time)
-        );
-
-      list.replaceChildren();
-
-      if (!filtered.length) {
-        const message = document.createElement("div");
-        message.className = "empty";
-        message.textContent = fixtures.length
-          ? "No fixtures match your search."
-          : "No upcoming fixtures are available from the sources that loaded. Try refreshing later.";
-        list.appendChild(message);
-        return;
-      }
-
-      const fragment = document.createDocumentFragment();
-
-      filtered.forEach(match => {
-        const card = document.createElement("article");
-        card.className = "match";
-
-        card.innerHTML = `
-          <div class="league">${escapeHTML(match.league)}</div>
-          <div class="teams">
-            ${escapeHTML(match.home)} vs ${escapeHTML(match.away)}
-          </div>
-          <div class="match-meta">
-            Date: ${escapeHTML(formatDate(match.date))}
-            ${match.time
-              ? " · Source time: " + escapeHTML(match.time)
-              : " · Kick-off time unavailable"}
-          </div>
-        `;
-
-        fragment.appendChild(card);
-      });
-
-      list.appendChild(fragment);
-    }
-
-    async function loadFixtures() {
-      status.className = "status";
-      status.textContent = "Loading online fixtures...";
-      list.replaceChildren();
-
-      const results = await Promise.allSettled(
-        LEAGUES.map(loadLeague)
-      );
-
-      fixtures = [];
-      const failed = [];
-
-      results.forEach((result, index) => {
-        if (result.status === "fulfilled") {
-          fixtures.push(...result.value);
-        } else {
-          failed.push(LEAGUES[index].name);
-          console.error(
-            "Could not load " + LEAGUES[index].name,
-            result.reason
-          );
-        }
-      });
-
-      // Remove exact duplicate records.
-      const unique = new Map();
-
-      fixtures.forEach(match => {
-        const key = [
-          match.date,
-          match.time,
-          match.home,
-          match.away,
-          match.league
-        ].join("|");
-
-        unique.set(key, match);
-      });
-
-      fixtures = [...unique.values()];
-
-      if (fixtures.length) {
-        status.textContent =
-          fixtures.length +
-          " upcoming fixture(s) loaded from online data." +
-          (failed.length
-            ? " Some competitions could not be loaded."
-            : "");
-
-        render();
-      } else {
-        status.className = "status error";
-        status.textContent =
-          "Could not load upcoming fixtures. Check your internet connection or try again later. No sample matches have been substituted.";
-
-        render();
-      }
-    }
-
-    search.addEventListener("input", render);
-
-    clear.addEventListener("click", () => {
-      search.value = "";
-      render();
-      search.focus();
-    });
-
-    loadFixtures();
-  </script>
+loadFixtures();
+</script>
 </body>
 </html>

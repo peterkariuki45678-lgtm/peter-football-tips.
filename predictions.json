@@ -61,7 +61,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.621Z"
+    "generatedAt": "2026-10-26T09:28:14.625Z"
   },
   {
     "fixtureId": 558556,
@@ -125,7 +125,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.658Z"
+    "generatedAt": "2026-10-26T09:28:15.612Z"
   },
   {
     "fixtureId": 558555,
@@ -189,7 +189,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.658Z"
+    "generatedAt": "2026-10-26T09:28:15.612Z"
   },
   {
     "fixtureId": 558557,
@@ -253,7 +253,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.658Z"
+    "generatedAt": "2026-10-26T09:28:15.612Z"
   },
   {
     "fixtureId": 558549,
@@ -317,7 +317,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.658Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558550,
@@ -381,7 +381,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.658Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558553,
@@ -445,7 +445,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558552,
@@ -509,7 +509,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558554,
@@ -573,7 +573,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558558,
@@ -637,7 +637,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 558551,
@@ -701,7 +701,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 565846,
@@ -765,7 +765,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.061Z"
   },
   {
     "fixtureId": 564737,
@@ -784,42 +784,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 1.5,
-      "away": 1
+      "home": 1.42,
+      "away": 1.17
     },
-    "predictedScore": "2-1",
+    "predictedScore": "1-1",
     "probabilities": {
-      "homeWin": 0.4879,
-      "draw": 0.2598,
-      "awayWin": 0.2522,
-      "homeOrDraw": 0.7478,
-      "drawOrAway": 0.5121,
-      "over15": 0.7127,
-      "over25": 0.4562,
-      "under25": 0.5438,
-      "under35": 0.7576,
-      "under45": 0.8912,
-      "bttsYes": 0.4911,
-      "bttsNo": 0.5089
+      "homeWin": 0.4274,
+      "draw": 0.2624,
+      "awayWin": 0.3102,
+      "homeOrDraw": 0.6898,
+      "drawOrAway": 0.5726,
+      "over15": 0.7294,
+      "over25": 0.4774,
+      "under25": 0.5226,
+      "under35": 0.7396,
+      "under45": 0.8798,
+      "bttsYes": 0.5216,
+      "bttsNo": 0.4784
     },
     "markets": {
-      "12": 0.7402,
-      "homeWin": 0.4879,
-      "draw": 0.2598,
-      "awayWin": 0.2522,
-      "1X": 0.7478,
-      "X2": 0.5121,
-      "over15": 0.7127,
-      "over25": 0.4562,
-      "over35": 0.2424,
-      "under25": 0.5438,
-      "under35": 0.7576,
-      "under45": 0.8912,
-      "bttsYes": 0.4911,
-      "bttsNo": 0.5089
+      "12": 0.7376,
+      "homeWin": 0.4274,
+      "draw": 0.2624,
+      "awayWin": 0.3102,
+      "1X": 0.6898,
+      "X2": 0.5726,
+      "over15": 0.7294,
+      "over25": 0.4774,
+      "over35": 0.2604,
+      "under25": 0.5226,
+      "under35": 0.7396,
+      "under45": 0.8798,
+      "bttsYes": 0.5216,
+      "bttsNo": 0.4784
     },
     "bestPick": "Under 4.5 Goals",
-    "bestPickProbability": 0.8912,
+    "bestPickProbability": 0.8798,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -829,7 +829,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.621Z"
+    "generatedAt": "2026-10-26T09:28:14.625Z"
   },
   {
     "fixtureId": 560626,
@@ -893,7 +893,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.073Z"
   },
   {
     "fixtureId": 564730,
@@ -912,42 +912,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 1,
+      "home": 1.42,
       "away": 2.08
     },
     "predictedScore": "1-2",
     "probabilities": {
-      "homeWin": 0.1729,
-      "draw": 0.2041,
-      "awayWin": 0.623,
-      "homeOrDraw": 0.377,
-      "drawOrAway": 0.8271,
-      "over15": 0.8129,
-      "over25": 0.5952,
-      "under25": 0.4048,
-      "under35": 0.6286,
-      "under45": 0.8011,
-      "bttsYes": 0.5534,
-      "bttsNo": 0.4466
+      "homeWin": 0.2598,
+      "draw": 0.2111,
+      "awayWin": 0.529,
+      "homeOrDraw": 0.4709,
+      "drawOrAway": 0.7402,
+      "over15": 0.8641,
+      "over25": 0.6791,
+      "under25": 0.3208,
+      "under35": 0.5366,
+      "under45": 0.7254,
+      "bttsYes": 0.6632,
+      "bttsNo": 0.3368
     },
     "markets": {
-      "12": 0.7959,
-      "homeWin": 0.1729,
-      "draw": 0.2041,
-      "awayWin": 0.623,
-      "1X": 0.377,
-      "X2": 0.8271,
-      "over15": 0.8129,
-      "over25": 0.5952,
-      "over35": 0.3714,
-      "under25": 0.4048,
-      "under35": 0.6286,
-      "under45": 0.8011,
-      "bttsYes": 0.5534,
-      "bttsNo": 0.4466
+      "12": 0.7889,
+      "homeWin": 0.2598,
+      "draw": 0.2111,
+      "awayWin": 0.529,
+      "1X": 0.4709,
+      "X2": 0.7402,
+      "over15": 0.8641,
+      "over25": 0.6791,
+      "over35": 0.4634,
+      "under25": 0.3208,
+      "under35": 0.5366,
+      "under45": 0.7254,
+      "bttsYes": 0.6632,
+      "bttsNo": 0.3368
     },
-    "bestPick": "Double Chance X2",
-    "bestPickProbability": 0.8271,
+    "bestPick": "Over 1.5 Goals",
+    "bestPickProbability": 0.8641,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -957,7 +957,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.621Z"
+    "generatedAt": "2026-10-26T09:28:14.625Z"
   },
   {
     "fixtureId": 558539,
@@ -1021,7 +1021,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 565839,
@@ -1085,7 +1085,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 565840,
@@ -1149,7 +1149,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 565842,
@@ -1213,7 +1213,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 565843,
@@ -1277,7 +1277,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 565847,
@@ -1341,7 +1341,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.083Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 560623,
@@ -1405,7 +1405,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.073Z"
   },
   {
     "fixtureId": 560624,
@@ -1469,7 +1469,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.073Z"
   },
   {
     "fixtureId": 560625,
@@ -1533,7 +1533,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.073Z"
   },
   {
     "fixtureId": 560629,
@@ -1597,7 +1597,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.073Z"
   },
   {
     "fixtureId": 560630,
@@ -1661,7 +1661,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.074Z"
   },
   {
     "fixtureId": 564735,
@@ -1680,42 +1680,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 0.92,
-      "away": 1.75
+      "home": 1.08,
+      "away": 1.92
     },
     "predictedScore": "1-2",
     "probabilities": {
-      "homeWin": 0.1952,
-      "draw": 0.2345,
-      "awayWin": 0.5703,
-      "homeOrDraw": 0.4297,
-      "drawOrAway": 0.8048,
-      "over15": 0.7452,
-      "over25": 0.4982,
-      "under25": 0.5018,
-      "under35": 0.7214,
-      "under45": 0.8678,
-      "bttsYes": 0.4959,
-      "bttsNo": 0.5041
+      "homeWin": 0.2111,
+      "draw": 0.221,
+      "awayWin": 0.5679,
+      "homeOrDraw": 0.4321,
+      "drawOrAway": 0.7889,
+      "over15": 0.8008,
+      "over25": 0.5768,
+      "under25": 0.4232,
+      "under35": 0.6472,
+      "under45": 0.8153,
+      "bttsYes": 0.5642,
+      "bttsNo": 0.4358
     },
     "markets": {
-      "12": 0.7655,
-      "homeWin": 0.1952,
-      "draw": 0.2345,
-      "awayWin": 0.5703,
-      "1X": 0.4297,
-      "X2": 0.8048,
-      "over15": 0.7452,
-      "over25": 0.4982,
-      "over35": 0.2786,
-      "under25": 0.5018,
-      "under35": 0.7214,
-      "under45": 0.8678,
-      "bttsYes": 0.4959,
-      "bttsNo": 0.5041
+      "12": 0.779,
+      "homeWin": 0.2111,
+      "draw": 0.221,
+      "awayWin": 0.5679,
+      "1X": 0.4321,
+      "X2": 0.7889,
+      "over15": 0.8008,
+      "over25": 0.5768,
+      "over35": 0.3528,
+      "under25": 0.4232,
+      "under35": 0.6472,
+      "under45": 0.8153,
+      "bttsYes": 0.5642,
+      "bttsNo": 0.4358
     },
     "bestPick": "Under 4.5 Goals",
-    "bestPickProbability": 0.8678,
+    "bestPickProbability": 0.8153,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -1725,7 +1725,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.626Z"
   },
   {
     "fixtureId": 558542,
@@ -1789,7 +1789,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 560627,
@@ -1853,7 +1853,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.074Z"
   },
   {
     "fixtureId": 564736,
@@ -1872,42 +1872,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 2,
-      "away": 1.25
+      "home": 1.92,
+      "away": 1.17
     },
     "predictedScore": "2-1",
     "probabilities": {
-      "homeWin": 0.5478,
-      "draw": 0.216,
-      "awayWin": 0.2361,
-      "homeOrDraw": 0.7638,
-      "drawOrAway": 0.4522,
-      "over15": 0.8352,
-      "over25": 0.6304,
-      "under25": 0.3696,
-      "under35": 0.5914,
-      "under45": 0.7717,
-      "bttsYes": 0.6169,
-      "bttsNo": 0.3831
+      "homeWin": 0.5485,
+      "draw": 0.2219,
+      "awayWin": 0.2296,
+      "homeOrDraw": 0.7704,
+      "drawOrAway": 0.4515,
+      "over15": 0.813,
+      "over25": 0.5952,
+      "under25": 0.4048,
+      "under35": 0.6286,
+      "under45": 0.8011,
+      "bttsYes": 0.5873,
+      "bttsNo": 0.4127
     },
     "markets": {
-      "12": 0.784,
-      "homeWin": 0.5478,
-      "draw": 0.216,
-      "awayWin": 0.2361,
-      "1X": 0.7638,
-      "X2": 0.4522,
-      "over15": 0.8352,
-      "over25": 0.6304,
-      "over35": 0.4086,
-      "under25": 0.3696,
-      "under35": 0.5914,
-      "under45": 0.7717,
-      "bttsYes": 0.6169,
-      "bttsNo": 0.3831
+      "12": 0.7781,
+      "homeWin": 0.5485,
+      "draw": 0.2219,
+      "awayWin": 0.2296,
+      "1X": 0.7704,
+      "X2": 0.4515,
+      "over15": 0.813,
+      "over25": 0.5952,
+      "over35": 0.3714,
+      "under25": 0.4048,
+      "under35": 0.6286,
+      "under45": 0.8011,
+      "bttsYes": 0.5873,
+      "bttsNo": 0.4127
     },
     "bestPick": "Over 1.5 Goals",
-    "bestPickProbability": 0.8352,
+    "bestPickProbability": 0.813,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -1917,7 +1917,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.626Z"
   },
   {
     "fixtureId": 565845,
@@ -1981,7 +1981,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.084Z"
+    "generatedAt": "2026-10-26T09:28:15.062Z"
   },
   {
     "fixtureId": 558548,
@@ -2045,7 +2045,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.613Z"
   },
   {
     "fixtureId": 560628,
@@ -2109,7 +2109,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.896Z"
+    "generatedAt": "2026-10-26T09:28:14.074Z"
   },
   {
     "fixtureId": 564732,
@@ -2128,42 +2128,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 2.92,
-      "away": 0.92
+      "home": 3,
+      "away": 1.25
     },
     "predictedScore": "3-1",
     "probabilities": {
-      "homeWin": 0.7799,
-      "draw": 0.1318,
-      "awayWin": 0.0881,
-      "homeOrDraw": 0.9117,
-      "drawOrAway": 0.2199,
-      "over15": 0.8952,
-      "over25": 0.7362,
-      "under25": 0.2636,
-      "under35": 0.4667,
-      "under45": 0.6614,
-      "bttsYes": 0.5675,
-      "bttsNo": 0.4325
+      "homeWin": 0.7268,
+      "draw": 0.1445,
+      "awayWin": 0.1284,
+      "homeOrDraw": 0.8713,
+      "drawOrAway": 0.2729,
+      "over15": 0.9248,
+      "over25": 0.796,
+      "under25": 0.2037,
+      "under35": 0.3862,
+      "under45": 0.5801,
+      "bttsYes": 0.6778,
+      "bttsNo": 0.3222
     },
     "markets": {
-      "12": 0.868,
-      "homeWin": 0.7799,
-      "draw": 0.1318,
-      "awayWin": 0.0881,
-      "1X": 0.9117,
-      "X2": 0.2199,
-      "over15": 0.8952,
-      "over25": 0.7362,
-      "over35": 0.5331,
-      "under25": 0.2636,
-      "under35": 0.4667,
-      "under45": 0.6614,
-      "bttsYes": 0.5675,
-      "bttsNo": 0.4325
+      "12": 0.8552,
+      "homeWin": 0.7268,
+      "draw": 0.1445,
+      "awayWin": 0.1284,
+      "1X": 0.8713,
+      "X2": 0.2729,
+      "over15": 0.9248,
+      "over25": 0.796,
+      "over35": 0.6135,
+      "under25": 0.2037,
+      "under35": 0.3862,
+      "under45": 0.5801,
+      "bttsYes": 0.6778,
+      "bttsNo": 0.3222
     },
-    "bestPick": "Double Chance 1X",
-    "bestPickProbability": 0.9117,
+    "bestPick": "Over 1.5 Goals",
+    "bestPickProbability": 0.9248,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -2173,7 +2173,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.626Z"
   },
   {
     "fixtureId": 558543,
@@ -2237,7 +2237,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 564733,
@@ -2301,7 +2301,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.626Z"
   },
   {
     "fixtureId": 558544,
@@ -2365,7 +2365,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 558546,
@@ -2429,7 +2429,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 565841,
@@ -2493,7 +2493,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.084Z"
+    "generatedAt": "2026-10-26T09:28:15.063Z"
   },
   {
     "fixtureId": 564734,
@@ -2513,41 +2513,41 @@
     "predictionAvailable": true,
     "expectedGoals": {
       "home": 1.25,
-      "away": 2.58
+      "away": 2.75
     },
     "predictedScore": "1-3",
     "probabilities": {
-      "homeWin": 0.1661,
-      "draw": 0.1728,
-      "awayWin": 0.661,
-      "homeOrDraw": 0.3389,
-      "drawOrAway": 0.8338,
-      "over15": 0.8953,
-      "over25": 0.7364,
-      "under25": 0.2636,
-      "under35": 0.4667,
-      "under45": 0.6614,
-      "bttsYes": 0.6596,
-      "bttsNo": 0.3404
+      "homeWin": 0.1499,
+      "draw": 0.1612,
+      "awayWin": 0.6888,
+      "homeOrDraw": 0.3111,
+      "drawOrAway": 0.8499,
+      "over15": 0.9083,
+      "over25": 0.7618,
+      "under25": 0.2381,
+      "under35": 0.4335,
+      "under45": 0.6288,
+      "bttsYes": 0.6678,
+      "bttsNo": 0.3322
     },
     "markets": {
-      "12": 0.8271,
-      "homeWin": 0.1661,
-      "draw": 0.1728,
-      "awayWin": 0.661,
-      "1X": 0.3389,
-      "X2": 0.8338,
-      "over15": 0.8953,
-      "over25": 0.7364,
-      "over35": 0.5332,
-      "under25": 0.2636,
-      "under35": 0.4667,
-      "under45": 0.6614,
-      "bttsYes": 0.6596,
-      "bttsNo": 0.3404
+      "12": 0.8387,
+      "homeWin": 0.1499,
+      "draw": 0.1612,
+      "awayWin": 0.6888,
+      "1X": 0.3111,
+      "X2": 0.8499,
+      "over15": 0.9083,
+      "over25": 0.7618,
+      "over35": 0.5664,
+      "under25": 0.2381,
+      "under35": 0.4335,
+      "under45": 0.6288,
+      "bttsYes": 0.6678,
+      "bttsNo": 0.3322
     },
     "bestPick": "Over 1.5 Goals",
-    "bestPickProbability": 0.8953,
+    "bestPickProbability": 0.9083,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -2557,7 +2557,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.626Z"
   },
   {
     "fixtureId": 560631,
@@ -2621,7 +2621,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.897Z"
+    "generatedAt": "2026-10-26T09:28:14.074Z"
   },
   {
     "fixtureId": 565844,
@@ -2685,7 +2685,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.084Z"
+    "generatedAt": "2026-10-26T09:28:15.063Z"
   },
   {
     "fixtureId": 558540,
@@ -2749,7 +2749,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 564728,
@@ -2768,42 +2768,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 1.42,
-      "away": 0.92
+      "home": 1.58,
+      "away": 1.08
     },
-    "predictedScore": "1-1",
+    "predictedScore": "2-1",
     "probabilities": {
-      "homeWin": 0.4863,
-      "draw": 0.2702,
-      "awayWin": 0.2435,
-      "homeOrDraw": 0.7565,
-      "drawOrAway": 0.5137,
-      "over15": 0.6768,
-      "over25": 0.4128,
-      "under25": 0.5872,
-      "under35": 0.7925,
-      "under45": 0.9123,
-      "bttsYes": 0.4546,
-      "bttsNo": 0.5454
+      "homeWin": 0.4893,
+      "draw": 0.2506,
+      "awayWin": 0.26,
+      "homeOrDraw": 0.74,
+      "drawOrAway": 0.5107,
+      "over15": 0.7452,
+      "over25": 0.4982,
+      "under25": 0.5018,
+      "under35": 0.7214,
+      "under45": 0.8678,
+      "bttsYes": 0.5257,
+      "bttsNo": 0.4743
     },
     "markets": {
-      "12": 0.7298,
-      "homeWin": 0.4863,
-      "draw": 0.2702,
-      "awayWin": 0.2435,
-      "1X": 0.7565,
-      "X2": 0.5137,
-      "over15": 0.6768,
-      "over25": 0.4128,
-      "over35": 0.2075,
-      "under25": 0.5872,
-      "under35": 0.7925,
-      "under45": 0.9123,
-      "bttsYes": 0.4546,
-      "bttsNo": 0.5454
+      "12": 0.7494,
+      "homeWin": 0.4893,
+      "draw": 0.2506,
+      "awayWin": 0.26,
+      "1X": 0.74,
+      "X2": 0.5107,
+      "over15": 0.7452,
+      "over25": 0.4982,
+      "over35": 0.2786,
+      "under25": 0.5018,
+      "under35": 0.7214,
+      "under45": 0.8678,
+      "bttsYes": 0.5257,
+      "bttsNo": 0.4743
     },
     "bestPick": "Under 4.5 Goals",
-    "bestPickProbability": 0.9123,
+    "bestPickProbability": 0.8678,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -2813,7 +2813,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.627Z"
   },
   {
     "fixtureId": 558547,
@@ -2877,7 +2877,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 564729,
@@ -2896,42 +2896,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 1.5,
-      "away": 1.5
+      "home": 1.42,
+      "away": 1.42
     },
-    "predictedScore": "2-2",
+    "predictedScore": "1-1",
     "probabilities": {
-      "homeWin": 0.3785,
-      "draw": 0.243,
-      "awayWin": 0.3785,
-      "homeOrDraw": 0.6215,
-      "drawOrAway": 0.6215,
-      "over15": 0.8009,
-      "over25": 0.5768,
-      "under25": 0.4232,
-      "under35": 0.6472,
-      "under45": 0.8153,
-      "bttsYes": 0.6035,
-      "bttsNo": 0.3965
+      "homeWin": 0.3745,
+      "draw": 0.2511,
+      "awayWin": 0.3745,
+      "homeOrDraw": 0.6255,
+      "drawOrAway": 0.6255,
+      "over15": 0.7745,
+      "over25": 0.5385,
+      "under25": 0.4615,
+      "under35": 0.6845,
+      "under45": 0.8424,
+      "bttsYes": 0.5738,
+      "bttsNo": 0.4262
     },
     "markets": {
-      "12": 0.757,
-      "homeWin": 0.3785,
-      "draw": 0.243,
-      "awayWin": 0.3785,
-      "1X": 0.6215,
-      "X2": 0.6215,
-      "over15": 0.8009,
-      "over25": 0.5768,
-      "over35": 0.3528,
-      "under25": 0.4232,
-      "under35": 0.6472,
-      "under45": 0.8153,
-      "bttsYes": 0.6035,
-      "bttsNo": 0.3965
+      "12": 0.7489,
+      "homeWin": 0.3745,
+      "draw": 0.2511,
+      "awayWin": 0.3745,
+      "1X": 0.6255,
+      "X2": 0.6255,
+      "over15": 0.7745,
+      "over25": 0.5385,
+      "over35": 0.3155,
+      "under25": 0.4615,
+      "under35": 0.6845,
+      "under45": 0.8424,
+      "bttsYes": 0.5738,
+      "bttsNo": 0.4262
     },
     "bestPick": "Under 4.5 Goals",
-    "bestPickProbability": 0.8153,
+    "bestPickProbability": 0.8424,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -2941,7 +2941,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.627Z"
   },
   {
     "fixtureId": 558541,
@@ -3005,7 +3005,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 558545,
@@ -3069,7 +3069,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:32.659Z"
+    "generatedAt": "2026-10-26T09:28:15.614Z"
   },
   {
     "fixtureId": 560622,
@@ -3133,7 +3133,7 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:30.897Z"
+    "generatedAt": "2026-10-26T09:28:14.075Z"
   },
   {
     "fixtureId": 564731,
@@ -3152,42 +3152,42 @@
     "status": "TIMED",
     "predictionAvailable": true,
     "expectedGoals": {
-      "home": 1.83,
-      "away": 1.25
+      "home": 2.08,
+      "away": 1.33
     },
     "predictedScore": "2-1",
     "probabilities": {
-      "homeWin": 0.5108,
-      "draw": 0.2286,
-      "awayWin": 0.2606,
-      "homeOrDraw": 0.7394,
-      "drawOrAway": 0.4892,
-      "over15": 0.813,
-      "over25": 0.5952,
-      "under25": 0.4048,
-      "under35": 0.6286,
-      "under45": 0.8011,
-      "bttsYes": 0.5994,
-      "bttsNo": 0.4006
+      "homeWin": 0.5471,
+      "draw": 0.2106,
+      "awayWin": 0.2422,
+      "homeOrDraw": 0.7578,
+      "drawOrAway": 0.4529,
+      "over15": 0.855,
+      "over25": 0.6635,
+      "under25": 0.3365,
+      "under35": 0.5547,
+      "under45": 0.7411,
+      "bttsYes": 0.6447,
+      "bttsNo": 0.3553
     },
     "markets": {
-      "12": 0.7714,
-      "homeWin": 0.5108,
-      "draw": 0.2286,
-      "awayWin": 0.2606,
-      "1X": 0.7394,
-      "X2": 0.4892,
-      "over15": 0.813,
-      "over25": 0.5952,
-      "over35": 0.3714,
-      "under25": 0.4048,
-      "under35": 0.6286,
-      "under45": 0.8011,
-      "bttsYes": 0.5994,
-      "bttsNo": 0.4006
+      "12": 0.7893,
+      "homeWin": 0.5471,
+      "draw": 0.2106,
+      "awayWin": 0.2422,
+      "1X": 0.7578,
+      "X2": 0.4529,
+      "over15": 0.855,
+      "over25": 0.6635,
+      "over35": 0.4453,
+      "under25": 0.3365,
+      "under35": 0.5547,
+      "under45": 0.7411,
+      "bttsYes": 0.6447,
+      "bttsNo": 0.3553
     },
     "bestPick": "Over 1.5 Goals",
-    "bestPickProbability": 0.813,
+    "bestPickProbability": 0.855,
     "calculationMethod": "Neutral-ground Poisson model; no home-advantage bonus",
     "neutralGround": true,
     "homeAdvantage": 0,
@@ -3197,6 +3197,6 @@
     },
     "predictionQuality": "GOOD_HISTORY",
     "source": "football-data.org API v4",
-    "generatedAt": "2026-10-26T09:00:31.622Z"
+    "generatedAt": "2026-10-26T09:28:14.627Z"
   }
 ]

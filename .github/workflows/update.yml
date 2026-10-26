@@ -6,11 +6,18 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "update-predictions.js"
+      - ".github/workflows/update.yml"
   schedule:
     - cron: "0 */6 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: peter-football-tips-update
+  cancel-in-progress: false
 
 jobs:
   update-predictions:
@@ -19,18 +26,20 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Verify required files
+      - name: Verify updater exists
         run: |
-          test -f update-predictions.js || {
+          if [ ! -f update-predictions.js ]; then
             echo "ERROR: update-predictions.js is missing from the repository root."
             exit 1
-          }
+          fi
 
       - name: Run prediction updater
         env:
@@ -39,20 +48,34 @@ jobs:
 
       - name: Verify predictions file
         run: |
-          test -f predictions.json || {
+          if [ ! -f predictions.json ]; then
             echo "ERROR: predictions.json was not created."
             exit 1
-          }
-          echo "predictions.json exists."
+          fi
 
-      - name: Commit updated predictions
+          node -e '
+            const fs = require("fs");
+            const data = JSON.parse(fs.readFileSync("predictions.json", "utf8"));
+            console.log("Fixtures:", data.totalFixtures);
+            console.log("Calculated predictions:", data.totalPredictionsAvailable);
+            console.log("Unavailable predictions:", data.totalPredictionsUnavailable);
+          '
+
+      - name: Commit and push predictions safely
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add predictions.json
+
           if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
-            git commit -m "Update football predictions"
-            git push origin HEAD:main
+            echo "No changes to predictions.json."
+            exit 0
           fi
+
+          git commit -m "Update football predictions"
+
+          git fetch origin main
+          git rebase origin/main
+
+          git push origin HEAD:main

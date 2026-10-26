@@ -27,6 +27,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Set up Node.js
@@ -34,48 +35,53 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Verify updater exists
+      - name: Check updater exists
         run: |
-          if [ ! -f update-predictions.js ]; then
-            echo "ERROR: update-predictions.js is missing from the repository root."
+          test -f update-predictions.js || {
+            echo "ERROR: update-predictions.js is missing."
             exit 1
-          fi
+          }
 
-      - name: Run prediction updater
+      - name: Generate predictions
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
         run: node ./update-predictions.js
 
-      - name: Verify predictions file
+      - name: Validate generated JSON
         run: |
-          if [ ! -f predictions.json ]; then
+          test -f predictions.json || {
             echo "ERROR: predictions.json was not created."
             exit 1
-          fi
+          }
 
           node -e '
             const fs = require("fs");
             const data = JSON.parse(fs.readFileSync("predictions.json", "utf8"));
             console.log("Fixtures:", data.totalFixtures);
             console.log("Calculated predictions:", data.totalPredictionsAvailable);
-            console.log("Unavailable predictions:", data.totalPredictionsUnavailable);
           '
 
-      - name: Commit and push predictions safely
+      - name: Commit generated predictions without merge conflicts
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          git fetch origin main
+
+          # Keep the freshly generated predictions before switching to latest main.
+          cp predictions.json /tmp/predictions-generated.json
+
+          git reset --hard origin/main
+
+          # Replace the generated file with the new output.
+          cp /tmp/predictions-generated.json predictions.json
+
           git add predictions.json
 
           if git diff --cached --quiet; then
-            echo "No changes to predictions.json."
+            echo "Predictions have not changed."
             exit 0
           fi
 
           git commit -m "Update football predictions"
-
-          git fetch origin main
-          git rebase origin/main
-
           git push origin HEAD:main

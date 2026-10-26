@@ -1,10 +1,12 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peter Football Tips</title>
   <meta name="theme-color" content="#07111f">
+  <meta name="description" content="Peter Football Tips: upcoming football fixtures and neutral-model statistical predictions.">
+  <title>Peter Football Tips</title>
 
   <style>
     * { box-sizing: border-box; }
@@ -69,6 +71,7 @@
     .muted {
       color: #a8b8cc;
       font-size: 13px;
+      line-height: 1.5;
     }
 
     .pick {
@@ -77,11 +80,10 @@
       background: #092c2a;
       border: 1px solid #176b5a;
       border-radius: 8px;
+      overflow-wrap: anywhere;
     }
 
-    .pick strong {
-      color: #49edb6;
-    }
+    .pick strong { color: #49edb6; }
 
     button {
       width: 100%;
@@ -95,12 +97,18 @@
       cursor: pointer;
     }
 
+    button:focus-visible {
+      outline: 2px solid #18d7a1;
+      outline-offset: 3px;
+    }
+
     .details {
       display: none;
       padding-top: 12px;
       color: #c4d3e5;
       font-size: 14px;
       line-height: 1.7;
+      overflow-wrap: anywhere;
     }
 
     .details.show { display: block; }
@@ -110,7 +118,7 @@
       background: #263b53;
       border-radius: 10px;
       overflow: hidden;
-      margin: 5px 0 10px;
+      margin: 8px 0 10px;
     }
 
     .bar span {
@@ -123,6 +131,12 @@
       text-align: center;
       padding: 15px;
       color: #b8c8da;
+      line-height: 1.6;
+    }
+
+    .warning {
+      color: #ffd08a;
+      border-color: #76552a;
     }
 
     footer {
@@ -130,6 +144,7 @@
       text-align: center;
       color: #7f94aa;
       font-size: 12px;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -142,189 +157,37 @@
 
   <main>
     <div class="notice">
-      <strong>Calculation rule:</strong> Home advantage is set to zero.
-      Both teams are assessed equally. Predictions use the supplied
-      statistics and are estimates, not guaranteed results.
+      <strong>Calculation rule:</strong>
+      The model applies no home-advantage bonus. Predictions are statistical
+      estimates, not guaranteed results.
+
+      <br><br>
+      <strong>Fixture source:</strong> football-data.org.
+      Only upcoming fixtures present in the generated data file are displayed.
+      The website cannot independently verify a provider's fixture schedule.
     </div>
 
-    <div id="status">Loading fixtures...</div>
+    <div id="status" role="status" aria-live="polite">
+      Loading verified fixture data...
+    </div>
+
     <section id="general-list"></section>
   </main>
 
   <footer>
     Peter Football Tips · Predictions are estimates, not guarantees.
+    <br>
+    Always verify fixtures and kick-off times before placing a bet.
   </footer>
 
   <script>
     "use strict";
 
-    let database = [];
+    const TIMEZONE = "Africa/Nairobi";
+    const MAX_DAYS_AHEAD = 7;
 
-    // HOME ADVANTAGE IS ALWAYS ZERO.
-    const HOME_ADVANTAGE = 0;
-
-    function number(value, fallback = 0) {
-      const n = Number(value);
-      return Number.isFinite(n) ? n : fallback;
-    }
-
-    function clamp(value, min, max) {
-      return Math.max(min, Math.min(max, value));
-    }
-
-    /*
-      Expected match data in predictions.json:
-
-      {
-        "league": "Premier League",
-        "utcTime": "18:00",
-        "home": "Team A",
-        "away": "Team B",
-        "homeLast6": [
-          {"gf": 2, "ga": 1, "result": "W"},
-          {"gf": 1, "ga": 1, "result": "D"}
-        ],
-        "awayLast6": [
-          {"gf": 1, "ga": 0, "result": "W"},
-          {"gf": 0, "ga": 2, "result": "L"}
-        ]
-      }
-
-      Provide all six matches for both teams for better estimates.
-      Results: W = win, D = draw, L = loss.
-    */
-
-    function teamStats(matches) {
-      const games = Array.isArray(matches) ? matches.slice(0, 6) : [];
-
-      if (games.length === 0) return null;
-
-      let scored = 0;
-      let conceded = 0;
-      let points = 0;
-      let count = 0;
-
-      for (const game of games) {
-        if (game.gf === undefined || game.ga === undefined) continue;
-
-        const gf = number(game.gf, NaN);
-        const ga = number(game.ga, NaN);
-
-        if (!Number.isFinite(gf) || !Number.isFinite(ga) ||
-            gf < 0 || ga < 0) continue;
-
-        scored += gf;
-        conceded += ga;
-
-        const result = String(game.result || "").toUpperCase();
-
-        if (result === "W") points += 3;
-        else if (result === "D") points += 1;
-        else if (result !== "L") {
-          if (gf > ga) points += 3;
-          else if (gf === ga) points += 1;
-        }
-
-        count++;
-      }
-
-      if (!count) return null;
-
-      return {
-        scored: scored / count,
-        conceded: conceded / count,
-        points: points / (3 * count),
-        games: count
-      };
-    }
-
-    function poissonProbability(goals, expectedGoals) {
-      let factorial = 1;
-
-      for (let i = 2; i <= goals; i++) factorial *= i;
-
-      return Math.exp(-expectedGoals) *
-        Math.pow(expectedGoals, goals) / factorial;
-    }
-
-    function calculateNeutralProbabilities(match) {
-      const home = teamStats(match.homeLast6);
-      const away = teamStats(match.awayLast6);
-
-      // Use supplied model probabilities if six-game statistics are absent.
-      // These are not recalculated from actual match results.
-      if (!home || !away) {
-        const raw = match.raw_probabilities || {};
-
-        let pHome = number(raw["1"], 0);
-        let pDraw = number(raw["X"], 0);
-        let pAway = number(raw["2"], 0);
-
-        const sum = pHome + pDraw + pAway;
-
-        if (sum > 0) {
-          return {
-            home: pHome / sum * 100,
-            draw: pDraw / sum * 100,
-            away: pAway / sum * 100,
-            source: "Supplied probabilities; neutral adjustment cannot be verified"
-          };
-        }
-
-        return null;
-      }
-
-      /*
-        Symmetric neutral model:
-        Each team's expected goals combine its scoring average
-        with the opponent's conceding average.
-        No home-team multiplier is applied.
-      */
-      const expectedHomeGoals = clamp(
-        (home.scored + away.conceded) / 2, 0.15, 4.5
-      );
-
-      const expectedAwayGoals = clamp(
-        (away.scored + home.conceded) / 2, 0.15, 4.5
-      );
-
-      let pHome = 0;
-      let pDraw = 0;
-      let pAway = 0;
-
-      for (let h = 0; h <= 10; h++) {
-        for (let a = 0; a <= 10; a++) {
-          const probability =
-            poissonProbability(h, expectedHomeGoals) *
-            poissonProbability(a, expectedAwayGoals);
-
-          if (h > a) pHome += probability;
-          else if (h === a) pDraw += probability;
-          else pAway += probability;
-        }
-      }
-
-      const total = pHome + pDraw + pAway;
-
-      return {
-        home: pHome / total * 100,
-        draw: pDraw / total * 100,
-        away: pAway / total * 100,
-        source: "Calculated from supplied last-six-match statistics"
-      };
-    }
-
-    function chooseSafestMarket(p) {
-      const markets = [
-        { name: "Double Chance (1X)", probability: p.home + p.draw },
-        { name: "Double Chance (X2)", probability: p.draw + p.away },
-        { name: "Draw No Bet — Home", probability: p.home / (p.home + p.away || 1) * 100 },
-        { name: "Draw No Bet — Away", probability: p.away / (p.home + p.away || 1) * 100 }
-      ];
-
-      markets.sort((a, b) => b.probability - a.probability);
-      return markets[0];
-    }
+    const statusElement = document.getElementById("status");
+    const listElement = document.getElementById("general-list");
 
     function escapeHTML(value) {
       return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -336,120 +199,258 @@
       })[char]);
     }
 
-    function renderMatches() {
-      const container = document.getElementById("general-list");
-      const status = document.getElementById("status");
+    function formatKickoff(dateString) {
+      const date = new Date(dateString);
 
-      container.innerHTML = "";
-
-      if (!database.length) {
-        status.textContent = "No fixtures found in predictions.json.";
-        return;
+      if (!Number.isFinite(date.getTime())) {
+        return "Time unavailable";
       }
 
-      let rendered = 0;
+      return new Intl.DateTimeFormat("en-KE", {
+        timeZone: TIMEZONE,
+        weekday: "short",
+        day: "numeric",
+        month: "short",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false
+      }).format(date) + " EAT";
+    }
 
-      database.forEach((match, index) => {
-        const probabilities = calculateNeutralProbabilities(match);
+    function validFutureFixture(match, now, cutoff) {
+      if (!match || typeof match !== "object") return false;
 
-        const card = document.createElement("article");
-        card.className = "match";
+      if (!match.home || !match.away) return false;
+      if (match.home === match.away) return false;
 
-        const league = escapeHTML(match.league || "Football");
-        const home = escapeHTML(match.home || "Home team");
-        const away = escapeHTML(match.away || "Away team");
-        const time = escapeHTML(match.utcTime || match.time || "Time unavailable");
+      const kickoff = new Date(match.date).getTime();
 
-        let content = `
-          <div class="league">${league}</div>
-          <p class="muted">Kick-off: ${time}</p>
-          <h2>${home} vs ${away}</h2>
-        `;
+      if (!Number.isFinite(kickoff)) return false;
+      if (kickoff <= now || kickoff > cutoff) return false;
 
-        if (!probabilities) {
-          content += `
-            <div class="pick">
-              <strong>Statistics required</strong>
-              <p class="muted">
-                Add each team's last six results with goals scored and conceded
-                to calculate a neutral-ground estimate.
-              </p>
-            </div>`;
-        } else {
-          const best = chooseSafestMarket(probabilities);
-          const confidence = clamp(best.probability, 0, 100);
+      return ["SCHEDULED", "TIMED"].includes(
+        String(match.status || "").toUpperCase()
+      );
+    }
 
-          content += `
-            <div class="pick">
-              <div>Suggested market: <strong>${best.name}</strong></div>
-              <p>Estimated market probability: <strong>${confidence.toFixed(1)}%</strong></p>
-              <div class="bar"><span style="width:${confidence}%"></span></div>
-              <p class="muted">Home win: ${probabilities.home.toFixed(1)}% ·
-                Draw: ${probabilities.draw.toFixed(1)}% ·
-                Away win: ${probabilities.away.toFixed(1)}%</p>
+    function validProbability(value) {
+      return typeof value === "number" &&
+        Number.isFinite(value) &&
+        value >= 0 &&
+        value <= 100;
+    }
+
+    function renderMarkets(match) {
+      if (!Array.isArray(match.markets)) return "";
+
+      const validMarkets = match.markets.filter(item =>
+        item &&
+        typeof item.market === "string" &&
+        validProbability(item.probability)
+      );
+
+      if (!validMarkets.length) {
+        return "<p>No calculated markets are available for this fixture.</p>";
+      }
+
+      return `
+        <p><strong>Calculated markets</strong></p>
+        ${validMarkets.map(item => `
+          <p>${escapeHTML(item.market)}:
+          ${item.probability.toFixed(1)}%</p>
+        `).join("")}
+      `;
+    }
+
+    function renderFixture(match, index) {
+      const card = document.createElement("article");
+      card.className = "match";
+
+      const predictionAvailable = match.predictionAvailable === true;
+      const probability = match.probability;
+      const hasBestPick =
+        predictionAvailable &&
+        typeof match.bestPick === "string" &&
+        match.bestPick.length > 0 &&
+        validProbability(probability);
+
+      let pickHTML = "";
+
+      if (hasBestPick) {
+        pickHTML = `
+          <div class="pick">
+            <div>Suggested market:
+              <strong>${escapeHTML(match.bestPick)}</strong>
             </div>
+            <p>Estimated market probability:
+              <strong>${probability.toFixed(1)}%</strong>
+            </p>
+            <div class="bar" aria-label="Estimated probability">
+              <span style="width:${probability}%"></span>
+            </div>
+          </div>
 
-            <button type="button" aria-expanded="false"
-              aria-controls="details-${index}" id="button-${index}">
-              View calculation details
-            </button>
+          <button type="button" aria-expanded="false"
+            aria-controls="details-${index}">
+            View calculation details
+          </button>
 
-            <div class="details" id="details-${index}">
-              <p>${escapeHTML(probabilities.source)}</p>
-              <p>Home advantage adjustment: 0%</p>
-              <p>Home win probability: ${probabilities.home.toFixed(2)}%</p>
-              <p>Draw probability: ${probabilities.draw.toFixed(2)}%</p>
-              <p>Away win probability: ${probabilities.away.toFixed(2)}%</p>
-              <p>These are statistical estimates, not guaranteed outcomes.</p>
-            </div>`;
-        }
+          <div class="details" id="details-${index}">
+            <p>Expected score:
+              ${match.predictedScore
+                ? escapeHTML(match.predictedScore)
+                : "Unavailable"}
+            </p>
+            <p>Expected home goals:
+              ${Number.isFinite(match.expectedHomeGoals)
+                ? match.expectedHomeGoals
+                : "Unavailable"}
+            </p>
+            <p>Expected away goals:
+              ${Number.isFinite(match.expectedAwayGoals)
+                ? match.expectedAwayGoals
+                : "Unavailable"}
+            </p>
+            <p>Home matches used:
+              ${Number(match.historyMatchesUsed?.home) || 0}
+            </p>
+            <p>Away matches used:
+              ${Number(match.historyMatchesUsed?.away) || 0}
+            </p>
+            ${renderMarkets(match)}
+            <p>Method: ${escapeHTML(
+              match.calculationMethod || "Not specified"
+            )}</p>
+            <p>Probabilities are estimates, not guarantees.</p>
+          </div>
+        `;
+      } else {
+        pickHTML = `
+          <div class="pick">
+            <strong>Prediction unavailable</strong>
+            <p class="muted">
+              This fixture has no valid calculated prediction.
+              No probability has been invented.
+            </p>
+          </div>
+        `;
+      }
 
-        card.innerHTML = content;
-        container.appendChild(card);
+      card.innerHTML = `
+        <div class="league">${escapeHTML(match.league || "Football")}</div>
+        <p class="muted">Kick-off: ${formatKickoff(match.date)}</p>
+        <h2>${escapeHTML(match.home)} vs ${escapeHTML(match.away)}</h2>
+        ${pickHTML}
+      `;
 
-        const button = card.querySelector("button");
-        if (button) {
-          button.addEventListener("click", () => {
-            const details = card.querySelector(".details");
-            const isOpen = details.classList.toggle("show");
-            button.setAttribute("aria-expanded", String(isOpen));
-            button.textContent = isOpen
-              ? "Hide calculation details"
-              : "View calculation details";
-          });
-        }
+      const button = card.querySelector("button");
 
-        rendered++;
-      });
+      if (button) {
+        button.addEventListener("click", () => {
+          const details = card.querySelector(".details");
+          const expanded = details.classList.toggle("show");
 
-      status.textContent = `${rendered} fixture(s) loaded · Neutral-ground calculation enabled`;
+          button.setAttribute("aria-expanded", String(expanded));
+          button.textContent = expanded
+            ? "Hide calculation details"
+            : "View calculation details";
+        });
+      }
+
+      return card;
     }
 
     async function loadSystemData() {
-      const status = document.getElementById("status");
+      statusElement.textContent = "Loading fixture data...";
+      listElement.replaceChildren();
 
       try {
-        const response = await fetch("./predictions.json?t=" + Date.now(), {
-          cache: "no-store"
-        });
+        const response = await fetch(
+          "./predictions.json?t=" + Date.now(),
+          { cache: "no-store" }
+        );
 
         if (!response.ok) {
-          throw new Error("Could not load predictions.json (HTTP " + response.status + ")");
+          throw new Error(
+            "predictions.json returned HTTP " + response.status
+          );
         }
 
         const data = await response.json();
 
-        database = Array.isArray(data)
-          ? data
-          : Array.isArray(data.matches)
-            ? data.matches
-            : [];
+        if (!data || typeof data !== "object" || Array.isArray(data)) {
+          throw new Error("Unexpected predictions.json format.");
+        }
 
-        renderMatches();
+        if (data.provider !== "football-data.org") {
+          throw new Error(
+            "The data file does not identify football-data.org as its provider."
+          );
+        }
+
+        if (!Array.isArray(data.predictions)) {
+          throw new Error(
+            "The data file has no predictions array. Check the updater output."
+          );
+        }
+
+        const now = Date.now();
+        const cutoff = now + MAX_DAYS_AHEAD * 24 * 60 * 60 * 1000;
+
+        const uniqueFixtures = new Map();
+
+        for (const match of data.predictions) {
+          if (!validFutureFixture(match, now, cutoff)) continue;
+
+          const id = match.fixtureId ??
+            `${match.date}-${match.home}-${match.away}`;
+
+          if (!uniqueFixtures.has(String(id))) {
+            uniqueFixtures.set(String(id), match);
+          }
+        }
+
+        const fixtures = Array.from(uniqueFixtures.values())
+          .sort((a, b) =>
+            new Date(a.date).getTime() - new Date(b.date).getTime()
+          );
+
+        if (fixtures.length === 0) {
+          statusElement.textContent =
+            "No upcoming fixtures found in the generated data for the next seven days. No sample or hardcoded matches will be shown.";
+
+          return;
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        fixtures.forEach((match, index) => {
+          fragment.appendChild(renderFixture(match, index));
+        });
+
+        listElement.appendChild(fragment);
+
+        const available = fixtures.filter(match =>
+          match.predictionAvailable === true &&
+          validProbability(match.probability)
+        ).length;
+
+        const updated = data.updatedAt
+          ? new Date(data.updatedAt)
+          : null;
+
+        const freshness = updated && Number.isFinite(updated.getTime())
+          ? `Data updated: ${formatKickoff(updated.toISOString())}.`
+          : "Update time unavailable.";
+
+        statusElement.textContent =
+          `${fixtures.length} upcoming fixture(s) loaded · ` +
+          `${available} calculated prediction(s) · ${freshness}`;
       } catch (error) {
-        console.error("Fixture loading error:", error);
-        status.textContent =
-          "Unable to load fixtures. Check that predictions.json is published beside index.html.";
+        console.error("Website data-loading error:", error);
+
+        statusElement.textContent =
+          "Unable to load valid fixture data. Check predictions.json and the latest GitHub Actions run.";
       }
     }
 

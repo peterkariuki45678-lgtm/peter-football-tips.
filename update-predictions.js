@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const path = require("path");
 
@@ -8,6 +9,7 @@ const OUTPUT_FILE = path.join(__dirname, "predictions.json");
 
 const MAX_FIXTURES = 40;
 const HISTORY_MATCHES = 6;
+const MIN_HISTORY_MATCHES = 3;
 
 const COMPETITIONS = [
   { code: "PL", name: "Premier League" },
@@ -18,19 +20,19 @@ const COMPETITIONS = [
 ];
 
 function kenyaDate(date = new Date()) {
-  const parts = new Intl.DateTimeFormat("en-GB", {
+  const parts = new Intl.DateTimeFormat("en-CA", {
     timeZone: TIMEZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
   }).formatToParts(date);
 
-  const values = {};
+  const result = {};
   for (const part of parts) {
-    if (part.type !== "literal") values[part.type] = part.value;
+    if (part.type !== "literal") result[part.type] = part.value;
   }
 
-  return `${values.year}-${values.month}-${values.day}`;
+  return `${result.year}-${result.month}-${result.day}`;
 }
 
 function addDays(dateString, days) {
@@ -41,16 +43,14 @@ function addDays(dateString, days) {
 
 async function apiRequest(endpoint) {
   const response = await fetch(`${API_URL}${endpoint}`, {
-    headers: {
-      "X-Auth-Token": API_KEY
-    }
+    headers: { "X-Auth-Token": API_KEY }
   });
 
-  const text = await response.text();
+  const body = await response.text();
   let data;
 
   try {
-    data = JSON.parse(text);
+    data = JSON.parse(body);
   } catch {
     throw new Error(`Invalid API response (HTTP ${response.status}).`);
   }
@@ -67,8 +67,9 @@ async function apiRequest(endpoint) {
 }
 
 function average(values) {
-  if (!values.length) return 0;
-  return values.reduce((sum, value) => sum + value, 0) / values.length;
+  return values.length
+    ? values.reduce((sum, value) => sum + value, 0) / values.length
+    : 0;
 }
 
 function clamp(value, min, max) {
@@ -86,14 +87,16 @@ function poissonProbability(lambda, goals) {
 }
 
 function calculateProbabilities(homeGoals, awayGoals) {
-  let homeWin = 0;
-  let draw = 0;
-  let awayWin = 0;
-  let over15 = 0;
-  let over25 = 0;
-  let under45 = 0;
-  let homeScores = 0;
-  let awayScores = 0;
+  const result = {
+    homeWin: 0,
+    draw: 0,
+    awayWin: 0,
+    over15: 0,
+    over25: 0,
+    under45: 0,
+    homeScores: 0,
+    awayScores: 0
+  };
 
   for (let h = 0; h <= 10; h++) {
     for (let a = 0; a <= 10; a++) {
@@ -101,70 +104,62 @@ function calculateProbabilities(homeGoals, awayGoals) {
         poissonProbability(homeGoals, h) *
         poissonProbability(awayGoals, a);
 
-      if (h > a) homeWin += probability;
-      else if (h === a) draw += probability;
-      else awayWin += probability;
+      if (h > a) result.homeWin += probability;
+      else if (h === a) result.draw += probability;
+      else result.awayWin += probability;
 
-      if (h + a >= 2) over15 += probability;
-      if (h + a >= 3) over25 += probability;
-      if (h + a <= 4) under45 += probability;
-      if (h > 0) homeScores += probability;
-      if (a > 0) awayScores += probability;
+      if (h + a >= 2) result.over15 += probability;
+      if (h + a >= 3) result.over25 += probability;
+      if (h + a <= 4) result.under45 += probability;
+      if (h > 0) result.homeScores += probability;
+      if (a > 0) result.awayScores += probability;
     }
   }
 
-  return {
-    homeWin,
-    draw,
-    awayWin,
-    over15,
-    over25,
-    under45,
-    homeScores,
-    awayScores
-  };
+  return result;
 }
 
-async function getTeamHistory(teamId, beforeDate) {
-  const data = await apiRequest(
-    `/teams/${teamId}/matches?status=FINISHED&dateTo=${beforeDate}&limit=10`
-  );
-
-  const matches = (data.matches || [])
+function teamHistory(teamId, allMatches, beforeDate) {
+  return allMatches
     .filter(match => {
+      if (match.status !== "FINISHED") return false;
+      if (!match.utcDate || match.utcDate.slice(0, 10) >= beforeDate) {
+        return false;
+      }
+
       const score = match.score?.fullTime;
+      const isHome = match.homeTeam?.id === teamId;
+      const isAway = match.awayTeam?.id === teamId;
 
       return (
-        match.status === "FINISHED" &&
-        match.utcDate.slice(0, 10) < beforeDate &&
+        (isHome || isAway) &&
         Number.isFinite(score?.home) &&
         Number.isFinite(score?.away)
       );
     })
     .sort((a, b) => new Date(b.utcDate) - new Date(a.utcDate))
-    .slice(0, HISTORY_MATCHES);
+    .slice(0, HISTORY_MATCHES)
+    .map(match => {
+      const isHome = match.homeTeam.id === teamId;
 
-  return matches.map(match => {
-    const isHome = match.homeTeam.id === teamId;
-
-    return {
-      scored: isHome
-        ? match.score.fullTime.home
-        : match.score.fullTime.away,
-      conceded: isHome
-        ? match.score.fullTime.away
-        : match.score.fullTime.home
-    };
-  });
+      return {
+        scored: isHome
+          ? match.score.fullTime.home
+          : match.score.fullTime.away,
+        conceded: isHome
+          ? match.score.fullTime.away
+          : match.score.fullTime.home
+      };
+    });
 }
 
 function calculatePrediction(homeHistory, awayHistory) {
-  const homeAttack = average(homeHistory.map(match => match.scored));
-  const homeConcede = average(homeHistory.map(match => match.conceded));
-  const awayAttack = average(awayHistory.map(match => match.scored));
-  const awayConcede = average(awayHistory.map(match => match.conceded));
+  const homeAttack = average(homeHistory.map(m => m.scored));
+  const homeConcede = average(homeHistory.map(m => m.conceded));
+  const awayAttack = average(awayHistory.map(m => m.scored));
+  const awayConcede = average(awayHistory.map(m => m.conceded));
 
-  // Neutral model: no home-advantage bonus.
+  // No home-advantage bonus. Both teams are evaluated neutrally.
   const expectedHomeGoals = clamp(
     (homeAttack + awayConcede) / 2,
     0.15,
@@ -177,48 +172,21 @@ function calculatePrediction(homeHistory, awayHistory) {
     4.5
   );
 
-  const p = calculateProbabilities(
-    expectedHomeGoals,
-    expectedAwayGoals
-  );
+  const p = calculateProbabilities(expectedHomeGoals, expectedAwayGoals);
 
   const markets = [
-    {
-      market: "Double Chance 1X",
-      probability: p.homeWin + p.draw
-    },
-    {
-      market: "Double Chance X2",
-      probability: p.awayWin + p.draw
-    },
-    {
-      market: "Over 1.5 Goals",
-      probability: p.over15
-    },
-    {
-      market: "Under 4.5 Goals",
-      probability: p.under45
-    },
-    {
-      market: "Over 2.5 Goals",
-      probability: p.over25
-    },
+    { market: "Double Chance 1X", probability: p.homeWin + p.draw },
+    { market: "Double Chance X2", probability: p.awayWin + p.draw },
+    { market: "Over 1.5 Goals", probability: p.over15 },
+    { market: "Under 4.5 Goals", probability: p.under45 },
+    { market: "Over 2.5 Goals", probability: p.over25 },
     {
       market: "Both Teams To Score",
       probability: p.homeScores * p.awayScores
     },
-    {
-      market: "Home Win",
-      probability: p.homeWin
-    },
-    {
-      market: "Draw",
-      probability: p.draw
-    },
-    {
-      market: "Away Win",
-      probability: p.awayWin
-    }
+    { market: "Home Win", probability: p.homeWin },
+    { market: "Draw", probability: p.draw },
+    { market: "Away Win", probability: p.awayWin }
   ]
     .map(item => ({
       market: item.market,
@@ -227,6 +195,7 @@ function calculatePrediction(homeHistory, awayHistory) {
     .sort((a, b) => b.probability - a.probability);
 
   return {
+    predictionAvailable: true,
     expectedHomeGoals: Number(expectedHomeGoals.toFixed(2)),
     expectedAwayGoals: Number(expectedAwayGoals.toFixed(2)),
     predictedScore:
@@ -234,7 +203,24 @@ function calculatePrediction(homeHistory, awayHistory) {
     markets,
     bestPick: markets[0].market,
     probability: markets[0].probability,
-    calculationMethod: "Neutral venue; no home-advantage bonus",
+    calculationMethod: "Neutral model; no home-advantage bonus",
+    historyMatchesUsed: {
+      home: homeHistory.length,
+      away: awayHistory.length
+    }
+  };
+}
+
+function unavailablePrediction(homeHistory, awayHistory) {
+  return {
+    predictionAvailable: false,
+    expectedHomeGoals: null,
+    expectedAwayGoals: null,
+    predictedScore: null,
+    markets: [],
+    bestPick: "Prediction unavailable",
+    probability: null,
+    calculationMethod: "Insufficient verified match history",
     historyMatchesUsed: {
       home: homeHistory.length,
       away: awayHistory.length
@@ -245,102 +231,160 @@ function calculatePrediction(homeHistory, awayHistory) {
 async function main() {
   if (!API_KEY) {
     throw new Error(
-      "FOOTBALL_DATA_API_KEY is missing. Add this secret under GitHub Settings > Secrets and variables > Actions."
+      "FOOTBALL_DATA_API_KEY is missing. Check GitHub Settings > Secrets and variables > Actions."
     );
   }
 
-  console.log("Football-data.org key detected.");
-  console.log("Kenya date:", kenyaDate());
-
   const today = kenyaDate();
-  const endDate = addDays(today, 7);
-  const predictions = [];
+  const lastFixtureDate = addDays(today, 7);
+  const endExclusive = addDays(today, 8);
+  const historyStart = addDays(today, -365);
 
+  console.log("Football-data.org key detected.");
+  console.log("Kenya date:", today);
+  console.log(
+    `Searching fixtures: ${today} to ${lastFixtureDate}`
+  );
+
+  const allMatchesById = new Map();
+  const requestedCompetitions = new Set();
+
+  // Fetch each competition's recent history and upcoming schedule.
+  // One request per competition helps avoid excessive API calls.
   for (const competition of COMPETITIONS) {
-    console.log(`Loading ${competition.name} fixtures...`);
+    console.log(`Loading ${competition.name} data...`);
 
     const endpoint =
-      `/competitions/${competition.code}/matches` +
-      `?dateFrom=${today}&dateTo=${endDate}`;
+      `/competitions/${encodeURIComponent(competition.code)}/matches` +
+      `?dateFrom=${historyStart}` +
+      `&dateTo=${endExclusive}` +
+      `&limit=500`;
 
-    const data = await apiRequest(endpoint);
+    try {
+      const data = await apiRequest(endpoint);
+      requestedCompetitions.add(competition.code);
 
-    for (const match of data.matches || []) {
-      if (!["SCHEDULED", "TIMED"].includes(match.status)) continue;
-      if (predictions.length >= MAX_FIXTURES) break;
+      const matches = Array.isArray(data.matches) ? data.matches : [];
 
-      const home = match.homeTeam;
-      const away = match.awayTeam;
+      console.log(
+        `${competition.name}: ${matches.length} matches returned.`
+      );
 
-      if (!home?.id || !away?.id) continue;
+      for (const match of matches) {
+        if (!match.id || !match.utcDate) continue;
+        if (!match.homeTeam?.id || !match.awayTeam?.id) continue;
 
-      try {
-        console.log(`Calculating ${home.name} vs ${away.name}`);
-
-        const [homeHistory, awayHistory] = await Promise.all([
-          getTeamHistory(home.id, today),
-          getTeamHistory(away.id, today)
-        ]);
-
-        if (!homeHistory.length || !awayHistory.length) {
-          console.log("Skipped: insufficient completed match history.");
-          continue;
-        }
-
-        const calculation = calculatePrediction(
-          homeHistory,
-          awayHistory
-        );
-
-        predictions.push({
-          fixtureId: match.id,
-          date: match.utcDate,
-          timestamp: Math.floor(
-            new Date(match.utcDate).getTime() / 1000
-          ),
-          league: competition.name,
-          country: match.area?.name || "",
-          home: home.name,
-          away: away.name,
-          homeTeam: home.name,
-          awayTeam: away.name,
-          status: match.status,
-          ...calculation
-        });
-      } catch (error) {
-        console.error(
-          `Skipped ${home.name} vs ${away.name}: ${error.message}`
-        );
-
-        // Stop on authentication, permission or rate-limit errors.
-        if (/HTTP (401|403|429)/i.test(error.message)) {
-          throw error;
+        // Keep the match exactly as returned by the provider.
+        if (!allMatchesById.has(match.id)) {
+          allMatchesById.set(match.id, {
+            ...match,
+            _competitionCode: competition.code,
+            _competitionName:
+              match.competition?.name || competition.name
+          });
         }
       }
-    }
+    } catch (error) {
+      console.error(
+        `Could not load ${competition.name}: ${error.message}`
+      );
 
-    if (predictions.length >= MAX_FIXTURES) break;
+      // Authentication and rate-limit errors should stop the run.
+      if (/HTTP (401|403|429)/i.test(error.message)) {
+        throw error;
+      }
+    }
   }
 
-  predictions.sort((a, b) => {
-    if (b.probability !== a.probability) {
-      return b.probability - a.probability;
+  const allMatches = Array.from(allMatchesById.values());
+
+  // Select only real, upcoming fixtures in the requested date window.
+  const fixtureMap = new Map();
+
+  for (const match of allMatches) {
+    const matchDate = match.utcDate.slice(0, 10);
+
+    if (matchDate < today || matchDate > lastFixtureDate) continue;
+    if (!["SCHEDULED", "TIMED"].includes(match.status)) continue;
+    if (!requestedCompetitions.has(match._competitionCode)) continue;
+
+    fixtureMap.set(match.id, match);
+  }
+
+  const fixtures = Array.from(fixtureMap.values())
+    .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate))
+    .slice(0, MAX_FIXTURES);
+
+  console.log("Unique upcoming fixtures found:", fixtures.length);
+
+  const predictions = [];
+
+  for (const match of fixtures) {
+    const home = match.homeTeam;
+    const away = match.awayTeam;
+
+    const homeHistory = teamHistory(home.id, allMatches, today);
+    const awayHistory = teamHistory(away.id, allMatches, today);
+
+    let calculation;
+
+    if (
+      homeHistory.length >= MIN_HISTORY_MATCHES &&
+      awayHistory.length >= MIN_HISTORY_MATCHES
+    ) {
+      calculation = calculatePrediction(homeHistory, awayHistory);
+    } else {
+      calculation = unavailablePrediction(homeHistory, awayHistory);
+
+      console.log(
+        `Prediction unavailable: ${home.name} vs ${away.name}; ` +
+        `history home=${homeHistory.length}, away=${awayHistory.length}`
+      );
     }
 
-    return a.timestamp - b.timestamp;
-  });
+    predictions.push({
+      fixtureId: match.id,
+      date: match.utcDate,
+      timestamp: Math.floor(new Date(match.utcDate).getTime() / 1000),
+      league: match._competitionName,
+      competitionCode: match._competitionCode,
+      country: match.area?.name || "",
+      home: home.name,
+      away: away.name,
+      homeTeam: home.name,
+      awayTeam: away.name,
+      status: match.status,
+      ...calculation
+    });
+  }
+
+  // Keep the main fixture list chronological.
+  predictions.sort((a, b) => a.timestamp - b.timestamp);
+
+  // Only actual calculated predictions qualify for top tips.
+  const topTips = predictions
+    .filter(item => item.predictionAvailable === true)
+    .sort((a, b) => b.probability - a.probability)
+    .slice(0, 6);
 
   const output = {
     updatedAt: new Date().toISOString(),
     date: today,
     timezone: TIMEZONE,
     provider: "football-data.org",
-    calculationMethod: "Neutral venue; no home-advantage bonus",
+    calculationMethod: "Neutral model; no home-advantage bonus",
     totalFixtures: predictions.length,
+    totalPredictionsAvailable: predictions.filter(
+      item => item.predictionAvailable
+    ).length,
+    totalPredictionsUnavailable: predictions.filter(
+      item => !item.predictionAvailable
+    ).length,
+    competitionsChecked: Array.from(requestedCompetitions),
     predictions,
     fixtures: predictions,
     matches: predictions,
-    topTips: predictions.slice(0, 6)
+    topTips
   };
 
   fs.writeFileSync(
@@ -350,7 +394,18 @@ async function main() {
   );
 
   console.log("Predictions saved:", OUTPUT_FILE);
-  console.log("Predictions generated:", predictions.length);
+  console.log("Fixtures saved:", predictions.length);
+  console.log("Calculated predictions:", output.totalPredictionsAvailable);
+  console.log("Predictions unavailable:", output.totalPredictionsUnavailable);
+
+  if (predictions.length === 0) {
+    console.error(
+      "WARNING: No upcoming fixtures were returned for the selected competitions and date range."
+    );
+    console.error(
+      "Check the competition access allowed by your API plan and the provider's fixture schedule."
+    );
+  }
 }
 
 main().catch(error => {

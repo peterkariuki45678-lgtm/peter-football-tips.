@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07111f">
-  <meta name="description" content="Peter Football Tips: searchable fixtures, statistical predictions and correct-score estimates.">
   <title>Peter Football Tips</title>
 
   <style>
@@ -16,50 +15,43 @@
       background: #07111f;
       color: #edf4ff;
       font-family: Arial, sans-serif;
+      line-height: 1.6;
     }
 
     header {
-      padding: 25px 15px;
+      padding: 25px 16px;
       text-align: center;
-      background: #0d1b2e;
+      background: #10243a;
       border-bottom: 2px solid #18d7a1;
     }
 
     h1 {
       margin: 0;
-      color: #18d7a1;
       font-size: 27px;
+      letter-spacing: 1px;
     }
 
-    header p {
-      color: #a8b8cc;
-      margin-bottom: 0;
-    }
+    header p { color: #b8cce0; }
 
     main {
-      max-width: 850px;
-      margin: auto;
+      width: min(950px, 94%);
+      margin: 25px auto;
+    }
+
+    .notice, .search-box, .match {
+      background: #10243a;
+      border: 1px solid #29445f;
+      border-radius: 10px;
       padding: 16px;
+      margin-bottom: 16px;
     }
 
-    .notice, .match, .empty, .search-box {
-      background: #101f33;
-      border: 1px solid #263b53;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 14px;
-    }
+    .notice, .muted { color: #b8cce0; }
 
-    .notice {
-      color: #b8c8da;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .search-box label {
+    label {
       display: block;
       font-weight: bold;
-      margin-bottom: 9px;
+      margin-bottom: 8px;
     }
 
     .search-row {
@@ -67,134 +59,64 @@
       gap: 8px;
     }
 
-    #match-search {
-      min-width: 0;
-      flex: 1;
-      padding: 13px;
-      color: #edf4ff;
-      background: #07111f;
-      border: 1px solid #35536f;
-      border-radius: 8px;
+    input, button {
+      padding: 12px;
+      border-radius: 7px;
       font-size: 16px;
     }
 
-    #match-search:focus {
-      outline: 2px solid #18d7a1;
-      outline-offset: 2px;
+    input {
+      min-width: 0;
+      flex: 1;
+      color: white;
+      background: #07111f;
+      border: 1px solid #45617d;
     }
 
     button {
-      padding: 12px;
-      color: white;
-      background: #18334d;
-      border: 1px solid #35536f;
-      border-radius: 8px;
+      background: #18d7a1;
+      color: #07111f;
+      border: 0;
       font-weight: bold;
       cursor: pointer;
     }
 
-    #clear-search {
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    .match h2 {
-      font-size: 18px;
-      margin: 12px 0;
-    }
-
     .league {
       color: #18d7a1;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: bold;
       text-transform: uppercase;
     }
 
-    .muted {
-      color: #a8b8cc;
-      font-size: 13px;
-      line-height: 1.5;
+    .teams {
+      font-size: 19px;
+      font-weight: bold;
+      margin: 8px 0;
     }
 
-    .pick {
-      padding: 12px;
-      margin-top: 12px;
-      background: #092c2a;
-      border: 1px solid #176b5a;
-      border-radius: 8px;
-      overflow-wrap: anywhere;
-    }
-
-    .pick strong { color: #49edb6; }
-
-    .details-button {
-      width: 100%;
-      margin-top: 12px;
-    }
-
-    button:focus-visible {
-      outline: 2px solid #18d7a1;
-      outline-offset: 3px;
-    }
-
-    .details {
-      display: none;
-      padding-top: 12px;
-      color: #c4d3e5;
+    .match-meta {
+      color: #b8cce0;
       font-size: 14px;
-      line-height: 1.7;
-      overflow-wrap: anywhere;
     }
 
-    .details.show { display: block; }
-
-    .bar {
-      height: 7px;
-      background: #263b53;
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 8px 0 10px;
+    .status {
+      padding: 12px 0;
+      color: #18d7a1;
     }
 
-    .bar span {
-      display: block;
-      height: 100%;
-      background: #18d7a1;
-    }
-
-    .market-row {
-      padding: 8px 0;
-      border-bottom: 1px solid #263b53;
-    }
-
-    .market-row:last-child { border-bottom: 0; }
-
-    #status {
-      text-align: center;
-      padding: 15px;
-      color: #b8c8da;
-      line-height: 1.6;
-    }
+    .error { color: #ffbd8a; }
 
     .empty {
-      text-align: center;
-      color: #b8c8da;
-      line-height: 1.6;
+      padding: 20px;
+      background: #10243a;
+      border-radius: 8px;
     }
 
     footer {
-      padding: 20px;
       text-align: center;
-      color: #7f94aa;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 420px) {
-      header h1 { font-size: 23px; }
-      main { padding: 11px; }
-      .search-row { flex-direction: column; }
-      #clear-search { width: 100%; }
+      padding: 22px;
+      color: #b8cce0;
+      font-size: 13px;
     }
   </style>
 </head>
@@ -202,61 +124,165 @@
 <body>
   <header>
     <h1>PETER FOOTBALL TIPS</h1>
-    <p>Football Statistics · Match Predictions · Correct Scores</p>
+    <p>Football Fixtures · Online Data · No API Key</p>
   </header>
 
   <main>
     <div class="notice">
-      Search upcoming fixtures by team name or competition. Select a match
-      to view its calculated score estimate, market probabilities and
-      available historical data.
+      Upcoming fixtures collected from a public football dataset.
+      Fixtures are loaded online, not generated manually.
+      Data availability depends on the source.
     </div>
 
-    <section class="search-box" aria-label="Search fixtures">
-      <label for="match-search">Search for a match</label>
+    <section class="search-box">
+      <label for="match-search">Search teams or competitions</label>
       <div class="search-row">
         <input
           id="match-search"
           type="search"
-          placeholder="e.g. Arsenal, Chelsea, La Liga..."
+          placeholder="Search Arsenal, Barcelona, Premier League..."
           autocomplete="off"
-          aria-label="Search by team or competition"
         >
         <button id="clear-search" type="button">Clear</button>
       </div>
-      <p class="muted">Searches the fixtures currently loaded by the website.</p>
     </section>
 
-    <div id="status" role="status" aria-live="polite">
-      Loading fixture data...
+    <div id="status" class="status" role="status" aria-live="polite">
+      Connecting to online fixture data...
     </div>
 
-    <section id="general-list"></section>
+    <div id="general-list"></div>
+
+    <p class="muted">
+      Data source:
+      <a href="https://github.com/oladeeayo/open-matchday"
+         target="_blank" rel="noopener noreferrer"
+         style="color:#18d7a1">
+        open-matchday
+      </a>.
+      Fixture schedules may change. Kick-off times are shown as
+      published by the data source.
+    </p>
   </main>
 
   <footer>
-    Peter Football Tips · Statistical match analysis.
-    <br>
-    Fixture and prediction data depend on the latest successful data update.
+    Peter Football Tips · Real fixture records only.
   </footer>
 
   <script>
     "use strict";
 
-    const TIMEZONE = "Africa/Nairobi";
-    const MAX_DAYS_AHEAD = 7;
+    const BASE =
+      "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/";
 
-    const statusElement = document.getElementById("status");
-    const listElement = document.getElementById("general-list");
-    const searchInput = document.getElementById("match-search");
-    const clearButton = document.getElementById("clear-search");
+    const LEAGUES = [
+      {
+        name: "English Premier League",
+        file: "ENG_1_premier-league"
+      },
+      {
+        name: "Spanish La Liga",
+        file: "ESP_1_la-liga"
+      },
+      {
+        name: "Italian Serie A",
+        file: "ITA_1_serie-a"
+      },
+      {
+        name: "German Bundesliga",
+        file: "GER_1_bundesliga"
+      },
+      {
+        name: "French Ligue 1",
+        file: "FRA_1_ligue-1"
+      },
+      {
+        name: "Dutch Eredivisie",
+        file: "NED_1_eredivisie"
+      },
+      {
+        name: "Portuguese Primeira Liga",
+        file: "POR_1_primeira-liga"
+      },
+      {
+        name: "UEFA Champions League",
+        file: "UEFA_1_champions-league"
+      }
+    ];
 
-    let allFixtures = [];
-    let dataUpdatedAt = null;
-    let dataSource = "";
+    const list = document.getElementById("general-list");
+    const status = document.getElementById("status");
+    const search = document.getElementById("match-search");
+    const clear = document.getElementById("clear-search");
+
+    let fixtures = [];
+
+    // Parse CSV while preserving commas inside quoted fields.
+    function parseCSV(text) {
+      const rows = [];
+      let row = [];
+      let field = "";
+      let quoted = false;
+
+      for (let i = 0; i < text.length; i++) {
+        const c = text[i];
+
+        if (c === '"' && quoted && text[i + 1] === '"') {
+          field += '"';
+          i++;
+        } else if (c === '"') {
+          quoted = !quoted;
+        } else if (c === "," && !quoted) {
+          row.push(field);
+          field = "";
+        } else if ((c === "\n" || c === "\r") && !quoted) {
+          if (c === "\r" && text[i + 1] === "\n") i++;
+
+          row.push(field);
+          if (row.some(value => value.trim() !== "")) {
+            rows.push(row);
+          }
+
+          row = [];
+          field = "";
+        } else {
+          field += c;
+        }
+      }
+
+      if (field || row.length) {
+        row.push(field);
+        rows.push(row);
+      }
+
+      if (!rows.length) return [];
+
+      const headers = rows.shift().map(value =>
+        value.trim().toLowerCase().replace(/^\uFEFF/, "")
+      );
+
+      return rows.map(values => {
+        const item = {};
+
+        headers.forEach((header, index) => {
+          item[header] = (values[index] || "").trim();
+        });
+
+        return item;
+      });
+    }
+
+    function todayInKenya() {
+      return new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Africa/Nairobi",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).format(new Date());
+    }
 
     function escapeHTML(value) {
-      return String(value ?? "").replace(/[&<>"']/g, char => ({
+      return String(value).replace(/[&<>"']/g, char => ({
         "&": "&amp;",
         "<": "&lt;",
         ">": "&gt;",
@@ -265,429 +291,174 @@
       })[char]);
     }
 
-    function formatKickoff(value) {
-      const date = new Date(value);
+    function formatDate(date) {
+      const parts = date.split("-");
 
-      if (!Number.isFinite(date.getTime())) {
-        return "Time unavailable";
-      }
+      if (parts.length !== 3) return date;
 
-      return new Intl.DateTimeFormat("en-KE", {
-        timeZone: TIMEZONE,
-        weekday: "short",
+      return new Date(
+        Number(parts[0]),
+        Number(parts[1]) - 1,
+        Number(parts[2])
+      ).toLocaleDateString("en-GB", {
         day: "numeric",
         month: "short",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-        hour12: false
-      }).format(date) + " EAT";
+        year: "numeric"
+      });
     }
 
-    function validProbability(value) {
-      return typeof value === "number" &&
-        Number.isFinite(value) &&
-        value >= 0 &&
-        value <= 100;
-    }
+    async function loadLeague(league) {
+      const url =
+        BASE + league.file + "/fixtures_2627.csv";
 
-    function toPercent(value) {
-      if (typeof value !== "number" || !Number.isFinite(value)) {
-        return null;
-      }
-
-      // The current updater stores probabilities as decimals from 0 to 1.
-      // Already-converted percentages from 0 to 100 are also supported.
-      const percentage = value >= 0 && value <= 1
-        ? value * 100
-        : value;
-
-      return validProbability(percentage) ? percentage : null;
-    }
-
-    function marketLabel(key) {
-      const labels = {
-        homeWin: "Home win",
-        draw: "Draw",
-        awayWin: "Away win",
-        "1X": "Double chance 1X",
-        X2: "Double chance X2",
-        "12": "Either team wins",
-        over15: "Over 1.5 goals",
-        over25: "Over 2.5 goals",
-        over35: "Over 3.5 goals",
-        under15: "Under 1.5 goals",
-        under25: "Under 2.5 goals",
-        under35: "Under 3.5 goals",
-        under45: "Under 4.5 goals",
-        bttsYes: "Both teams to score - Yes",
-        bttsNo: "Both teams to score - No"
-      };
-
-      return labels[key] || key;
-    }
-
-    function normalizeFixture(match) {
-      if (!match || typeof match !== "object") return null;
-
-      // The current update-predictions.js writes timestamp as an ISO date.
-      const kickoffValue = match.timestamp || match.utcDate || match.date;
-      const kickoff = new Date(kickoffValue);
-
-      if (!Number.isFinite(kickoff.getTime())) return null;
-      if (!match.home || !match.away) return null;
-      if (match.home === match.away) return null;
-
-      const rawStatus = String(match.status || "").toUpperCase();
-
-      if (!["SCHEDULED", "TIMED"].includes(rawStatus)) return null;
-
-      const probabilities = match.probabilities || {};
-      const bestProbability = toPercent(
-        match.bestPickProbability ?? match.probability
-      );
-
-      const expectedGoals = match.expectedGoals || {};
-
-      const markets = [];
-
-      if (match.markets && !Array.isArray(match.markets)) {
-        for (const [key, value] of Object.entries(match.markets)) {
-          const percentage = toPercent(value);
-
-          if (percentage !== null) {
-            markets.push({
-              market: marketLabel(key),
-              probability: percentage
-            });
-          }
-        }
-      } else if (Array.isArray(match.markets)) {
-        for (const item of match.markets) {
-          if (!item || typeof item.market !== "string") continue;
-
-          const percentage = toPercent(item.probability);
-
-          if (percentage !== null) {
-            markets.push({
-              market: item.market,
-              probability: percentage
-            });
-          }
-        }
-      }
-
-      const homeHistory = Number(match.historyMatchesUsed?.home) || 0;
-      const awayHistory = Number(match.historyMatchesUsed?.away) || 0;
-
-      return {
-        id: String(match.fixtureId ?? match.id ??
-          `${kickoff.toISOString()}-${match.home}-${match.away}`),
-        date: kickoff.toISOString(),
-        home: String(match.home),
-        away: String(match.away),
-        league: String(match.league || "Football"),
-        country: String(match.country || ""),
-        status: rawStatus,
-        predictionAvailable:
-          match.predictionAvailable === true && bestProbability !== null,
-        bestPick: String(match.bestPick || ""),
-        probability: bestProbability,
-        predictedScore: String(match.predictedScore || ""),
-        expectedHomeGoals: Number.isFinite(Number(expectedGoals.home))
-          ? Number(expectedGoals.home) : null,
-        expectedAwayGoals: Number.isFinite(Number(expectedGoals.away))
-          ? Number(expectedGoals.away) : null,
-        probabilities: {
-          homeWin: toPercent(probabilities.homeWin),
-          draw: toPercent(probabilities.draw),
-          awayWin: toPercent(probabilities.awayWin),
-          homeOrDraw: toPercent(probabilities.homeOrDraw),
-          drawOrAway: toPercent(probabilities.drawOrAway),
-          over15: toPercent(probabilities.over15),
-          over25: toPercent(probabilities.over25),
-          under25: toPercent(probabilities.under25),
-          under35: toPercent(probabilities.under35),
-          under45: toPercent(probabilities.under45),
-          bttsYes: toPercent(probabilities.bttsYes),
-          bttsNo: toPercent(probabilities.bttsNo)
-        },
-        markets,
-        calculationMethod: String(
-          match.calculationMethod || "Statistical goal-probability model"
-        ),
-        homeMatchesUsed: homeHistory,
-        awayMatchesUsed: awayHistory,
-        predictionQuality: String(match.predictionQuality || "NOT SPECIFIED"),
-        source: String(match.source || "")
-      };
-    }
-
-    function validFutureFixture(match, now, cutoff) {
-      const kickoff = new Date(match.date).getTime();
-      return kickoff > now && kickoff <= cutoff;
-    }
-
-    function renderMarkets(match) {
-      if (!match.markets.length) {
-        return "<p>No calculated market data is available.</p>";
-      }
-
-      const sorted = [...match.markets].sort(
-        (a, b) => b.probability - a.probability
-      );
-
-      return `
-        <p><strong>Calculated market probabilities</strong></p>
-        ${sorted.map(item => `
-          <div class="market-row">
-            ${escapeHTML(item.market)}:
-            <strong>${item.probability.toFixed(1)}%</strong>
-          </div>
-        `).join("")}
-      `;
-    }
-
-    function probabilityLine(label, value) {
-      if (value === null) return "";
-
-      return `
-        <div class="market-row">
-          ${escapeHTML(label)}:
-          <strong>${value.toFixed(1)}%</strong>
-        </div>
-      `;
-    }
-
-    function renderFixture(match) {
-      const card = document.createElement("article");
-      card.className = "match";
-
-      const hasPrediction = match.predictionAvailable &&
-        match.bestPick &&
-        match.probability !== null;
-
-      const pickHTML = hasPrediction ? `
-        <div class="pick">
-          <div>Suggested market:
-            <strong>${escapeHTML(match.bestPick)}</strong>
-          </div>
-          <p>Estimated market probability:
-            <strong>${match.probability.toFixed(1)}%</strong>
-          </p>
-          <div class="bar" aria-label="Estimated probability">
-            <span style="width:${match.probability}%"></span>
-          </div>
-        </div>
-
-        <button type="button" class="details-button"
-          aria-expanded="false">
-          View prediction details
-        </button>
-
-        <div class="details">
-          <p><strong>Predicted correct score:</strong>
-            ${match.predictedScore
-              ? escapeHTML(match.predictedScore)
-              : "Unavailable"}
-          </p>
-          <p>Expected home goals:
-            ${match.expectedHomeGoals === null
-              ? "Unavailable" : match.expectedHomeGoals.toFixed(2)}
-          </p>
-          <p>Expected away goals:
-            ${match.expectedAwayGoals === null
-              ? "Unavailable" : match.expectedAwayGoals.toFixed(2)}
-          </p>
-
-          <p><strong>1X2 probabilities</strong></p>
-          ${probabilityLine("Home win", match.probabilities.homeWin)}
-          ${probabilityLine("Draw", match.probabilities.draw)}
-          ${probabilityLine("Away win", match.probabilities.awayWin)}
-
-          <p><strong>Other markets</strong></p>
-          ${probabilityLine("Double chance 1X", match.probabilities.homeOrDraw)}
-          ${probabilityLine("Double chance X2", match.probabilities.drawOrAway)}
-          ${probabilityLine("Over 1.5 goals", match.probabilities.over15)}
-          ${probabilityLine("Over 2.5 goals", match.probabilities.over25)}
-          ${probabilityLine("Under 2.5 goals", match.probabilities.under25)}
-          ${probabilityLine("Under 3.5 goals", match.probabilities.under35)}
-          ${probabilityLine("Under 4.5 goals", match.probabilities.under45)}
-          ${probabilityLine("BTTS - Yes", match.probabilities.bttsYes)}
-          ${probabilityLine("BTTS - No", match.probabilities.bttsNo)}
-
-          ${renderMarkets(match)}
-
-          <p>Home matches used: ${match.homeMatchesUsed}</p>
-          <p>Away matches used: ${match.awayMatchesUsed}</p>
-          <p>Data history: ${escapeHTML(match.predictionQuality)}</p>
-          <p>Calculation method: ${escapeHTML(match.calculationMethod)}</p>
-          ${match.source
-            ? `<p>Data provider: ${escapeHTML(match.source)}</p>` : ""}
-        </div>
-      ` : `
-        <div class="pick">
-          <strong>Prediction unavailable</strong>
-          <p class="muted">
-            No valid calculated market probability is available for this match.
-          </p>
-        </div>
-      `;
-
-      card.innerHTML = `
-        <div class="league">${escapeHTML(match.league)}</div>
-        <p class="muted">Kick-off: ${formatKickoff(match.date)}</p>
-        <h2>${escapeHTML(match.home)} vs ${escapeHTML(match.away)}</h2>
-        ${pickHTML}
-      `;
-
-      const button = card.querySelector(".details-button");
-
-      if (button) {
-        button.addEventListener("click", () => {
-          const details = card.querySelector(".details");
-          const expanded = details.classList.toggle("show");
-
-          button.setAttribute("aria-expanded", String(expanded));
-          button.textContent = expanded
-            ? "Hide prediction details"
-            : "View prediction details";
-        });
-      }
-
-      return card;
-    }
-
-    function renderFixtures() {
-      const query = searchInput.value.trim().toLowerCase();
-
-      const filtered = allFixtures.filter(match => {
-        const searchable = [
-          match.home,
-          match.away,
-          match.league,
-          match.country
-        ].join(" ").toLowerCase();
-
-        return searchable.includes(query);
+      const response = await fetch(url, {
+        cache: "no-store"
       });
 
-      listElement.replaceChildren();
+      if (!response.ok) {
+        throw new Error(
+          league.name + ": HTTP " + response.status
+        );
+      }
+
+      const records = parseCSV(await response.text());
+
+      return records
+        .filter(match =>
+          /^\d{4}-\d{2}-\d{2}$/.test(match.date || "") &&
+          match.home &&
+          match.away &&
+          match.date >= todayInKenya()
+        )
+        .map(match => ({
+          league: league.name,
+          date: match.date,
+          time: match.time || "",
+          home: match.home,
+          away: match.away
+        }));
+    }
+
+    function render() {
+      const query = search.value.trim().toLowerCase();
+
+      const filtered = fixtures
+        .filter(match =>
+          [
+            match.home,
+            match.away,
+            match.league
+          ].some(value => value.toLowerCase().includes(query))
+        )
+        .sort((a, b) =>
+          (a.date + a.time).localeCompare(b.date + b.time)
+        );
+
+      list.replaceChildren();
 
       if (!filtered.length) {
-        const empty = document.createElement("div");
-        empty.className = "empty";
-        empty.textContent = query
-          ? `No loaded upcoming fixtures match "${searchInput.value.trim()}". Try another team or competition.`
-          : "No upcoming fixtures are available in the current data file.";
-        listElement.appendChild(empty);
+        const message = document.createElement("div");
+        message.className = "empty";
+        message.textContent = fixtures.length
+          ? "No fixtures match your search."
+          : "No upcoming fixtures are available from the sources that loaded. Try refreshing later.";
+        list.appendChild(message);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      filtered.forEach(match => {
+        const card = document.createElement("article");
+        card.className = "match";
+
+        card.innerHTML = `
+          <div class="league">${escapeHTML(match.league)}</div>
+          <div class="teams">
+            ${escapeHTML(match.home)} vs ${escapeHTML(match.away)}
+          </div>
+          <div class="match-meta">
+            Date: ${escapeHTML(formatDate(match.date))}
+            ${match.time
+              ? " · Source time: " + escapeHTML(match.time)
+              : " · Kick-off time unavailable"}
+          </div>
+        `;
+
+        fragment.appendChild(card);
+      });
+
+      list.appendChild(fragment);
+    }
+
+    async function loadFixtures() {
+      status.className = "status";
+      status.textContent = "Loading online fixtures...";
+      list.replaceChildren();
+
+      const results = await Promise.allSettled(
+        LEAGUES.map(loadLeague)
+      );
+
+      fixtures = [];
+      const failed = [];
+
+      results.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+          fixtures.push(...result.value);
+        } else {
+          failed.push(LEAGUES[index].name);
+          console.error(
+            "Could not load " + LEAGUES[index].name,
+            result.reason
+          );
+        }
+      });
+
+      // Remove exact duplicate records.
+      const unique = new Map();
+
+      fixtures.forEach(match => {
+        const key = [
+          match.date,
+          match.time,
+          match.home,
+          match.away,
+          match.league
+        ].join("|");
+
+        unique.set(key, match);
+      });
+
+      fixtures = [...unique.values()];
+
+      if (fixtures.length) {
+        status.textContent =
+          fixtures.length +
+          " upcoming fixture(s) loaded from online data." +
+          (failed.length
+            ? " Some competitions could not be loaded."
+            : "");
+
+        render();
       } else {
-        const fragment = document.createDocumentFragment();
+        status.className = "status error";
+        status.textContent =
+          "Could not load upcoming fixtures. Check your internet connection or try again later. No sample matches have been substituted.";
 
-        filtered.forEach(match => {
-          fragment.appendChild(renderFixture(match));
-        });
-
-        listElement.appendChild(fragment);
-      }
-
-      const calculated = filtered.filter(match =>
-        match.predictionAvailable
-      ).length;
-
-      const freshness = dataUpdatedAt
-        ? ` Data updated: ${formatKickoff(dataUpdatedAt)}.`
-        : "";
-
-      statusElement.textContent =
-        `${filtered.length} matching fixture(s) · ` +
-        `${calculated} with calculated predictions.` + freshness;
-    }
-
-    async function loadSystemData() {
-      statusElement.textContent = "Loading fixture data...";
-      listElement.replaceChildren();
-
-      try {
-        const response = await fetch(
-          "./predictions.json?t=" + Date.now(),
-          { cache: "no-store" }
-        );
-
-        if (!response.ok) {
-          throw new Error(
-            "predictions.json returned HTTP " + response.status
-          );
-        }
-
-        const data = await response.json();
-
-        // Supports both the current updater's array and a wrapped data object.
-        const rawFixtures = Array.isArray(data)
-          ? data
-          : data && Array.isArray(data.predictions)
-            ? data.predictions
-            : null;
-
-        if (!rawFixtures) {
-          throw new Error(
-            "Unexpected predictions.json format. Expected an array or an object with a predictions array."
-          );
-        }
-
-        dataUpdatedAt = Array.isArray(data)
-          ? null
-          : data.updatedAt || null;
-
-        dataSource = Array.isArray(data)
-          ? "Current prediction file"
-          : data.provider || "Prediction data";
-
-        const now = Date.now();
-        const cutoff = now + MAX_DAYS_AHEAD * 24 * 60 * 60 * 1000;
-
-        const normalized = rawFixtures
-          .map(normalizeFixture)
-          .filter(Boolean)
-          .filter(match => validFutureFixture(match, now, cutoff));
-
-        const unique = new Map();
-
-        for (const match of normalized) {
-          if (!unique.has(match.id)) unique.set(match.id, match);
-        }
-
-        allFixtures = [...unique.values()].sort(
-          (a, b) => new Date(a.date) - new Date(b.date)
-        );
-
-        if (allFixtures.length === 0) {
-          statusElement.textContent =
-            "No upcoming scheduled fixtures were found in predictions.json for the next seven days.";
-          renderFixtures();
-          return;
-        }
-
-        renderFixtures();
-      } catch (error) {
-        console.error("Website data-loading error:", error);
-
-        statusElement.textContent =
-          "Unable to load fixture data. Check that predictions.json exists in the website's root folder and that the latest GitHub Actions run succeeded.";
-
-        listElement.replaceChildren();
+        render();
       }
     }
 
-    searchInput.addEventListener("input", renderFixtures);
+    search.addEventListener("input", render);
 
-    clearButton.addEventListener("click", () => {
-      searchInput.value = "";
-      renderFixtures();
-      searchInput.focus();
+    clear.addEventListener("click", () => {
+      search.value = "";
+      render();
+      search.focus();
     });
 
-    loadSystemData();
+    loadFixtures();
   </script>
 </body>
 </html>

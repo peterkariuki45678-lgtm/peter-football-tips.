@@ -52,7 +52,6 @@
             margin-top: 0; 
             color: var(--primary-green);
             font-size: 1.1rem;
-            gap: 5px;
             font-weight: bold;
         }
 
@@ -169,14 +168,6 @@
         }
 
         .hidden { display: none !important; }
-        
-        .loading {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--primary-green);
-            padding: 40px;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -194,33 +185,30 @@
             <p style="font-size: 0.85rem; margin: 0; color: #555;">Paste games or teams from Betika or Odibets below to run immediate Poisson Distribution predictions.</p>
             <div class="search-box">
                 <input type="text" id="calcInput" placeholder="Paste teams here (e.g., Man City vs Chelsea, Gor Mahia vs AFC)...">
-                <button type="button" onclick="calculatePastedMatch()">Analyze Match</button>
+                <button type="button" id="calcBtn">Analyze Match</button>
             </div>
             <div id="instantResultCard" class="hidden"></div>
         </div>
 
         <!-- Top 7 Trigger Button -->
         <div class="best-seven-trigger">
-            <button class="btn-best-7" onclick="toggleBestSeven()">⭐ Tap To See Today's Best Of 7 ⭐</button>
+            <button class="btn-best-7" id="toggleBtn">⭐ Tap To See Today's Best Of 7 ⭐</button>
         </div>
 
         <!-- Best of 7 Section -->
         <div id="bestSevenSection" class="hidden">
             <h2 class="section-title">🔥 Today's High-Confidence Best of 7</h2>
-            <div class="match-grid" id="best7Grid">
-                <div class="loading">Generating calculations...</div>
-            </div>
+            <div class="match-grid" id="best7Grid"></div>
         </div>
 
         <!-- Main Standard Pool (18 Matches) -->
         <h2 class="section-title">📋 Standard Algorithmic Computations (Remaining 18 Fields)</h2>
-        <div class="match-grid" id="standardGrid">
-            <div class="loading">Generating calculations...</div>
-        </div>
+        <div class="match-grid" id="standardGrid"></div>
     </div>
 
     <script>
-        const backupData = {
+        // Clean fallback arrays explicitly loaded to protect layout state
+        const fallbackData = {
             "best_of_7": [
                 {"teams": "Manchester City vs Brighton", "prediction": "Home Win (1)", "confidence": "93%"},
                 {"teams": "Liverpool vs Chelsea", "prediction": "Home Win or Draw (1X)", "confidence": "91%"},
@@ -252,8 +240,11 @@
             ]
         };
 
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options);
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
-        async function loadPredictions() {
-            try {
+        function renderCards(best7, standard18) {
+            const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            
+            document.getElementById('best7Grid').innerHTML = best7.map(match => `
+                <div class="match-card best-7-card">
+                    <span class="confidence-indicator">${match.confidence}</span>

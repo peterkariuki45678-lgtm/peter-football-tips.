@@ -52,8 +52,6 @@
             margin-top: 0; 
             color: var(--primary-green);
             font-size: 1.1rem;
-            display: flex;
-            align-items: center;
             gap: 5px;
             font-weight: bold;
         }
@@ -190,13 +188,13 @@
     </header>
 
     <div class="container">
-        <!-- ⚡ Custom Match Calculator Box (Only search field remaining) -->
+        <!-- ⚡ Custom Match Calculator Box -->
         <div class="tool-section">
             <div class="tool-title">⚡ Instant Custom Match Calculator</div>
             <p style="font-size: 0.85rem; margin: 0; color: #555;">Paste games or teams from Betika or Odibets below to run immediate Poisson Distribution predictions.</p>
             <div class="search-box">
                 <input type="text" id="calcInput" placeholder="Paste teams here (e.g., Man City vs Chelsea, Gor Mahia vs AFC)...">
-                <button onclick="calculatePastedMatch()">Analyze Match</button>
+                <button type="button" onclick="calculatePastedMatch()">Analyze Match</button>
             </div>
             <div id="instantResultCard" class="hidden"></div>
         </div>
@@ -222,7 +220,6 @@
     </div>
 
     <script>
-        // System Backup matches to render instantly if the background workflow hasn't finished writing predict.json yet
         const backupData = {
             "best_of_7": [
                 {"teams": "Manchester City vs Brighton", "prediction": "Home Win (1)", "confidence": "93%"},
@@ -255,3 +252,8 @@
             ]
         };
 
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options);
+
+        async function loadPredictions() {
+            try {

@@ -1,84 +1,47 @@
-
-name: Peter Football Tips Data Update
+name: Daily Football Prediction Engine
 
 on:
-  workflow_dispatch:
-
-  push:
-    branches:
-      - main
-    paths:
-      - "update-predictions.js"
-      - ".github/workflows/update.yml"
-
   schedule:
-    - cron: "0 */6 * * *"
-
-permissions:
-  contents: write
-
-concurrency:
-  group: peter-football-tips-update
-  cancel-in-progress: false
+    # This triggers the robot automatically every day at 00:00 UTC (Midnight)
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+    # This allows you to manually run the script anytime by clicking a button on GitHub
 
 jobs:
-  update-predictions:
+  run-scraper-and-update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Crucial: Allows the runner to save changes back to your repo
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
+    - name: Checkout Repository Code
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+    - name: Set Up Python Environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+        cache: 'pip'
 
-      - name: Check updater exists
-        run: |
-          test -f update-predictions.js || {
-            echo "ERROR: update-predictions.js is missing."
-            exit 1
-          }
+    - name: Install Scraping Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 pandas numpy
 
-      - name: Generate predictions from public football data
-        run: node ./update-predictions.js
+    - name: Execute Prediction Math & Scraper Pipeline
+      run: |
+        python scraper_pipeline.py
 
-      - name: Validate generated JSON
-        run: |
-          test -f predictions.json || {
-            echo "ERROR: predictions.json was not created."
-            exit 1
-          }
-
-          node -e '
-            const fs = require("fs");
-            const data = JSON.parse(
-              fs.readFileSync("predictions.json", "utf8")
-            );
-
-            if (!Array.isArray(data)) {
-              throw new Error("predictions.json must contain a JSON array.");
-            }
-
-            console.log("Predictions file is valid.");
-            console.log("Predictions:", data.length);
-          '
-
-      - name: Commit updated predictions
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git add predictions.json
-
-          if git diff --cached --quiet; then
-            echo "No prediction changes to commit."
-            exit 0
-          fi
-
-          git commit -m "Update football predictions"
-          git push origin HEAD:main
+    - name: Commit and Push Updated Predictions
+      run: |
+        git config --global user.name "GitHub Action Bot"
+        git config --global user.email "actions@github.com"
+        
+        # Check if the predict.json data changed today
+        git add predict.json
+        if git diff --staged --quiet; then
+          echo "No new prediction data changes calculated today."
+        else
+          git commit -m "Automated Daily Refresh: $(date +'%Y-%m-%d') [Skip CI]"
+          git push
+        fi

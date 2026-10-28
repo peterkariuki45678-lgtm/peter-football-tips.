@@ -1,0 +1,132 @@
+{
+  "last_updated": "2026-10-28",
+  "best_of_7": [
+    {
+      "teams": "Athletic Bilbao vs Real Sociedad",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "77%"
+    },
+    {
+      "teams": "Ajax vs PSV Eindhoven",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "75%"
+    },
+    {
+      "teams": "Dortmund vs RB Leipzig",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "74%"
+    },
+    {
+      "teams": "PSG vs Marseille",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "74%"
+    },
+    {
+      "teams": "Tottenham vs Aston Villa",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "74%"
+    },
+    {
+      "teams": "Celtic vs Rangers",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "71%"
+    },
+    {
+      "teams": "Bologna vs Torino",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "70%"
+    }
+  ],
+  "standard_18": [
+    {
+      "teams": "Frankfurt vs Wolfsburg",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "70%"
+    },
+    {
+      "teams": "Monaco vs Lyon",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "70%"
+    },
+    {
+      "teams": "Manchester City vs Liverpool",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "69%"
+    },
+    {
+      "teams": "Atletico Madrid vs Villarreal",
+      "prediction": "Home Win (1)",
+      "confidence": "68%"
+    },
+    {
+      "teams": "Juventus vs Napoli",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "68%"
+    },
+    {
+      "teams": "Fiorentina vs Atalanta",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "68%"
+    },
+    {
+      "teams": "Bayern Munich vs Leverkusen",
+      "prediction": "Home Win (1)",
+      "confidence": "67%"
+    },
+    {
+      "teams": "Benfica vs Porto",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "66%"
+    },
+    {
+      "teams": "Sporting CP vs Braga",
+      "prediction": "Home Win (1)",
+      "confidence": "63%"
+    },
+    {
+      "teams": "Real Betis vs Sevilla",
+      "prediction": "Home Win (1)",
+      "confidence": "59%"
+    },
+    {
+      "teams": "Galatasaray vs Fenerbahce",
+      "prediction": "Home Win (1)",
+      "confidence": "59%"
+    },
+    {
+      "teams": "Feyenoord vs AZ Alkmaar",
+      "prediction": "Home Win (1)",
+      "confidence": "58%"
+    },
+    {
+      "teams": "Inter Milan vs AC Milan",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "58%"
+    },
+    {
+      "teams": "Real Madrid vs Barcelona",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "57%"
+    },
+    {
+      "teams": "Valencia vs Osasuna",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "57%"
+    },
+    {
+      "teams": "Lens vs Lille",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "56%"
+    },
+    {
+      "teams": "Roma vs Lazio",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "54%"
+    },
+    {
+      "teams": "Newcastle vs West Ham",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "51%"
+    }
+  ]
+}

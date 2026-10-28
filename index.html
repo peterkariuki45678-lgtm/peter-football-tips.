@@ -207,7 +207,6 @@
     </div>
 
     <script>
-        // Clean fallback arrays explicitly loaded to protect layout state
         const fallbackData = {
             "best_of_7": [
                 {"teams": "Manchester City vs Brighton", "prediction": "Home Win (1)", "confidence": "93%"},
@@ -248,3 +247,5 @@
             document.getElementById('best7Grid').innerHTML = best7.map(match => `
                 <div class="match-card best-7-card">
                     <span class="confidence-indicator">${match.confidence}</span>
+                    <div class="match-date">${dateStr}</div>
+                    <div class="match-teams">${match.teams}</div>

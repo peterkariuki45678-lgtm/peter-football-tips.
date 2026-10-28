@@ -1,68 +1,132 @@
-[
+{
+  "last_updated": "2026-10-28",
+  "best_of_7": [
     {
-        "homeTeam": "Manchester United",
-        "awayTeam": "Chelsea",
-        "league": "ENGLISH PREMIER LEAGUE",
-        "kickOff": "15:30",
-        "suggestedMarket": "Double Chance (1X)",
-        "marketProbability": "73.5%",
-        "homePercent": "54.4%",
-        "drawPercent": "19.1%",
-        "awayPercent": "26.5%"
+      "teams": "Real Madrid vs Barcelona",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "94%"
     },
     {
-        "homeTeam": "Arsenal",
-        "awayTeam": "Liverpool",
-        "league": "ENGLISH PREMIER LEAGUE",
-        "kickOff": "18:00",
-        "suggestedMarket": "Over 1.5 Goals",
-        "marketProbability": "82.1%",
-        "homePercent": "41.0%",
-        "drawPercent": "28.5%",
-        "awayPercent": "30.5%"
+      "teams": "Manchester City vs Liverpool",
+      "prediction": "Home Win (1)",
+      "confidence": "91%"
     },
     {
-        "homeTeam": "Real Madrid",
-        "awayTeam": "Barcelona",
-        "league": "LA LIGA",
-        "kickOff": "21:00",
-        "suggestedMarket": "GG / BTTS (Yes)",
-        "marketProbability": "79.4%",
-        "homePercent": "45.2%",
-        "drawPercent": "22.3%",
-        "awayPercent": "32.5%"
+      "teams": "Arsenal vs Chelsea",
+      "prediction": "Home Win or Draw (1X)",
+      "confidence": "89%"
     },
     {
-        "homeTeam": "Man City",
-        "awayTeam": "Tottenham",
-        "league": "ENGLISH PREMIER LEAGUE",
-        "kickOff": "16:00",
-        "suggestedMarket": "Home Win (1)",
-        "marketProbability": "71.0%",
-        "homePercent": "71.0%",
-        "drawPercent": "15.0%",
-        "awayPercent": "14.0%"
+      "teams": "Bayern Munich vs Leverkusen",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "88%"
     },
     {
-        "homeTeam": "Bayern Munich",
-        "awayTeam": "Dortmund",
-        "league": "GERMAN BUNDESLIGA",
-        "kickOff": "15:30",
-        "suggestedMarket": "Over 2.5 Goals",
-        "marketProbability": "88.5%",
-        "homePercent": "60.0%",
-        "drawPercent": "18.0%",
-        "awayPercent": "22.0%"
+      "teams": "Inter Milan vs AC Milan",
+      "prediction": "Under 3.5 Goals",
+      "confidence": "87%"
     },
     {
-        "homeTeam": "Juventus",
-        "awayTeam": "AC Milan",
-        "league": "SERIE A",
-        "kickOff": "20:45",
-        "suggestedMarket": "Under 3.5 Goals",
-        "marketProbability": "76.0%",
-        "homePercent": "38.0%",
-        "drawPercent": "34.0%",
-        "awayPercent": "28.0%"
+      "teams": "PSG vs Marseille",
+      "prediction": "Home Win (1)",
+      "confidence": "86%"
+    },
+    {
+      "teams": "Ajax vs PSV Eindhoven",
+      "prediction": "Both Teams To Score (BTTS)",
+      "confidence": "85%"
     }
-]
+  ],
+  "standard_18": [
+    {
+      "teams": "Dortmund vs RB Leipzig",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "82%"
+    },
+    {
+      "teams": "Atletico Madrid vs Villarreal",
+      "prediction": "Home Win (1)",
+      "confidence": "80%"
+    },
+    {
+      "teams": "Juventus vs Napoli",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "79%"
+    },
+    {
+      "teams": "Tottenham vs Aston Villa",
+      "prediction": "Both Teams To Score (BTTS)",
+      "confidence": "77%"
+    },
+    {
+      "teams": "Benfica vs Porto",
+      "prediction": "Home Win or Draw (1X)",
+      "confidence": "76%"
+    },
+    {
+      "teams": "Celtic vs Rangers",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "75%"
+    },
+    {
+      "teams": "Feyenoord vs AZ Alkmaar",
+      "prediction": "Home Win (1)",
+      "confidence": "74%"
+    },
+    {
+      "teams": "Roma vs Lazio",
+      "prediction": "Under 3.5 Goals",
+      "confidence": "72%"
+    },
+    {
+      "teams": "Sporting CP vs Braga",
+      "prediction": "Home Win (1)",
+      "confidence": "71%"
+    },
+    {
+      "teams": "Monaco vs Lyon",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "69%"
+    },
+    {
+      "teams": "Galatasaray vs Fenerbahce",
+      "prediction": "Home Win or Draw (1X)",
+      "confidence": "68%"
+    },
+    {
+      "teams": "Newcastle vs West Ham",
+      "prediction": "Home Win (1)",
+      "confidence": "66%"
+    },
+    {
+      "teams": "Fiorentina vs Atalanta",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "65%"
+    },
+    {
+      "teams": "Real Betis vs Sevilla",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "63%"
+    },
+    {
+      "teams": "Bologna vs Torino",
+      "prediction": "Draw or Away Win (X2)",
+      "confidence": "62%"
+    },
+    {
+      "teams": "Lens vs Lille",
+      "prediction": "Under 3.5 Goals",
+      "confidence": "61%"
+    },
+    {
+      "teams": "Everton vs Wolves",
+      "prediction": "Home Win (1)",
+      "confidence": "59%"
+    },
+    {
+      "teams": "Athletic Bilbao vs Real Sociedad",
+      "prediction": "Under 2.5 Goals",
+      "confidence": "58%"
+    }
+  ]
+}

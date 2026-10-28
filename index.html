@@ -25,7 +25,7 @@
         header {
             background-color: var(--primary-green);
             color: var(--accent-yellow);
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -39,7 +39,6 @@
             padding: 0 15px;
         }
 
-        /* Search Section */
         .search-section {
             background-color: var(--light-yellow);
             border: 2px solid var(--accent-yellow);
@@ -75,7 +74,6 @@
 
         .search-box button:hover { background-color: #1b5e20; }
 
-        /* Trigger Button for Best of 7 */
         .best-seven-trigger {
             text-align: center;
             margin: 30px 0;
@@ -99,7 +97,6 @@
             box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
 
-        /* Match Grid / Cards */
         .section-title {
             color: var(--primary-green);
             border-bottom: 3px solid var(--accent-yellow);
@@ -155,29 +152,35 @@
         }
 
         .hidden { display: none !important; }
+        
+        .loading {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            padding: 40px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1 id="live-title">SafeBet AI Probability Engine</h1>
+        <h1>SafeBet AI Probability Engine</h1>
         <p>Calculated Mathematical Frameworks For Risk-Mitigated Betting</p>
         <p id="current-date" style="font-weight: bold; margin-top: 5px; text-decoration: underline;"></p>
     </header>
 
     <div class="container">
-        <!-- Live Instant Scraper Bar -->
+        <!-- Live Instant Scraper Bar Layout -->
         <div class="search-section">
             <h3 style="margin-top:0; color: var(--primary-green);">Live Deep-Web Match Look-up</h3>
-            <p style="font-size: 0.85rem; margin: -5px 0 10px 0; color: #555;">Type any unlisted fixture below. The backend robot will crawl clue sites instantly to assemble probability metrics.</p>
+            <p style="font-size: 0.85rem; margin: -5px 0 10px 0; color: #555;">Type any unlisted fixture. The internal search engine will parse current database probabilities instantly.</p>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Enter Team A vs Team B (e.g., Arsenal vs Chelsea)...">
-                <button onclick="triggerLiveScrape()">Analyze Fixture</button>
+                <input type="text" id="searchInput" onkeyup="searchMatches()" placeholder="Search teams (e.g., Arsenal, Madrid)...">
             </div>
-            <div id="searchFeedback" style="margin-top: 10px; font-weight: bold; color: var(--primary-green);"></div>
         </div>
 
-        <!-- Top 7 Trigger Buttons -->
+        <!-- Top 7 Trigger Button -->
         <div class="best-seven-trigger">
             <button class="btn-best-7" onclick="toggleBestSeven()">⭐ Tap To See Today's Best Of 7 ⭐</button>
         </div>
@@ -186,52 +189,63 @@
         <div id="bestSevenSection" class="hidden">
             <h2 class="section-title">🔥 Today's High-Confidence Best of 7</h2>
             <div class="match-grid" id="best7Grid">
-                <!-- Dynamically injected by database json -->
-                <div class="match-card best-7-card">
-                    <span class="confidence-indicator">94% Confidence</span>
-                    <div class="match-date" class="date-placeholder">Today</div>
-                    <div class="match-teams">Real Madrid vs Barcelona</div>
-                    <div class="prediction-badge">Selection: Over 2.5 Goals</div>
-                </div>
-                <div class="match-card best-7-card">
-                    <span class="confidence-indicator">91% Confidence</span>
-                    <div class="match-date" class="date-placeholder">Today</div>
-                    <div class="match-teams">Manchester City vs Liverpool</div>
-                    <div class="prediction-badge">Selection: Team A Win (1)</div>
-                </div>
-                <!-- 5 more placeholder cards will go here via data pipeline -->
+                <div class="loading">Parsing database...</div>
             </div>
         </div>
 
         <!-- Main Standard Pool (18 Matches) -->
         <h2 class="section-title">📋 Standard Algorithmic Computations (Remaining 18 Fields)</h2>
         <div class="match-grid" id="standardGrid">
-            <!-- Simulated list of matches -->
-            <div class="match-card">
-                <span class="confidence-indicator">76% Conf.</span>
-                <div class="match-date" class="date-placeholder">Today</div>
-                <div class="match-teams">Bayern Munich vs Dortmund</div>
-                <div class="prediction-badge">Selection: Both Teams To Score</div>
-            </div>
-            <div class="match-card">
-                <span class="confidence-indicator">68% Conf.</span>
-                <div class="match-date" class="date-placeholder">Today</div>
-                <div class="match-teams">Juventus vs AC Milan</div>
-                <div class="prediction-badge">Selection: Under 3.5 Goals</div>
-            </div>
-            <div class="match-card">
-                <span class="confidence-indicator">62% Conf.</span>
-                <div class="match-date" class="date-placeholder">Today</div>
-                <div class="match-teams">Ajax vs PSV</div>
-                <div class="prediction-badge">Selection: Team B Win or Draw (X2)</div>
-            </div>
+            <div class="loading">Parsing database...</div>
         </div>
     </div>
 
     <script>
-        // Set dynamic date automatically so site never "loses track of time"
+        let allMatchesData = { best_of_7: [], standard_18: [] };
+
+        // Keep system date synced seamlessly with user locale
         const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options);
+
+        // Fetch data automatically from your predict.json file database
+        async function loadPredictions() {
+            try {
+                const response = await fetch('predict.json?t=' + new Date().getTime()); // Prevent browser caching
+                const data = await response.json();
+                allMatchesData = data;
+                renderCards(data.best_of_7, data.standard_18);
+            } catch (error) {
+                console.error("Database connection fault:", error);
+                document.getElementById('best7Grid').innerHTML = "<p>Data synchronization pending daily update trigger.</p>";
+                document.getElementById('standardGrid').innerHTML = "<p>Data synchronization pending daily update trigger.</p>";
+            }
+        }
+
+        function renderCards(best7, standard18) {
+            const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+            
+            // Render the top 7 high value fields
+            const best7Grid = document.getElementById('best7Grid');
+            best7Grid.innerHTML = best7.map(match => `
+                <div class="match-card best-7-card" data-teams="${match.teams.toLowerCase()}">
+                    <span class="confidence-indicator">${match.confidence}</span>
+                    <div class="match-date">${dateStr}</div>
+                    <div class="match-teams">${match.teams}</div>
+                    <div class="prediction-badge">Selection: ${match.prediction}</div>
+                </div>
+            `).join('');
+
+            // Render remaining 18 matches fields
+            const standardGrid = document.getElementById('standardGrid');
+            standardGrid.innerHTML = standard18.map(match => `
+                <div class="match-card" data-teams="${match.teams.toLowerCase()}">
+                    <span class="confidence-indicator">${match.confidence}</span>
+                    <div class="match-date">${dateStr}</div>
+                    <div class="match-teams">${match.teams}</div>
+                    <div class="prediction-badge">Selection: ${match.prediction}</div>
+                </div>
+            `).join('');
+        }
 
         function toggleBestSeven() {
             const section = document.getElementById('bestSevenSection');
@@ -241,15 +255,23 @@
             }
         }
 
-        function triggerLiveScrape() {
-            const query = document.getElementById('searchInput').value;
-            const feedback = document.getElementById('searchFeedback');
-            if(!query) {
-                feedback.innerText = "Please specify text inputs.";
-                return;
-            }
-            feedback.innerText = "Connecting to crawler environment... Querying data pools for: " + query + "... (Note: Real execution requires Part 2 Web Scraper backend Setup).";
+        // Live filtration engine search bar function
+        function searchMatches() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.match-card');
+            
+            cards.forEach(card => {
+                const teams = card.getAttribute('data-teams');
+                if (teams.includes(query)) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
         }
+
+        // Initialize script logic immediately upon window mount
+        window.onload = loadPredictions;
     </script>
 </body>
 </html>

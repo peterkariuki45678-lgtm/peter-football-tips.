@@ -12,7 +12,7 @@
       "confidence": "75%"
     },
     {
-      "teams": "Dortmund vs RB Leipzig",
+      "teams": "Tottenham vs Aston Villa",
       "prediction": "Over 2.5 Goals",
       "confidence": "74%"
     },
@@ -22,14 +22,14 @@
       "confidence": "74%"
     },
     {
-      "teams": "Tottenham vs Aston Villa",
+      "teams": "Dortmund vs RB Leipzig",
       "prediction": "Over 2.5 Goals",
       "confidence": "74%"
     },
     {
-      "teams": "Celtic vs Rangers",
-      "prediction": "Under 2.5 Goals",
-      "confidence": "71%"
+      "teams": "Frankfurt vs Wolfsburg",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "70%"
     },
     {
       "teams": "Bologna vs Torino",
@@ -38,11 +38,6 @@
     }
   ],
   "standard_18": [
-    {
-      "teams": "Frankfurt vs Wolfsburg",
-      "prediction": "Over 2.5 Goals",
-      "confidence": "70%"
-    },
     {
       "teams": "Monaco vs Lyon",
       "prediction": "Over 2.5 Goals",
@@ -54,13 +49,13 @@
       "confidence": "69%"
     },
     {
-      "teams": "Atletico Madrid vs Villarreal",
-      "prediction": "Home Win (1)",
+      "teams": "Juventus vs Napoli",
+      "prediction": "Over 2.5 Goals",
       "confidence": "68%"
     },
     {
-      "teams": "Juventus vs Napoli",
-      "prediction": "Over 2.5 Goals",
+      "teams": "Atletico Madrid vs Villarreal",
+      "prediction": "Home Win (1)",
       "confidence": "68%"
     },
     {
@@ -84,12 +79,12 @@
       "confidence": "63%"
     },
     {
-      "teams": "Real Betis vs Sevilla",
+      "teams": "Galatasaray vs Fenerbahce",
       "prediction": "Home Win (1)",
       "confidence": "59%"
     },
     {
-      "teams": "Galatasaray vs Fenerbahce",
+      "teams": "Real Betis vs Sevilla",
       "prediction": "Home Win (1)",
       "confidence": "59%"
     },
@@ -105,6 +100,11 @@
     },
     {
       "teams": "Real Madrid vs Barcelona",
+      "prediction": "Over 2.5 Goals",
+      "confidence": "57%"
+    },
+    {
+      "teams": "Arsenal vs Chelsea",
       "prediction": "Over 2.5 Goals",
       "confidence": "57%"
     },

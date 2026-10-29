@@ -1,61 +1,109 @@
 
 function normaliseData(data) {
-  const isValidFixture = match => {
-    if (!match || typeof match !== "object") return false;
-
-    const home = typeof match.home === "string"
-      ? match.home
-      : match.home?.name || match.homeTeam?.name || match.homeTeam;
-
-    const away = typeof match.away === "string"
-      ? match.away
-      : match.away?.name || match.awayTeam?.name || match.awayTeam;
-
-    const league = match.leagueName || match.league ||
-      match.competition || match.league_name;
-
-    const kickoff = match.utcTime || match.kickoff ||
-      match.date || match.fixtureDate || match.fixture?.date;
-
-    if (typeof home !== "string" || !home.trim()) return false;
-    if (typeof away !== "string" || !away.trim()) return false;
-    if (/^(home team|away team)$/i.test(home.trim())) return false;
-    if (/^(home team|away team)$/i.test(away.trim())) return false;
-    if (home.trim().toLowerCase() === away.trim().toLowerCase()) return false;
-    if (typeof league !== "string" || !league.trim()) return false;
-    if (!kickoff || Number.isNaN(Date.parse(kickoff))) return false;
-
-    return true;
-  };
-
-  const clean = matches => matches.filter(isValidFixture);
+  if (typeof data === "string") {
+    try {
+      data = JSON.parse(data);
+    } catch {
+      throw new Error("predict.json contains invalid JSON.");
+    }
+  }
 
   if (Array.isArray(data)) {
-    return { best: [], standard: clean(data) };
+    data = { standard: data };
   }
 
   if (!data || typeof data !== "object") {
     throw new Error("Invalid predict.json format.");
   }
 
+  function getTeamName(value) {
+    if (typeof value === "string") return value.trim();
+
+    if (value && typeof value === "object") {
+      return String(
+        value.name || value.shortName || value.displayName || ""
+      ).trim();
+    }
+
+    return "";
+  }
+
+  function isValidFixture(match) {
+    if (!match || typeof match !== "object") return false;
+
+    const home = getTeamName(
+      match.home ?? match.homeTeam ?? match.home_team
+    );
+
+    const away = getTeamName(
+      match.away ?? match.awayTeam ?? match.away_team
+    );
+
+    const league = String(
+      match.leagueName ?? match.league ??
+      match.competition ?? match.league_name ?? ""
+    ).trim();
+
+    const kickoff =
+      match.utcTime ?? match.kickoff ?? match.date ??
+      match.fixtureDate ?? match.fixture?.date;
+
+    if (!home || !away || !league || !kickoff) return false;
+
+    if (/^(home team|away team)$/i.test(home)) return false;
+    if (/^(home team|away team)$/i.test(away)) return false;
+
+    if (home.toLowerCase() === away.toLowerCase()) return false;
+
+    if (Number.isNaN(Date.parse(kickoff))) return false;
+
+    return true;
+  }
+
+  const clean = items =>
+    Array.isArray(items) ? items.filter(isValidFixture) : [];
+
   const best = clean(
-    data.best_of_7 || data.best7 || data.bestOf7 || data.top_picks || []
+    data.best_of_7 ??
+    data.best7 ??
+    data.bestOf7 ??
+    data.top_picks ??
+    data.best ??
+    []
   );
 
   const standard = clean(
-    data.standard_18 || data.standard || data.fixtures || data.matches || []
+    data.standard_18 ??
+    data.standard ??
+    data.fixtures ??
+    data.matches ??
+    []
   );
 
-  const bestIds = new Set(best.map(m =>
-    String(m.fixtureId ?? m.fixture_id ?? m.id ??
-      `${m.home}-${m.away}-${m.utcTime || m.date}`)
-  ));
+  const fixtureKey = match => {
+    const id = match.fixtureId ?? match.fixture_id ?? match.id;
+
+    if (id != null) return String(id);
+
+    const home = getTeamName(
+      match.home ?? match.homeTeam ?? match.home_team
+    );
+
+    const away = getTeamName(
+      match.away ?? match.awayTeam ?? match.away_team
+    );
+
+    const kickoff =
+      match.utcTime ?? match.kickoff ?? match.date ??
+      match.fixtureDate ?? match.fixture?.date ?? "";
+
+    return `${home.toLowerCase()}|${away.toLowerCase()}|${kickoff}`;
+  };
+
+  const bestIds = new Set(best.map(fixtureKey));
 
   return {
     best,
-    standard: standard.filter(m => !bestIds.has(
-      String(m.fixtureId ?? m.fixture_id ?? m.id ??
-        `${m.home}-${m.away}-${m.utcTime || m.date}`)
-    ))
+    standard: standard.filter(match => !bestIds.has(fixtureKey(match)))
   };
 }

@@ -1,227 +1,660 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter Football Tips</title>
-    <style>
-        :root {
-            --primary-green: #2e7d32;
-            --light-green: #e8f5e9;
-            --accent-yellow: #fbc02d;
-            --light-yellow: #fffde7;
-            --dark-text: #1b5e20;
-            --card-bg: #ffffff;
-        }
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background-color: var(--light-green);
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: var(--primary-green);
-            color: var(--accent-yellow);
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 { margin: 0; font-size: 2rem; }
-        header p { margin: 5px 0 0 0; color: #fff; font-size: 0.9rem; }
-        .container {
-            max-width: 600px;
-            margin: 15px auto;
-            padding: 0 15px;
-        }
-        .tool-section {
-            background-color: var(--light-yellow);
-            border: 2px solid var(--accent-yellow);
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
-        /* Made the calculator row and layout significantly smaller */
-        .search-box {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-            max-width: 450px;
-        }
-        .search-box input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 0.9rem;
-        }
-        .search-box button {
-            background-color: var(--primary-green);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-        #instantResultCard {
-            margin-top: 12px;
-            background: white;
-            border: 2px dashed var(--primary-green);
-            border-radius: 8px;
-            padding: 12px;
-            font-size: 0.95rem;
-        }
-        .best-seven-trigger {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .btn-best-7 {
-            background-color: var(--accent-yellow);
-            color: var(--dark-text);
-            border: 2px solid var(--primary-green);
-            padding: 12px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-        }
-        .section-title {
-            color: var(--primary-green);
-            border-bottom: 3px solid var(--accent-yellow);
-            padding-bottom: 4px;
-            margin-top: 25px;
-            font-size: 1.2rem;
-        }
-        .match-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 12px;
-        }
-        .match-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-green);
-            padding: 15px;
-            position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .match-card.best-7-card {
-            border-left: 5px solid var(--accent-yellow);
-            background: #fffdeb;
-        }
-        .match-teams { font-size: 1.05rem; font-weight: bold; margin: 6px 0; }
-        .prediction-badge {
-            background: var(--light-green);
-            color: var(--primary-green);
-            display: inline-block;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-        .confidence-indicator {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--primary-green);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: bold;
-        }
-        .hidden { display: none !important; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#2e7d32">
+<title>Peter Football Tips</title>
+
+<style>
+:root {
+  --green:#2e7d32;
+  --light-green:#e8f5e9;
+  --yellow:#fbc02d;
+  --light-yellow:#fffde7;
+  --dark:#1b5e20;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:var(--light-green);
+  color:#263328;
+}
+
+header {
+  background:var(--green);
+  color:var(--yellow);
+  padding:25px 12px;
+  text-align:center;
+}
+
+header h1 {
+  margin:0;
+  font-size:clamp(27px,6vw,40px);
+}
+
+header p {
+  color:white;
+  margin:8px 0;
+}
+
+#current-date {
+  color:white;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.container {
+  max-width:760px;
+  margin:18px auto;
+  padding:0 13px 30px;
+}
+
+.tool-section {
+  background:var(--light-yellow);
+  border:2px solid var(--yellow);
+  border-radius:15px;
+  padding:15px;
+}
+
+.tool-title {
+  color:var(--green);
+  font-size:19px;
+  font-weight:bold;
+  margin-bottom:12px;
+}
+
+.field-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+label {
+  display:block;
+  margin:10px 0 5px;
+  color:var(--dark);
+  font-weight:bold;
+  font-size:14px;
+}
+
+input {
+  width:100%;
+  min-width:0;
+  padding:12px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  background:white;
+  font-size:15px;
+}
+
+button {
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:9px;
+  padding:12px;
+}
+
+.primary {
+  background:var(--green);
+  color:white;
+  border:0;
+}
+
+.full {
+  width:100%;
+  margin-top:14px;
+}
+
+.best-seven-trigger {
+  margin:22px 0;
+}
+
+.btn-best-7 {
+  width:100%;
+  background:var(--yellow);
+  color:var(--dark);
+  border:2px solid var(--green);
+  border-radius:50px;
+  padding:15px 10px;
+  font-size:18px;
+}
+
+.section-title {
+  color:var(--green);
+  border-bottom:3px solid var(--yellow);
+  padding-bottom:7px;
+  margin-top:25px;
+  font-size:22px;
+}
+
+.match-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:13px;
+}
+
+.match-card {
+  background:white;
+  border-radius:10px;
+  border-left:5px solid var(--green);
+  padding:15px;
+  box-shadow:0 2px 5px #0000000d;
+}
+
+.best-7-card {
+  border-left-color:var(--yellow);
+  background:#fffdeb;
+}
+
+.card-top {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:13px;
+  color:#59665b;
+}
+
+.confidence {
+  background:var(--green);
+  color:white;
+  padding:4px 8px;
+  border-radius:20px;
+  white-space:nowrap;
+  font-weight:bold;
+}
+
+.match-teams {
+  font-size:18px;
+  font-weight:bold;
+  margin:12px 0;
+}
+
+.prediction-badge {
+  display:inline-block;
+  background:var(--light-green);
+  color:var(--green);
+  padding:7px 9px;
+  border-radius:6px;
+  font-weight:bold;
+}
+
+.message {
+  background:white;
+  border:1px solid #cbd8cc;
+  border-radius:9px;
+  padding:13px;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+}
+
+.error {
+  background:#fff4f0;
+  border-color:#d79a84;
+}
+
+.stat-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.stat {
+  padding:10px;
+  background:#f3faf3;
+  border:1px solid #d4e7d5;
+  border-radius:8px;
+}
+
+.stat strong {
+  display:block;
+  color:var(--green);
+  font-size:19px;
+  margin-bottom:4px;
+}
+
+.small {
+  font-size:13px;
+  line-height:1.5;
+  color:#59665b;
+}
+
+.hidden {
+  display:none !important;
+}
+
+footer {
+  text-align:center;
+  color:#59665b;
+  padding:20px 5px;
+  font-size:13px;
+}
+
+@media(max-width:430px) {
+  .field-grid { grid-template-columns:1fr; }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>Peter Football Tips</h1>
-        <p>Mathematical Probability & Analytics Engine</p>
-        <div id="current-date" style="font-weight: bold; margin-top: 5px; text-decoration: underline; color: #fff; font-size: 0.95rem;"></div>
-    </header>
+<header>
+  <h1>Peter Football Tips</h1>
+  <p>Mathematical Probability &amp; Analytics Engine</p>
+  <div id="current-date"></div>
+</header>
 
-    <div class="container">
-        <!-- Compact Custom Match Calculator Box -->
-        <div class="tool-section">
-            <div style="font-weight: bold; color: var(--primary-green); font-size: 1rem;">⚡ Instant Custom Match Calculator</div>
-            <div class="search-box">
-                <input type="text" id="calcInput" placeholder="Paste teams (e.g., Man City vs Chelsea)...">
-                <button type="button" onclick="calculatePastedMatch()">Analyze Match</button>
-            </div>
-            <div id="instantResultCard" class="hidden"></div>
-        </div>
+<main class="container">
 
-        <!-- Top 7 Toggle Button -->
-        <div class="best-seven-trigger">
-            <button class="btn-best-7" type="button" onclick="toggleBestSeven()">⭐ Tap To See Today's Best Of 7 ⭐</button>
-        </div>
-
-        <!-- Best of 7 Dropdown Grid -->
-        <div id="bestSevenSection" class="hidden">
-            <h2 class="section-title">🔥 Today's High-Confidence Best of 7</h2>
-            <div class="match-grid" id="best7Grid"></div>
-        </div>
-
-        <!-- Remaining 18 Dashboard Grid -->
-        <h2 class="section-title">📋 Standard Algorithmic Computations (Remaining 18 Fields)</h2>
-        <div class="match-grid" id="standardGrid"></div>
+  <section class="tool-section">
+    <div class="tool-title">
+      ⚡ Instant Custom Match Calculator
     </div>
 
-    <script>
-        const fallbackData = {
-            "best_of_7": [
-                {"teams": "Manchester City vs Brighton", "prediction": "Home Win (1)", "confidence": "93%"},
-                {"teams": "Liverpool vs Chelsea", "prediction": "Home Win or Draw (1X)", "confidence": "91%"},
-                {"teams": "Milan vs Bologna", "prediction": "Home Win (1)", "confidence": "89%"},
-                {"teams": "Bayern Munich vs Magdeburg", "prediction": "Over 2.5 Goals", "confidence": "88%"},
-                {"teams": "Bayer Leverkusen vs Nuremberg", "prediction": "Over 1.5 Goals", "confidence": "87%"},
-                {"teams": "Venezia vs Inter Milan", "prediction": "Draw or Away Win (X2)", "confidence": "85%"},
-                {"teams": "Genoa vs Juventus", "prediction": "Under 3.5 Goals", "confidence": "84%"}
-            ],
-            "standard_18": [
-                {"teams": "Bournemouth vs Aston Villa", "prediction": "Over 1.5 Goals", "confidence": "82%"},
-                {"teams": "Fulham vs Crystal Palace", "prediction": "Home Win or Draw (1X)", "confidence": "80%"},
-                {"teams": "Sunderland vs Brentford", "prediction": "Over 2.5 Goals", "confidence": "79%"},
-                {"teams": "Monza vs Napoli", "prediction": "Draw or Away Win (X2)", "confidence": "77%"},
-                {"teams": "Freiburg vs Wolfsburg", "prediction": "Under 3.5 Goals", "confidence": "75%"},
-                {"teams": "Aberdeen vs Falkirk", "prediction": "Home Win (1)", "confidence": "73%"},
-                {"teams": "Celtic vs Dundee United", "prediction": "Home Win (1)", "confidence": "71%"},
-                {"teams": "Hearts vs Rangers", "prediction": "Draw or Away Win (X2)", "confidence": "70%"},
-                {"teams": "St. Mirren vs Hibernian", "prediction": "Under 3.5 Goals", "confidence": "68%"},
-                {"teams": "Dundee vs Kilmarnock", "prediction": "Home Win or Draw (1X)", "confidence": "66%"},
-                {"teams": "St. Johnstone vs Motherwell", "prediction": "Over 1.5 Goals", "confidence": "65%"},
-                {"teams": "Carlisle vs Harrogate", "prediction": "Under 3.5 Goals", "confidence": "64%"},
-                {"teams": "Forest Green vs Eastleigh", "prediction": "Home Win or Draw (1X)", "confidence": "62%"},
-                {"teams": "Sutton vs Aldershot", "prediction": "Over 1.5 Goals", "confidence": "61%"},
-                {"teams": "Zamalek vs Arab Contractors", "prediction": "Home Win (1)", "confidence": "59%"},
-                {"teams": "National Bank of Egypt vs Al-Masry", "prediction": "Under 2.5 Goals", "confidence": "58%"},
-                {"teams": "Al-Faisaly vs Al-Taawoun", "prediction": "Draw or Away Win (X2)", "confidence": "56%"},
-                {"teams": "Al-Nahda vs Al-Rayyan", "prediction": "Under 3.5 Goals", "confidence": "55%"}
-            ]
-        };
+    <p class="small">
+      Enter both teams' average goals scored and conceded over the same
+      recent-match period. The model treats both teams equally.
+    </p>
 
-        // Render live system date immediately on load
-        document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    <div class="field-grid">
+      <div>
+        <label for="teamA">Team A</label>
+        <input id="teamA" placeholder="e.g. Arsenal">
 
-        function renderCards(best7, standard18) {
-            const dateStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-            
-            document.getElementById('best7Grid').innerHTML = best7.map(match => `
-                <div class="match-card best-7-card">
-                    <span class="confidence-indicator">${match.confidence}</span>
-                    <div style="font-size:0.8rem; color:#666; font-weight:bold;">${dateStr}</div>
-                    <div class="match-teams">${match.teams}</div>
-                    <div class="prediction-badge">Selection: ${match.prediction}</div>
-                </div>
-            `).join('');
+        <label for="aScored">Team A goals scored per match</label>
+        <input id="aScored" type="number" min="0" max="8"
+               step="0.05" placeholder="e.g. 1.8">
 
-            document.getElementById('standardGrid').innerHTML = standard18.map(match => `
-                <div class="match-card">
-                    <span class="confidence-indicator">${match.confidence}</span>
-                    <div style="font-size:0.8rem; color:#666; font-weight:bold;">${dateStr}</div>
-                    <div class="match-teams">${match.teams}</div>
-                    <div class="prediction-badge">Selection: ${match.prediction}</div>
-                </div>
+        <label for="aConceded">Team A goals conceded per match</label>
+        <input id="aConceded" type="number" min="0" max="8"
+               step="0.05" placeholder="e.g. 1.0">
+      </div>
+
+      <div>
+        <label for="teamB">Team B</label>
+        <input id="teamB" placeholder="e.g. Chelsea">
+
+        <label for="bScored">Team B goals scored per match</label>
+        <input id="bScored" type="number" min="0" max="8"
+               step="0.05" placeholder="e.g. 1.4">
+
+        <label for="bConceded">Team B goals conceded per match</label>
+        <input id="bConceded" type="number" min="0" max="8"
+               step="0.05" placeholder="e.g. 1.2">
+      </div>
+    </div>
+
+    <button class="primary full" id="analyzeButton" type="button">
+      Analyze Match
+    </button>
+
+    <div id="instantResultCard" class="message hidden"
+         aria-live="polite"></div>
+  </section>
+
+  <div class="best-seven-trigger">
+    <button class="btn-best-7" id="bestSevenButton"
+            type="button" aria-expanded="false">
+      ⭐ Tap To See Today's Best Of 7 ⭐
+    </button>
+  </div>
+
+  <section id="bestSevenSection" class="hidden">
+    <h2 class="section-title">🔥 Today's Best of 7</h2>
+    <div id="best7Grid" class="match-grid"></div>
+  </section>
+
+  <section>
+    <h2 class="section-title">
+      📋 Standard Algorithmic Computations (18 Fields)
+    </h2>
+
+    <div id="dataStatus" class="message">
+      Loading predictions...
+    </div>
+
+    <div id="standardGrid" class="match-grid"></div>
+  </section>
+
+  <footer>
+    Peter Football Tips · Neutral-ground probability model
+  </footer>
+
+</main>
+
+<script>
+"use strict";
+
+const $ = id => document.getElementById(id);
+
+$("current-date").textContent =
+  new Date().toLocaleDateString("en-KE", {
+    weekday:"long",
+    year:"numeric",
+    month:"long",
+    day:"numeric",
+    timeZone:"Africa/Nairobi"
+  });
+
+function normalizeMatch(match) {
+  if (!match || typeof match !== "object") return null;
+
+  const teams = match.teams ||
+    (match.home && match.away
+      ? match.home + " vs " + match.away
+      : "");
+
+  if (!String(teams).trim()) return null;
+
+  let confidence = match.confidence ??
+    match.probability ??
+    match.estimated_probability ??
+    "";
+
+  if (typeof confidence === "number") {
+    confidence = confidence <= 1
+      ? (confidence * 100).toFixed(1) + "%"
+      : confidence.toFixed(1) + "%";
+  } else if (confidence !== "") {
+    confidence = String(confidence);
+    if (/^\d+(\.\d+)?$/.test(confidence)) {
+      confidence += "%";
+    }
+  }
+
+  return {
+    teams:String(teams),
+    prediction:String(
+      match.prediction ||
+      match.safe_bet ||
+      match.selection ||
+      "Not available"
+    ),
+    confidence:String(confidence),
+    league:String(match.league || match.competition || ""),
+    kickoff:String(match.kickoff || match.utcTime || match.date || "")
+  };
+}
+
+function createMessage(message) {
+  const div = document.createElement("div");
+  div.className = "message";
+  div.textContent = message;
+  return div;
+}
+
+function makeCard(match, best) {
+  const card = document.createElement("article");
+  card.className = "match-card" +
+    (best ? " best-7-card" : "");
+
+  const top = document.createElement("div");
+  top.className = "card-top";
+
+  const meta = document.createElement("span");
+  meta.textContent =
+    [match.league, match.kickoff].filter(Boolean).join(" · ") ||
+    "Fixture data";
+
+  top.appendChild(meta);
+
+  if (match.confidence) {
+    const confidence = document.createElement("span");
+    confidence.className = "confidence";
+    confidence.textContent = match.confidence;
+    top.appendChild(confidence);
+  }
+
+  const teams = document.createElement("div");
+  teams.className = "match-teams";
+  teams.textContent = match.teams;
+
+  const prediction = document.createElement("div");
+  prediction.className = "prediction-badge";
+  prediction.textContent = "Selection: " + match.prediction;
+
+  card.append(top, teams, prediction);
+  return card;
+}
+
+function renderCards(best, standard) {
+  $("best7Grid").replaceChildren();
+  $("standardGrid").replaceChildren();
+
+  best.slice(0, 7).forEach(match => {
+    $("best7Grid").appendChild(makeCard(match, true));
+  });
+
+  standard.slice(0, 18).forEach(match => {
+    $("standardGrid").appendChild(makeCard(match, false));
+  });
+
+  if (!best.length) {
+    $("best7Grid").appendChild(
+      createMessage("No Best of 7 predictions are available in the data file.")
+    );
+  }
+
+  if (!standard.length) {
+    $("standardGrid").appendChild(
+      createMessage(
+        "No predictions are available. Check that predictions.json exists " +
+        "and your GitHub Actions data update completed successfully."
+      )
+    );
+  }
+}
+
+async function loadPredictions() {
+  const status = $("dataStatus");
+
+  try {
+    const response = await fetch(
+      "./predictions.json?v=" + Date.now(),
+      {cache:"no-store"}
+    );
+
+    if (!response.ok) {
+      throw new Error("HTTP " + response.status);
+    }
+
+    const data = await response.json();
+
+    let bestRaw = [];
+    let standardRaw = [];
+
+    if (Array.isArray(data)) {
+      standardRaw = data;
+    } else if (data && typeof data === "object") {
+      bestRaw = Array.isArray(data.best_of_7)
+        ? data.best_of_7
+        : Array.isArray(data.best7)
+          ? data.best7
+          : [];
+
+      standardRaw = Array.isArray(data.standard_18)
+        ? data.standard_18
+        : Array.isArray(data.standard)
+          ? data.standard
+          : [];
+
+      const fixtures = Array.isArray(data.fixtures)
+        ? data.fixtures
+        : Array.isArray(data.matches)
+          ? data.matches
+          : [];
+
+      if (!bestRaw.length && !standardRaw.length && fixtures.length) {
+        bestRaw = fixtures.filter(
+          m => m.best_of_7 === true || m.isBest7 === true
+        ).slice(0, 7);
+
+        standardRaw = fixtures.filter(
+          m => m.best_of_7 !== true && m.isBest7 !== true
+        );
+      }
+    }
+
+    const best = bestRaw.map(normalizeMatch).filter(Boolean);
+    const standard = standardRaw.map(normalizeMatch).filter(Boolean);
+
+    renderCards(best, standard);
+
+    status.className = "message";
+    status.textContent =
+      "Data loaded: " + best.length +
+      " Best of 7 predictions and " +
+      standard.length + " standard predictions.";
+
+  } catch (error) {
+    renderCards([], []);
+    status.className = "message error";
+    status.textContent =
+      "Unable to load predictions.json (" + error.message +
+      "). Check that the file exists beside index.html and contains valid JSON.";
+  }
+}
+
+/* Poisson probability calculation */
+function poisson(lambda, goals) {
+  let factorial = 1;
+
+  for (let i = 2; i <= goals; i++) {
+    factorial *= i;
+  }
+
+  return Math.exp(-lambda) *
+    Math.pow(lambda, goals) / factorial;
+}
+
+function calculateMatch() {
+  const nameA = $("teamA").value.trim();
+  const nameB = $("teamB").value.trim();
+
+  const fields = [
+    $("aScored"), $("aConceded"),
+    $("bScored"), $("bConceded")
+  ];
+
+  const values = fields.map(field => field.value.trim());
+  const numbers = values.map(Number);
+  const result = $("instantResultCard");
+
+  result.className = "message";
+  result.replaceChildren();
+
+  if (
+    !nameA || !nameB ||
+    values.some(value => value === "") ||
+    numbers.some(value =>
+      !Number.isFinite(value) || value < 0 || value > 8
+    )
+  ) {
+    result.classList.add("error");
+    result.textContent =
+      "Enter both team names and all four average-goal figures. " +
+      "Use statistics from the same recent-match period.";
+    return;
+  }
+
+  const [aScored, aConceded, bScored, bConceded] = numbers;
+
+  // Neutral-ground model: no home-advantage bonus.
+  const lambdaA = (aScored + bConceded) / 2;
+  const lambdaB = (bScored + aConceded) / 2;
+
+  let winA = 0;
+  let draw = 0;
+  let winB = 0;
+  let over15 = 0;
+  let over25 = 0;
+  let under35 = 0;
+  let btts = 0;
+
+  for (let a = 0; a <= 10; a++) {
+    for (let b = 0; b <= 10; b++) {
+      const probability =
+        poisson(lambdaA, a) * poisson(lambdaB, b);
+
+      if (a > b) winA += probability;
+      else if (a === b) draw += probability;
+      else winB += probability;
+
+      if (a + b >= 2) over15 += probability;
+      if (a + b >= 3) over25 += probability;
+      if (a + b <= 3) under35 += probability;
+      if (a > 0 && b > 0) btts += probability;
+    }
+  }
+
+  const markets = [
+    ["Team A win", winA],
+    ["Draw", draw],
+    ["Team B win", winB],
+    ["Double chance 1X", winA + draw],
+    ["Double chance X2", draw + winB],
+    ["Over 1.5 goals", over15],
+    ["Over 2.5 goals", over25],
+    ["Under 3.5 goals", under35],
+    ["Both teams to score", btts]
+  ].sort((a, b) => b[1] - a[1]);
+
+  const heading = document.createElement("h3");
+  heading.textContent = nameA + " vs " + nameB;
+
+  const expected = document.createElement("p");
+  expected.textContent =
+    "Expected goals: " + nameA + " " + lambdaA.toFixed(2) +
+    " · " + nameB + " " + lambdaB.toFixed(2);
+
+  const grid = document.createElement("div");
+  grid.className = "stat-grid";
+
+  markets.forEach(([label, probability]) => {
+    const stat = document.createElement("div");
+    stat.className = "stat";
+
+    const strong = document.createElement("strong");
+    strong.textContent = (probability * 100).toFixed(1) + "%";
+
+    const caption = document.createElement("span");
+    caption.textContent = label;
+
+    stat.append(strong, caption);
+    grid.appendChild(stat);
+  });
+
+  const note = document.createElement("p");
+  note.className = "small";
+  note.textContent =
+    "Calculated from the averages you entered using a simple Poisson model. " +
+    "No automatic team-statistics lookup is performed by this calculator.";
+
+  result.append(heading, expected, grid, note);
+}
+
+$("analyzeButton").addEventListener("click", calculateMatch);
+
+$("bestSevenButton").addEventListener("click", () => {
+  const section = $("bestSevenSection");
+  const show = section.classList.contains("hidden");
+
+  section.classList.toggle("hidden", !show);
+  $("bestSevenButton").setAttribute("aria-expanded", String(show));
+
+  if (show) {
+    section.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+});
+
+loadPredictions();
+</script>
+
+</body>
+</html>

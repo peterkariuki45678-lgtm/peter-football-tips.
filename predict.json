@@ -1,85 +1,70 @@
 {
-  "last_updated": "2026-11-06",
+  "last_updated": "2026-11-07",
   "best_of_7": [
     {
-      "teams": "Liverpool vs Manchester United",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "87%"
-    },
-    {
-      "teams": "Dundee vs Kilmarnock",
-      "prediction": "Under 3.5 Goals",
-      "confidence": "87%"
-    },
-    {
-      "teams": "Dortmund vs PSG",
+      "teams": "Torino vs Udinese",
       "prediction": "Over 1.5 Goals",
       "confidence": "86%"
     },
     {
-      "teams": "Aberdeen vs Falkirk",
+      "teams": "Sunderland vs Brentford",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "86%"
+    },
+    {
+      "teams": "Carlisle vs Harrogate",
       "prediction": "Over 1.5 Goals",
       "confidence": "86%"
     },
     {
       "teams": "Forest Green vs Eastleigh",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "86%"
+    },
+    {
+      "teams": "Zamalek vs Arab Contractors",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "86%"
+    },
+    {
+      "teams": "Al-Faisaly vs Al-Taawoun",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "86%"
+    },
+    {
+      "teams": "Dundee vs Kilmarnock",
       "prediction": "Home Win or Draw (1X)",
-      "confidence": "86%"
-    },
-    {
-      "teams": "Sutton vs Aldershot",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "86%"
-    },
-    {
-      "teams": "Al-Gharafa vs Al-Wakrah",
-      "prediction": "Over 1.5 Goals",
       "confidence": "85%"
     }
   ],
   "standard_18": [
     {
-      "teams": "Inter Milan vs Atletico Madrid",
+      "teams": "Werder Bremen vs Gladbach",
       "prediction": "Over 1.5 Goals",
       "confidence": "84%"
     },
     {
-      "teams": "Hearts vs Rangers",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "84%"
-    },
-    {
-      "teams": "Sunderland vs Brentford",
-      "prediction": "Over 1.5 Goals",
+      "teams": "Verona vs Cagliari",
+      "prediction": "Home Win or Draw (1X)",
       "confidence": "83%"
     },
     {
-      "teams": "Celtic vs Dundee United",
-      "prediction": "Over 1.5 Goals",
+      "teams": "Augsburg vs Mainz",
+      "prediction": "Under 3.5 Goals",
       "confidence": "83%"
     },
     {
-      "teams": "National Bank of Egypt vs Al-Masry",
-      "prediction": "Over 1.5 Goals",
+      "teams": "St. Mirren vs Hibernian",
+      "prediction": "Home Win or Draw (1X)",
       "confidence": "83%"
     },
     {
-      "teams": "Al-Nahda vs Al-Rayyan",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "83%"
-    },
-    {
-      "teams": "Chelsea vs Real Madrid",
+      "teams": "Getafe vs Celta Vigo",
       "prediction": "Over 1.5 Goals",
       "confidence": "82%"
     },
     {
-      "teams": "Barcelona vs Bayern Munich",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "82%"
-    },
-    {
-      "teams": "Venezia vs Inter Milan",
+      "teams": "Heerenveen vs Utrecht",
       "prediction": "Over 1.5 Goals",
       "confidence": "82%"
     },
@@ -89,43 +74,58 @@
       "confidence": "82%"
     },
     {
-      "teams": "Zamalek vs Arab Contractors",
+      "teams": "Bayer Leverkusen vs Nuremberg",
+      "prediction": "Home Win or Draw (1X)",
+      "confidence": "82%"
+    },
+    {
+      "teams": "Aberdeen vs Falkirk",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "82%"
+    },
+    {
+      "teams": "Celtic vs Dundee United",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "82%"
+    },
+    {
+      "teams": "National Bank of Egypt vs Al-Masry",
+      "prediction": "Home Win or Draw (1X)",
+      "confidence": "82%"
+    },
+    {
+      "teams": "Al-Nahda vs Al-Rayyan",
       "prediction": "Under 3.5 Goals",
       "confidence": "82%"
     },
     {
-      "teams": "St. Mirren vs Hibernian",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "80%"
-    },
-    {
-      "teams": "Carlisle vs Harrogate",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "80%"
-    },
-    {
-      "teams": "Bayer Leverkusen vs Nuremberg",
+      "teams": "Girona vs Osasuna",
       "prediction": "Under 3.5 Goals",
-      "confidence": "79%"
-    },
-    {
-      "teams": "Manchester City vs Arsenal",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "78%"
-    },
-    {
-      "teams": "Juventus vs Porto",
-      "prediction": "Over 1.5 Goals",
-      "confidence": "78%"
+      "confidence": "81%"
     },
     {
       "teams": "St. Johnstone vs Motherwell",
       "prediction": "Under 3.5 Goals",
+      "confidence": "81%"
+    },
+    {
+      "teams": "Sutton vs Aldershot",
+      "prediction": "Over 1.5 Goals",
+      "confidence": "79%"
+    },
+    {
+      "teams": "Al-Gharafa vs Al-Wakrah",
+      "prediction": "Under 3.5 Goals",
+      "confidence": "79%"
+    },
+    {
+      "teams": "Venezia vs Inter Milan",
+      "prediction": "Over 1.5 Goals",
       "confidence": "78%"
     },
     {
-      "teams": "Al-Faisaly vs Al-Taawoun",
-      "prediction": "Over 1.5 Goals",
+      "teams": "Hearts vs Rangers",
+      "prediction": "Under 3.5 Goals",
       "confidence": "78%"
     }
   ]
